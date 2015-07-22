@@ -10,6 +10,3 @@ class Users_lior(models.Model):
 	user_user = models.OneToOneField(User, primary_key=True)
 	fono = models.CharField(max_length=15)
 	sucursal = models.ForeignKey(Sucursal)
-
-
-
