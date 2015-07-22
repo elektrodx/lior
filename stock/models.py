@@ -16,3 +16,5 @@ class Stock(models.Model):
 	units = models.ForeignKey(Unit)
 	place = models.ForeignKey(Sucursal)
 	note = models.TextField(blank=True, null=True)
+	def __unicode__(self):
+		return self.description
