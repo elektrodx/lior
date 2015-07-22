@@ -13,8 +13,11 @@ class Shop(models.Model):
 	payed = models.DecimalField(max_digits=6, decimal_places=2)
 	pay_due = models.DateField(blank=True, null=True)
 	note = models.TextField(blank=True, null=True)
+	def __unicode__(self):
+		return str(self.id)
 
 class ShopDetail(models.Model):
+	shop = models.ForeignKey(Shop)
 	item = models.ForeignKey(Stock)
 	qty = models.IntegerField()
 	place = models.ForeignKey(Sucursal)

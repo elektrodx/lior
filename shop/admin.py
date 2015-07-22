@@ -7,6 +7,6 @@ class ShopAdmin(admin.ModelAdmin):
 admin.site.register(Shop, ShopAdmin)
 
 class ShopDetailAdmin(admin.ModelAdmin):
-	list_display = ('item','qty','place','price_shop','note',)
+	list_display = ('shop', 'item','qty','place','price_shop','note',)
 
 admin.site.register(ShopDetail, ShopDetailAdmin)
