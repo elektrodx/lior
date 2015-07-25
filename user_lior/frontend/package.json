@@ -1,0 +1,7 @@
+{
+	"name": "lior",
+	"scripts": {
+		"stylus": "stylus -c -w -o ../static/css/ stylus/singin.styl",
+		"jade": "jade -w -o ../templates jade/singin.jade"
+	}
+}

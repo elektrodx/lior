@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/singin.css" %}">
+	<title>Document</title>
+</head>
+<body>
+	<section>
+		{% if error_m %}
+		<div class="error">
+			<span>{{error_m}}</span>
+		</div>
+        {% endif %}
+		<form action="" method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value= "Enviar">
+		</form>
+	</section>
+</body>
+</html>
