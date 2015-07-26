@@ -20,4 +20,6 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^singin/', 'user_lior.views.singin', name='singin'),
     url(r'^add_provider/', 'relations.views.add_provider', name='add_provider'),
+    url(r'^add_unit/', 'stock.views.add_unit', name='add_unit'),
+    url(r'^add_sucursal/', 'user_lior.views.add_sucursal', name='add_sucursal'),
 ]

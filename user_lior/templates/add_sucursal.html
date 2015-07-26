@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/add_sucursal.css" %}">
+	<title>Nuevas Sucursal</title>
+</head>
+<body>
+	<section class="container">
+		<h3 class="titulo">Registro de Sucursales</h3>
+		<form action="" class="form" method="POST">
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="name_field">
+				{{ form.name.errors }}
+				<label for="id_sucursal">Nombre de sucursal:</label>
+				{{form.name}}
+				<span class="msg_sucursal">Ej. sucursal: Cochabamba, La Paz, Santa Cruz, etc.</span>
+			</div>
+			<input type="submit" value="Grabar">
+		</form>
+	</section>
+</body>
+</html>

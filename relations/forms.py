@@ -7,5 +7,3 @@ class ProvidersForm(ModelForm):
 	class Meta:
 		model = Providers
 		fields = ('name', 'email', 'address', 'fono', 'account', 'bank_account', 'contact')
-		
-		

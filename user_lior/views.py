@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.core.exceptions import ValidationError
 from .forms import SinginForm
+from .forms import SucursalForm
 
 def singin(request):
 	form = SinginForm(request.POST)
@@ -22,3 +23,13 @@ def singin(request):
 			else:
 				error_m = "el usuario o la contraseña no son correctos"		
 	return render(request, 'singin.html', {"form": form, "error_m": error_m }) 
+
+def add_sucursal(request):
+	if request.method == "POST":
+		form = SucursalForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/add_sucursal')
+	else:
+		form = SucursalForm()
+	return render(request, 'add_sucursal.html', {'form': form })
