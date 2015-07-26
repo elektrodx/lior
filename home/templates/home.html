@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
+	<title>Sistema Lior</title>
+</head>
+<body>
+	<nav class="menu_conatiner">
+		<ul class="menu">
+			<div class="menu_home">
+				<a class="icon-home" href="#"></a>
+			</div>
+			<li class="menu_ventas">
+				<a href="#">Ventas</a>
+			</li>
+			<li class="menu_compras">
+				<a href="#">Compras</a>
+			</li>
+			<li class="menu_inventario">
+				<a href="#">Inventario</a>
+			</li>
+			<li class="menu_gastos">
+				<a href="#">Gastos</a>
+			</li>
+			<li class="menu_reportes">
+				<a href="#">Reportes</a>
+			</li>
+			<li class="menu_configuracion">
+				<a href="#">Configuración</a>
+			</li>
+			<div class="menu_usuario">
+				<span>usuario</span>
+			</div>
+			<div class="menu_logout">
+				<a class="icon-exit" href="#"></a>
+			</div>
+		</ul>
+	</nav>
+</body>
+</html>
