@@ -1,0 +1,6 @@
+{
+	"name": "lior",
+	"scripts": {
+		"stylus": "stylus -c -w -o ../static/css/ stylus/home.styl"
+	}
+}

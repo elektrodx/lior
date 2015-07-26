@@ -1,6 +1,0 @@
-{
-	"name": "lior",
-	"scripts": {
-		"stylus": "stylus -c -w -o ../static/css/ stylus/add_provider.styl"
-	}
-}
