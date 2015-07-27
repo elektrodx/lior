@@ -4,10 +4,15 @@
 	<meta charset="UTF-8">
 	{% load static from staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/singin.css" %}">
-	<title>Document</title>
+	<title>Ingreso al Sitema</title>
 </head>
 <body>
-	<section>
+	<nav class="menu_conatiner">
+		<ul class="menu">
+		</ul>
+	</nav>
+	<section class="container">
+		<h3 class="titulo">Ingreso al Sistema</h3>
 		{% if error_m %}
 		<div class="error">
 			<span>{{error_m}}</span>
@@ -15,8 +20,15 @@
         {% endif %}
 		<form action="" method="post">
 			{% csrf_token %}
-			{{ form.as_p }}
-			<input type="submit" value= "Enviar">
+			<div class="usuario">
+				<label for="id_username" class="usuario-label">Usuario:</label>
+				{{ form.username}}
+			</div>
+			<div class="pass">
+				<label for="id_password" class="pass-label">Contraseña:</label>
+				{{ form.password }}
+			</div>
+			<input class="boton" type="submit" value= "Ingresar">
 		</form>
 	</section>
 </body>
