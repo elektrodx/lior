@@ -1,6 +1,7 @@
 {
 	"name": "lior",
 	"scripts": {
-		"stylus": "stylus -c -w -o ../static/css/ stylus/add_unit.styl"
+		"stylus": "stylus -c -w -o ../static/css/ stylus/add_unit.styl",
+		"stylus2": "stylus -c -w -o ../static/css/ stylus/add_stock.styl"
 	}
 }
