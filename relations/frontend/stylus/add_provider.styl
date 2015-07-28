@@ -1,1 +1,110 @@
 @import "normalize.styl"
+@import "fonts.styl"
+
+verde_claro = #EBFFF0
+plomo_claro = #DFE4EA
+plomo_oscuro = #BFBFBF
+morado = #6C6B86
+rojo = #9B4040
+plomo_rojizo = #867878 
+
+body
+	background-color plomo_claro
+	font-family 'Roboto'
+	font-size 16px
+	a
+		text-decoration none
+.boton
+	background-color plomo_rojizo
+	color white
+	margin-top 2em
+	float right
+	margin-right 1.5em
+	width 105px
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px
+.container
+	background-color white
+	width 420px
+	height 450px
+	margin 0 auto
+	margin-top 5em
+	border 2px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px
+.form
+	input
+		float right
+		border 1.5px solid black
+		border-bottom-left-radius 10px
+		border-bottom-right-radius 10px
+		border-top-left-radius 10px
+		border-top-right-radius 10px
+		padding-left 0.5em
+		
+	width 88%
+	margin 0 auto
+	&_name
+		margin-top 1.5em
+	&_email
+		margin-top 1.5em
+	overflow hidden
+	label
+		float left
+	
+.menu
+	background-color plomo_oscuro
+	display inline-flex
+	height 53px
+	width 100%
+	list-style-type none
+	margin 0
+	a
+		color morado
+	li:hover
+		background-color verde_claro
+	
+	&_home
+		a
+			color white
+		padding 0.7em 1em
+		font-size 1.3em
+	&_ventas
+		padding 1em
+	&_compras
+		padding 1em
+	&_inventario
+		padding 1em
+	&_gastos
+		padding 1em
+	&_reportes
+		padding 1em
+	&_configuracion
+		padding 1em
+	&_usuario
+		padding 1em
+		position absolute
+		right 3.5em
+		color verde_claro
+	&_logout
+		a
+			color white
+		font-size 1.3em
+		padding 0.7em 1em
+		position absolute
+		right 1em
+.titulo
+	background-color plomo_oscuro
+	height 33px
+	text-align center
+	padding-top 0.7em
+	margin 0
+	border-bottom 3px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px

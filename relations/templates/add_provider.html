@@ -7,50 +7,81 @@
 	<title>Nuevos Proveedores</title>
 </head>
 <body>
+	<nav class="menu_conatiner">
+		<ul class="menu">
+			<div class="menu_home">
+				<a class="icon-home" href="#"></a>
+			</div>
+			<li class="menu_ventas">
+				<a href="#">Ventas</a>
+			</li>
+			<li class="menu_compras">
+				<a href="#">Compras</a>
+			</li>
+			<li class="menu_inventario">
+				<a href="#">Inventario</a>
+			</li>
+			<li class="menu_gastos">
+				<a href="#">Gastos</a>
+			</li>
+			<li class="menu_reportes">
+				<a href="#">Reportes</a>
+			</li>
+			<li class="menu_configuracion">
+				<a href="#">Configuración</a>
+			</li>
+			<div class="menu_usuario">
+				<span>usuario</span>
+			</div>
+			<div class="menu_logout">
+				<a class="icon-exit" href="#"></a>
+			</div>
+		</ul>
+	</nav>
 	<section class="container">
 		<h3 class="titulo">Registro de Proveedores</h3>
-		<form action="" class="form" method="POST">
+		<form class="form" action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="name_field">
+			<div class="form_name">
 				{{ form.name.errors }}
 				<label for="id_name">Nombre:</label>
 				{{form.name}}
 			</div>
-			<div class="email_field">
+			<div class="form_email">
 				{{form.email.errors}}
 				<label for="id_email">Correo-e:</label>
 				{{ form.email }}
 			</div>
-			<div class="address_field">
+			<div class="form_address">
 				{{ form.address.errors }}
 				<label for="id_address">Dirección:</label>
 				{{ form.address }}
 			</div>
-			<div class="fono_field">
+			<div class="form_fono">
 				{{ form.fono.errors }}
 				<label for="id_fono">Teléfono:</label>
 				{{ form.fono }}
 			</div>
-			<div class="account_field">
+			<div class="form_account">
 				{{ form.account.errors }}
 				<label for="id_account">Número de Cuenta</label>
 				{{ form.account }}
-				<span id="msg_account">Número de cuenta en el Proveedor</span>
+				<span id="form_account_msg">Número de cuenta en el Proveedor</span>
 			</div>
-			<div class="bank_account_field">
+			<div class="form_bank_account">
 				{{ form.bank_account.errors }}
 				<label for="id_bank_account">Cuenta Bancaria:</label>
 				{{ form.bank_account }}
-				<span class="msg_bank_account">Cuenta Bancaria del Proveedor</span>
+				<span class="form_bank_account_msg">Cuenta Bancaria del Proveedor</span>
 			</div>
-			<div class="contact_field">
+			<div class="form_contact">
 				{{ form.contact.errors }}
 				<label for="id_contact">Contacto:</label>
 				{{ form.contact }}
-				<span class="msg_contact">Persona de contacto</span>
+				<span class="form_contact_msg">Persona de contacto</span>
 			</div>
-			<input type="submit" value="Grabar">
+			<input class="boton" type="submit" value="Grabar">
 		</form>
 	</section>
 </body>
