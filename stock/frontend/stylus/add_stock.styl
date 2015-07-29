@@ -1,1 +1,73 @@
 @import "normalize.styl"
+@import "fonts.styl"
+@import "menu.styl"
+@import "colors.styl"
+@import "field.styl"
+@import "hover.styl"
+
+@import url(http://fonts.googleapis.com/css?family=Yanone\+Kaffeesatz)
+
+bgBrown = #30261c
+tileSize = 200px
+
+duration = .05s
+curve = linear
+
+body
+	background-color plomo_claro
+	font-family 'Roboto'
+	font-size 16px
+	a
+		text-decoration none
+.boton
+	background-color plomo_rojizo
+	color white
+	margin-top 2em
+	float right
+	margin-right 1.5em
+	width 105px
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px
+.container
+	background-color white
+	width 420px
+	//height 450px
+	margin 0 auto
+	margin-top 5em
+	border 2px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px
+.form
+	input
+		float right
+		border 1.5px solid black
+		border-bottom-left-radius 10px
+		border-bottom-right-radius 10px
+		border-top-left-radius 10px
+		border-top-right-radius 10px
+		padding-left 0.5em
+		
+	width 88%
+	margin 0 auto
+	&_name
+		margin-top 1.5em
+	&_email
+		margin-top 1.5em
+	overflow hidden
+	label
+		float left
+.titulo
+	background-color plomo_oscuro
+	height 33px
+	text-align center
+	padding-top 0.7em
+	margin 0
+	border-bottom 3px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px

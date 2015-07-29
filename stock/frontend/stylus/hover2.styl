@@ -1,0 +1,113 @@
+@import "nib"
+
+@import url(http://fonts.googleapis.com/css?family=Yanone\+Kaffeesatz)
+
+bgBrown = #30261c
+tileSize = 200px
+
+duration = .05s
+curve = linear
+
+/* Body general styles */
+body
+  background: bgBrown
+  font-family: "Yanone Kaffeesatz", sans-serif
+  text-align: center
+  width: 100%
+  font-size: 45px
+  
+  /* Vertical centering */
+  top: 50%
+  position: absolute
+  height: (tileSize / 2)
+  margin-top: -(@height / 2)
+
+/* Margin between tiles */
+body > div + div
+  margin-left: 50px
+
+/* Style of every tile */
+.tile
+  display: inline-block
+
+  width: tileSize
+  height: (tileSize / 2)
+  line-height: @height
+
+  perspective: 300px
+
+  /* Style for containing elements */
+  > div, a
+    width: 100%
+    color: #30261c
+    background-color: #e4ecb9
+    text-align: center
+
+  /* Style for the hidden link */
+  > a
+    display: block
+    text-decoration: none
+    background-color: #d88e8f
+
+
+
+/* Flip effect */
+.flip
+  > div, a
+    position: absolute
+  > a
+    transform: rotateX(-90deg)
+  &:hover
+    > div
+      transform: rotateX(90deg)
+    > a
+      transform: rotateX(0deg)
+  &:hover > div, > a
+    transition: duration all curve 0
+  &:hover > a, > div
+    transition: duration all curve duration
+
+
+/* Slide effect */
+.slide
+  overflow: hidden
+  > div, a
+    transition: duration*2 all curve
+    position: absolute
+  > a
+    transform: translate(tileSize, 0)
+  &:hover
+    > div
+      transform: translate(-(tileSize), 0)
+    > a
+      transform: translate(0, 0)
+   
+
+/* Shutter effect */
+.shutter
+  > div, a
+    transition: duration*2 all curve
+    position: absolute
+  > div
+    z-index: 10
+    transform-origin: 0% 0%
+    
+  &:hover
+    > div
+      transform: rotateX(90deg)
+
+
+/* Page effect */
+.page
+  > div, a
+    transition: duration*4 all curve
+    position: absolute
+    z-index: 5
+  > div
+    z-index: 10
+    transform-origin: 0% 0%
+    
+  &:hover
+    > div
+      transform: rotateX(360deg)
+      z-index: 1

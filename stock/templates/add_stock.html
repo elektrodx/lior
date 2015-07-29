@@ -7,59 +7,98 @@
 	<title>Registro de Stock</title>
 </head>
 <body>
+	<nav class="menu_container">
+		<ul class="menu">
+			<div class="menu_home">
+				<a class="icon-home" href="#"></a>
+			</div>
+			<li class="menu_ventas">
+				<a href="#">Ventas</a>
+			</li>
+			<li class="menu_compras">
+				<a href="#">Compras</a>
+			</li>
+			<li class="menu_inventario">
+				<a href="#">Inventario</a>
+			</li>
+			<li class="menu_gastos">
+				<a href="#">Gastos</a>
+			</li>
+			<li class="menu_reportes">
+				<a href="#">Reportes</a>
+			</li>
+			<li class="menu_configuracion">
+				<a href="#">Configuración</a>
+			</li>
+			<div class="menu_usuario">
+				<span>usuario</span>
+			</div>
+			<div class="menu_logout">
+				<a class="icon-exit" href="#"></a>
+			</div>
+		</ul>
+	</nav>
 	<section class="container">
 		<h3 class="titulo">Registro de Stock</h3>
 		<form action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="brand_field">
+			<div class="field">
 				{{ form.brand.errors }}
-				<label for="id_brand">Marca del Producto:</label>
+				<label for="id_brand" class="field-label">Marca del Producto:</label>
 				{{form.brand}}
 			</div>
-			<div class="code_field">
+			<div class="field">
 				{{form.code.errors}}
-				<label for="id_code">Codigo de Producto:</label>
+				<label for="id_code" class="field-label">Codigo de Producto:</label>
 				{{ form.code }}
 			</div>
-			<div class="date_end_field">
+			<div class="field">
 				{{ form.date_end.errors }}
-				<label for="id_date_end">Fecha de Vencimiento:</label>
+				<label for="id_date_end" class="field-label">Fecha de Vencimiento:</label>
 				{{ form.date_end }}
 			</div>
-			<div class="qty_field">
+			<div class="field">
 				{{ form.qty.errors }}
-				<label for="id_qty">Cantidad:</label>
+				<label for="id_qty" class="field-label">Cantidad:</label>
 				{{ form.qty }}
 			</div>
-			<div class="description_field">
+			<div class="field">
 				{{ form.description.errors }}
-				<label for="id_description">Descripción</label>
+				<label for="id_description" class="field-label">Descripción:</label>
 				{{ form.description }}
 				<span class="msg_description">Detalle del Producto</span>
 			</div>
-			<div class="price_base_field">
+			<div class="field">
 				{{ form.price_base.errors }}
-				<label for="id_price_base">Precio Base:</label>
+				<label for="id_price_base" class="field-label">Precio Base:</label>
 				{{ form.price_base }}
-				<span class="msg_price_base">Precio de lista</span>
+				<span class="msg_price_base" class="field-label">Precio de lista</span>
 			</div>
-			<div class="units_field">
+			<div class="field">
 				{{ form.units.errors }}
-				<label for="id_units">Unidad de medida:</label>
+				<label for="id_units" class="field-label">Unidad de medida:</label>
 				{{ form.units }}
 			</div>
-			<div class="place_field">
+			<div class="field">
 				{{ form.place.errors }}
-				<label for="id_place">Ubicacion:</label>
+				<label for="id_place" class="field-label">Ubicacion:</label>
 				{{ form.place }}
 			</div>
-			<div class="note_field">
+			<div class="field">
 				{{ form.note.errors }}
-				<label for="id_note">Notas:</label>
+				<label for="id_note" class="field-label">Notas:</label>
+				<div class="tile flip">
+  					<div>
+    					i
+  					</div>
+ 					<span>
+     					 Notas u observaciones
+  					</span>
+				</div>
 				{{ form.note }}
-				<span class="msg_note">Notas u observaciones</span>
 			</div>
+			
 			<input type="submit" value="Grabar">
 		</form>
 	</section>
