@@ -43,43 +43,43 @@
 		<form action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="form_name">
+			<div class="form-field">
 				{{ form.name.errors }}
 				<label for="id_name">Nombre:</label>
 				{{form.name}}
 			</div>
-			<div class="form_email">
+			<div class="form-field">
 				{{form.email.errors}}
 				<label for="id_email">Correo-e:</label>
 				{{ form.email }}
 			</div>
-			<div class="form_address">
+			<div class="form-field">
 				{{ form.address.errors }}
 				<label for="id_address">Dirección:</label>
 				{{ form.address }}
 			</div>
-			<div class="form_fono">
+			<div class="form-field">
 				{{ form.fono.errors }}
 				<label for="id_fono">Teléfono:</label>
 				{{ form.fono }}
 			</div>
-			<div class="form_account">
+			<div class="form-field">
 				{{ form.account.errors }}
-				<label for="id_account">Número de Cuenta</label>
+				<label for="id_account">Número de Cuenta:</label>
 				{{ form.account }}
-				<span id="form_account_msg">Número de cuenta en el Proveedor</span>
+				<span id="form_msg_account">Número de cuenta en el Proveedor</span>
 			</div>
-			<div class="form_bank_account">
+			<div class="form-field">
 				{{ form.bank_account.errors }}
 				<label for="id_bank_account">Cuenta Bancaria:</label>
 				{{ form.bank_account }}
-				<span class="form_bank_account_msg">Cuenta Bancaria del Proveedor</span>
+				<span id="form_msg_bank">Cuenta Bancaria del Proveedor</span>
 			</div>
-			<div class="form_contact">
+			<div class="form-field">
 				{{ form.contact.errors }}
 				<label for="id_contact">Contacto:</label>
 				{{ form.contact }}
-				<span class="form_contact_msg">Persona de contacto</span>
+				<span id="form_msg_contact">Persona de contacto</span>
 			</div>
 			<input class="boton" type="submit" value="Grabar">
 		</form>
