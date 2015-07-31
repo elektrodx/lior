@@ -43,22 +43,22 @@
 		<form action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="form-field">
+			<div class="form-field aling">
 				{{ form.name.errors }}
 				<label for="id_name">Nombre:</label>
 				{{form.name}}
 			</div>
-			<div class="form-field">
+			<div class="form-field aling">
 				{{form.email.errors}}
 				<label for="id_email">Correo-e:</label>
 				{{ form.email }}
 			</div>
-			<div class="form-field">
+			<div class="form-field aling">
 				{{ form.address.errors }}
 				<label for="id_address">Dirección:</label>
 				{{ form.address }}
 			</div>
-			<div class="form-field">
+			<div class="form-field aling">
 				{{ form.fono.errors }}
 				<label for="id_fono">Teléfono:</label>
 				{{ form.fono }}
@@ -66,20 +66,26 @@
 			<div class="form-field">
 				{{ form.account.errors }}
 				<label for="id_account">Número de Cuenta:</label>
+				<div class="msg-container icon-notification">
+					<span id="form_msg_account">Número de cuenta en el Proveedor</span>
+				</div>
 				{{ form.account }}
-				<span id="form_msg_account">Número de cuenta en el Proveedor</span>
 			</div>
 			<div class="form-field">
 				{{ form.bank_account.errors }}
 				<label for="id_bank_account">Cuenta Bancaria:</label>
+				<div class="msg-container icon-notification">
+					<span id="form_msg_bank">Cuenta Bancaria del Proveedor</span>
+				</div>
 				{{ form.bank_account }}
-				<span id="form_msg_bank">Cuenta Bancaria del Proveedor</span>
 			</div>
-			<div class="form-field">
+			<div class="form-field last">
 				{{ form.contact.errors }}
 				<label for="id_contact">Contacto:</label>
+				<div class="msg-container icon-notification">
+					<span id="form_msg_contact">Persona de contacto</span>
+				</div>
 				{{ form.contact }}
-				<span id="form_msg_contact">Persona de contacto</span>
 			</div>
 			<input class="boton" type="submit" value="Grabar">
 		</form>
