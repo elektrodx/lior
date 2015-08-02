@@ -43,22 +43,22 @@
 		<form action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="field">
+			<div class="field aling">
 				{{ form.brand.errors }}
 				<label for="id_brand" class="field-label">Marca del Producto:</label>
 				{{form.brand}}
 			</div>
-			<div class="field">
+			<div class="field aling">
 				{{form.code.errors}}
 				<label for="id_code" class="field-label">Codigo de Producto:</label>
 				{{ form.code }}
 			</div>
-			<div class="field">
+			<div class="field aling">
 				{{ form.date_end.errors }}
 				<label for="id_date_end" class="field-label">Fecha de Vencimiento:</label>
 				{{ form.date_end }}
 			</div>
-			<div class="field">
+			<div class="field aling">
 				{{ form.qty.errors }}
 				<label for="id_qty" class="field-label">Cantidad:</label>
 				{{ form.qty }}
@@ -66,14 +66,18 @@
 			<div class="field">
 				{{ form.description.errors }}
 				<label for="id_description" class="field-label">Descripción:</label>
+				<div class="msg-container icon-notification">
+					<span class="msg_description">Detalle del Producto</span>		
+				</div>
 				{{ form.description }}
-				<span class="msg_description">Detalle del Producto</span>
 			</div>
 			<div class="field">
 				{{ form.price_base.errors }}
 				<label for="id_price_base" class="field-label">Precio Base:</label>
+				<div class="msg-container icon-notification">
+					<span class="msg_price_base" class="field-label">Precio de lista</span>
+				</div>
 				{{ form.price_base }}
-				<span class="msg_price_base" class="field-label">Precio de lista</span>
 			</div>
 			<div class="field">
 				{{ form.units.errors }}
@@ -85,21 +89,16 @@
 				<label for="id_place" class="field-label">Ubicacion:</label>
 				{{ form.place }}
 			</div>
-			<div class="field">
+			<div class="field last">
 				{{ form.note.errors }}
 				<label for="id_note" class="field-label">Notas:</label>
-				<div class="tile flip">
-  					<div class="icon-notification">
-    					
-  					</div>
- 					<span>
-     					 Notas u observaciones
-  					</span>
+				<div class="msg-container icon-notification">
+ 					<span>Notas u observaciones</span>
 				</div>
 				{{ form.note }}
 			</div>
 			
-			<input type="submit" value="Grabar">
+			<input class="boton" type="submit" value="Grabar">
 		</form>
 	</section>
 </body>
