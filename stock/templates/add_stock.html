@@ -67,7 +67,7 @@
 				{{ form.description.errors }}
 				<label for="id_description" class="field-label">Descripción:</label>
 				<div class="msg-container icon-notification">
-					<span class="msg_description">Detalle del Producto</span>		
+					<span id="msg_description">Detalle del Producto</span>		
 				</div>
 				{{ form.description }}
 			</div>
@@ -75,7 +75,7 @@
 				{{ form.price_base.errors }}
 				<label for="id_price_base" class="field-label">Precio Base:</label>
 				<div class="msg-container icon-notification">
-					<span class="msg_price_base" class="field-label">Precio de lista</span>
+					<span id="msg_price_base">Precio de lista</span>
 				</div>
 				{{ form.price_base }}
 			</div>
@@ -93,7 +93,7 @@
 				{{ form.note.errors }}
 				<label for="id_note" class="field-label">Notas:</label>
 				<div class="msg-container icon-notification">
- 					<span>Notas u observaciones</span>
+ 					<span id="msg_notes">Notas u observaciones</span>
 				</div>
 				{{ form.note }}
 			</div>
