@@ -21,10 +21,13 @@ body
 	width 100%
 	list-style-type none
 	margin 0
+	position relative
 	a
 		color morado
 	li:hover
 		background-color verde_claro
+		ul
+			top 53px
 	
 	&_home
 		a
@@ -55,5 +58,22 @@ body
 		padding 0.7em 1em
 		position absolute
 		right 1em
+
+.sub-menu
+	a
+		text-align center
+		
+	display block
+	list-style-type none
+	position absolute
+	line-height 53px
+	background-color plomo_oscuro
+	width 100%
+	left 0
+	height 53px
+	text-align center
+	top -53px
 	
+.item
+	width 100px	
 	
