@@ -12,12 +12,12 @@
 		<form action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="unit_field">
+			<div class="field">
 				{{ form.unit.errors }}
-				<label for="id_unit">Unidad:</label>
-				{{form.unit}}
-				<span class="msg_unit">Unidad de Medida: pza, litro, kilo, caja, etc.</span>
+				<label for="id_unit" class="field-label">Unidad:</label>
+				{{form.unit}}				
 			</div>
+			<span class="msg_unit">Unidad de Medida: pza, litro, kilo, caja, etc.</span>
 			<input type="submit" value="Grabar">
 		</form>
 	</section>

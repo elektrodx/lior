@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import UnitForm
 from .forms import StockForm
@@ -8,7 +9,10 @@ def add_unit(request):
 		form = UnitForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/add_unit')
+			#return HttpResponseRedirect('/add_unit')
+			#return HttpResponse('<script type="text/javascript">window.close()</script>')
+			#return HttpResponse('<script type="text/javascript">window.close(); window.parent.location.href = "/add_stock";</script>')
+			return HttpResponse('<script type="text/javascript">window.opener.location.reload(); window.close();</script>')
 	else:
 		form = UnitForm()
 	return render(request, 'add_unit.html', {'form': form })
