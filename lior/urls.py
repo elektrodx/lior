@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^add_unit/', 'stock.views.add_unit', name='add_unit'),
     url(r'^add_stock/', 'stock.views.add_stock', name='add_stock'),
     url(r'^add_sucursal/', 'user_lior.views.add_sucursal', name='add_sucursal'),
+    url(r'^add_sale/', 'sales.views.add_sale', name='add_sale'),
     url(r'^$', 'home.views.home', name='home'),
 ]

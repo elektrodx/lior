@@ -3,17 +3,17 @@
 <head>
 	<meta charset="UTF-8">
 	{% load static from staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
-	<title>Sistema Lior</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/add_sale.css" %}">
+	<title>Ventas</title>
 </head>
 <body>
-	<nav class="menu_conatiner">
+	<nav class="menu_container">
 		<ul class="menu">
 			<div class="menu_home">
-				<a class="icon-home" href="#"></a>
+				<a class="icon-home" href="/"></a>
 			</div>
 			<li class="menu_ventas">
-				<a href="/add_sale">Ventas</a>
+				<a href="#">Ventas</a>
 			</li>
 			<li class="menu_compras">
 				<a href="#">Compras</a>
@@ -29,14 +29,6 @@
 			</li>
 			<li class="menu_configuracion">
 				<a href="#">Configuración</a>
-				<ul class="sub-menu">
-					<li class="item">
-						<a href="/add_stock">Ingreso de Stock</a>
-					</li>
-					<li class="item">
-						<a href="/add_stock">Agrega Sucursal</a>
-					</li>
-				</ul>
 			</li>
 			<div class="menu_usuario">
 				<span>usuario</span>
@@ -46,5 +38,12 @@
 			</div>
 		</ul>
 	</nav>
+	<section class="container">
+		<h3 class="titulo">Ventas</h3>
+		<form action="" class="form">
+
+			<input class="boton" type="submit" value="Grabar">
+		</form>
+	</section>
 </body>
 </html>
