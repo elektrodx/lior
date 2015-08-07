@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	{% load static from staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/add_sucursal.css" %}">
-	<title>Nuevas Sucursal</title>
+	<script type="text/javascript" src="/media/js/admin/RelatedObjectLookups.js"></script>
+	<title>Nuevas Sucursales</title>
 </head>
 <body>
 	<section class="container">
@@ -12,13 +13,15 @@
 		<form action="" class="form" method="POST">
 			{% csrf_token %}
 			{{ form.non_field_errors }}
-			<div class="name_field">
+			<div class="field">
 				{{ form.name.errors }}
 				<label for="id_sucursal">Nombre de sucursal:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_sucursal">Ej. sucursal: Cochabamba, La Paz, Santa Cruz, etc.</span>
+				</div>
 				{{form.name}}
-				<span class="msg_sucursal">Ej. sucursal: Cochabamba, La Paz, Santa Cruz, etc.</span>
 			</div>
-			<input type="submit" value="Grabar">
+			<input class="boton" type="submit" value="Grabar">
 		</form>
 	</section>
 </body>

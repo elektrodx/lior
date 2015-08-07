@@ -8,11 +8,10 @@ def add_unit(request):
 	if request.method == "POST":
 		form = UnitForm(request.POST)
 		if form.is_valid():
+			unity = request.POST['unit']
 			form.save()
 			#return HttpResponseRedirect('/add_unit')
-			#return HttpResponse('<script type="text/javascript">window.close()</script>')
-			#return HttpResponse('<script type="text/javascript">window.close(); window.parent.location.href = "/add_stock";</script>')
-			return HttpResponse('<script type="text/javascript">window.opener.location.reload(); window.close();</script>')
+			return HttpResponse('<script type="text/javascript">window.opener.reloadMyDivUnits(); window.close();</script>')
 	else:
 		form = UnitForm()
 	return render(request, 'add_unit.html', {'form': form })

@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.core.exceptions import ValidationError
 from .forms import SinginForm
 from .forms import SucursalForm
@@ -29,7 +30,8 @@ def add_sucursal(request):
 		form = SucursalForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/add_sucursal')
+			#return HttpResponseRedirect('/add_sucursal')
+			return HttpResponse('<script type="text/javascript">window.opener.reloadMyDivLocation(); window.close();</script>')
 	else:
 		form = SucursalForm()
 	return render(request, 'add_sucursal.html', {'form': form })

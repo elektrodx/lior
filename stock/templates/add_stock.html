@@ -4,6 +4,14 @@
 	<meta charset="UTF-8">
 	{% load static from staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/add_stock.css" %}">
+	<script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
+	<script type="text/javascript" src="{% static "admin/js/jquery.js" %}"></script>
+	<script language="javascript">
+		function reloadMyDivUnits() {
+			$("#span_units").load("add_stock.html #span_units");		}
+		function reloadMyDivLocation() {
+			$("#span_location").load("add_stock.html #span_location");}
+	</script>
 	<title>Registro de Stock</title>
 </head>
 <body>
@@ -79,16 +87,26 @@
 				</div>
 				{{ form.price_base }}
 			</div>
-			<div class="field">
-				{{ form.units.errors }}
-				<label for="id_units" class="field-label">Unidad de medida:</label>
-				{{ form.units }}
-			</div>
-			<div class="field">
-				{{ form.place.errors }}
-				<label for="id_place" class="field-label">Ubicacion:</label>
-				{{ form.place }}
-			</div>
+			<span id="span_units">
+				<div class="field">
+					{{ form.units.errors }}
+					<label for="id_units" class="field-label">Unidad de medida:</label>
+					{{ form.units }}
+					<span>
+						<a href="/add_unit" class="add-another" id="add_id_{{ field }}" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" width="10" height="10" alt="Add Another"/></a>
+					</span>
+				</div>
+			</span>
+			<span id="span_location">
+				<div class="field">
+					{{ form.place.errors }}
+					<label for="id_place" class="field-label">Ubicacion:</label>
+					{{ form.place }}
+					<span>
+						<a href="/add_sucursal" class="add-another" id="add_id_{{ field }}" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" width="10" height="10" alt="Add Another"/></a>
+					</span>
+				</div>
+			</span>
 			<div class="field last">
 				{{ form.note.errors }}
 				<label for="id_note" class="field-label">Notas:</label>
@@ -97,7 +115,6 @@
 				</div>
 				{{ form.note }}
 			</div>
-			
 			<input class="boton" type="submit" value="Grabar">
 		</form>
 	</section>
