@@ -5,7 +5,7 @@ from stock.models import Stock
 from user_lior.models import Sucursal
 
 class Sales(models.Model):
-	date = models.DateField(auto_now_add=False)
+	date = models.DateField(auto_now_add=True)
 	customer = models.ForeignKey(Customers)
 	amount = models.DecimalField(max_digits=6, decimal_places=2)
 	payed = models.DecimalField(max_digits=6, decimal_places=2)
