@@ -17,4 +17,5 @@ class Stock(models.Model):
 	place = models.ForeignKey(Sucursal)
 	note = models.TextField(blank=True, null=True)
 	def __unicode__(self):
-		return self.description
+		# 	return self.brand
+		return "{0} ".format(self.brand,)
