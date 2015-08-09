@@ -1,6 +1,12 @@
 {
-	"name": "lior",
-	"scripts": {
-		"stylus": "stylus -c -w -o ../static/css/ stylus/add_sale.styl"
-	}
+  "name": "lior",
+  "scripts": {
+    "stylus": "stylus -c -w -o ../static/css/ stylus/add_sale.styl",
+    "build": "browserify app.js > sale.js -t babelify"
+  },
+  "dependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.1",
+    "react": "^0.13.3"
+  }
 }

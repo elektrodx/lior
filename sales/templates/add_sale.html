@@ -38,38 +38,9 @@
 			</div>
 		</ul>
 	</nav>
-	<section class="container">
+	<section id='bcontainer' class="container">
 		<h3 class="titulo">Ventas</h3>
-		<form action="" class="form">
-			{% csrf_token %}
-			{{ form.non_field_errors }}
-			<div class="form-field">
-				{{ form.date.errors }}
-				<label for="id_name">Cliente:</label>
-				{{form.customer}}
-			</div>
-			<div class="form-field">
-				{{ form.amount.errors }}
-				<label for="id_name">Monto</label>
-				{{form.amount}}
-			</div>
-			<div class="form-field">
-				{{ form.payed.errors }}
-				<label for="id_name">Pagado:</label>
-				{{form.payed}}
-			</div>
-			<div class="form-field">
-				{{ form.pay_date.errors }}
-				<label for="id_name">Fecha Proximo Pago:</label>
-				{{form.pay_date}}
-			</div>
-			<div class="form-field last">
-				{{ form.note.errors }}
-				<label for="id_name">Notas:</label>
-				{{form.note}}
-			</div>
-			<input class="boton" type="submit" value="Grabar">
-		</form>
 	</section>
+	<script src="{% static "js/sale.js" %}" type="text/javascript"></script>
 </body>
 </html>
