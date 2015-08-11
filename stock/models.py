@@ -18,4 +18,4 @@ class Stock(models.Model):
 	note = models.TextField(blank=True, null=True)
 	def __unicode__(self):
 		# 	return self.brand
-		return "{0} ".format(self.brand,)
+		return "{0}".format(self.description,)

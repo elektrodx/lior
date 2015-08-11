@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import UnitForm
 from .forms import StockForm
+from .models import Stock
+from django.core import serializers
 
 def add_unit(request):
 	if request.method == "POST":
@@ -25,3 +27,9 @@ def add_stock(request):
 	else:
 		form = StockForm()
 	return render(request, 'add_stock.html', {'form': form })
+
+def list_stock(request):
+	objectQuerySet = Stock.objects.all()
+	#objectQuerySet = Stock.objects.filter(brand='Colgate')
+	data = serializers.serialize('json', objectQuerySet, fields=('brand', 'code', 'date_end', 'qty', 'description', 'price_base', 'units', 'place', 'note',))
+	return HttpResponse(data, content_type='application/json')
