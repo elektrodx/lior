@@ -2,7 +2,7 @@
   "name": "lior",
   "scripts": {
     "stylus": "stylus -c -w -o ../static/css/ stylus/add_sale.styl",
-    "build": "browserify app.js > sale.js -t babelify"
+    "build": "browserify app.js > ../static/js/sale.js -t babelify"
   },
   "dependencies": {
     "babelify": "^6.1.3",

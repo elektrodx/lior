@@ -3,11 +3,15 @@
  */
 
 import React from 'react';
+import FormTitulo from './FormTitulo';
+import FormClient from './FormClient';
 
 
 export default class FormMain extends React.Component {
 	render(){
-		return <div className="form"> Hola React
-		</div>
+		return <form className="form">
+		<FormTitulo/>
+		<FormClient/>
+		</form>
 	}
 }
