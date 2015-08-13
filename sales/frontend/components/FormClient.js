@@ -4,6 +4,7 @@
 
 import React from 'react';
 import ReactIntl from 'react-intl';
+import FormStock from './FormStock';
 
 var IntlMixin     = ReactIntl.IntlMixin;
 var FormattedDate = ReactIntl.FormattedDate;
@@ -22,8 +23,9 @@ export default class FormClient extends React.Component{
           		<input type="text" id="ClientCI" placeholder="Introduzca en CI o NIT"/>
           	</div>
           	<div>
-          		<FormattedDate locales="es-AR" value={hoy} day="numeric" month="long" year="numeric"/>
+          		<FormattedDate locales="es-AR" value={hoy} day="numeric" month="short" year="numeric"/>
           	</div>
+          	<FormStock/>
 		</div>
 	}
 }
