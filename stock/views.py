@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import UnitForm
@@ -18,6 +19,7 @@ def add_unit(request):
 		form = UnitForm()
 	return render(request, 'add_unit.html', {'form': form })
 
+@login_required(login_url="/singin")
 def add_stock(request):
 	if request.method == "POST":
 		form = StockForm(request.POST)
@@ -33,3 +35,7 @@ def list_stock(request):
 	#objectQuerySet = Stock.objects.filter(brand='Colgate')
 	data = serializers.serialize('json', objectQuerySet, fields=('brand', 'code', 'date_end', 'qty', 'description', 'price_base', 'units', 'place', 'note',))
 	return HttpResponse(data, content_type='application/json')
+
+def detail_stock(request):
+	q_stock = Stock.objects.all()
+	return render(request, 'detail_stock.html', locals())

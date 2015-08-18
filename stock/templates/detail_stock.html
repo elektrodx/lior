@@ -3,8 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	{% load static from staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static "css/home.css" %}">
-	<title>Sistema Lior</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/detail_stock.css" %}">
+
+	<title>Lista de Productos en Tienda</title>
 </head>
 <body>
 	<nav class="menu_conatiner">
@@ -13,7 +14,7 @@
 				<a class="icon-home" href="#"></a>
 			</div>
 			<li class="menu_ventas">
-				<a href="#">Ventas</a>
+				<a href="/add_sale">Ventas</a>
 			</li>
 			<li class="menu_compras">
 				<a href="#">Compras</a>
@@ -46,5 +47,32 @@
 			</div>
 		</ul>
 	</nav>
+	<section class="container">
+		<h3 class="titulo">Listado de Productos en Tienda</h3>
+		<table class="table">
+			<tr class="table-head">
+				<th>Marca</th>
+				<th>Producto</th>
+				<th>Cantidad</th>
+				<th>Codigo</th>
+				<th>Vencimiento</th>
+				<th>Precio</th>
+				<th>Presentación</th>
+				<th>Notas</th>
+			</tr>
+		{% for index in q_stock %}
+			<tr class="table-data">
+				<td>{{index.brand}}</td>
+				<td>{{index.description}}</td>
+				<td>{{index.qty}}</td>
+				<td>{{index.code}}</td>
+				<td>{{index.date_end}}</td>
+				<td>{{index.price_base}}</td>
+				<td>{{index.units}}</td>
+				<td>{{index.note}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+	</section>
 </body>
 </html>
