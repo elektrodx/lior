@@ -1,11 +1,10 @@
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from .forms import UnitForm
 from .forms import StockForm
-from .models import Stock
-from django.core import serializers
+from .models import *
 
 def add_unit(request):
 	if request.method == "POST":
@@ -30,12 +29,11 @@ def add_stock(request):
 		form = StockForm()
 	return render(request, 'add_stock.html', {'form': form })
 
-def list_stock(request):
-	objectQuerySet = Stock.objects.all()
-	#objectQuerySet = Stock.objects.filter(brand='Colgate')
-	data = serializers.serialize('json', objectQuerySet, fields=('brand', 'code', 'date_end', 'qty', 'description', 'price_base', 'units', 'place', 'note',))
-	return HttpResponse(data, content_type='application/json')
-
 def detail_stock(request):
 	q_stock = Stock.objects.all()
 	return render(request, 'detail_stock.html', locals())
+
+def list_stock(request):
+	q_stock = Stock.objects.all()
+	data = [{'description': item.description, 'brand': item.brand, 'code': item.code, 'qty': item.qty, 'price': item.price_base, 'unit': item.units.unit, 'place': item.place.name, 'pk': item.pk } for item in q_stock ]
+	return JsonResponse(data, safe=False)

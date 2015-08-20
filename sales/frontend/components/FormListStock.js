@@ -6,7 +6,13 @@ import React from 'react';
 
 export default class FormListStock extends React.Component{
 	render(){
-		debugger
-		return <p>{this.props.opciones}</p>
+		return <datalist id="stocklist">
+		{
+      	this.props.opciones.map((order) => {
+      		let coptions = order.description + " " + order.brand + " " + order.qty
+		return <option value={coptions}/>
+		})
+      	}
+		</datalist>
 		}
 	}

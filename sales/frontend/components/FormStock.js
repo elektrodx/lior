@@ -24,7 +24,7 @@ export default class FormStock extends React.Component{
 		return <div>
 			<label for="StockField">Producto: </label>
 			<input list="stocklist" id="StockField" placeholder="Busque el producto"/>
-			<FormListStock opciones={this.state.productos[3]}/>
-		</div>
+      <FormListStock key={this.props.key} opciones={this.state.productos}/>
+    </div>
 	}
 }
