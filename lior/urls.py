@@ -23,10 +23,14 @@ urlpatterns = [
     url(r'^autocomplete/', include('autocomplete_light.urls')),
     url(r'^add_provider/', 'relations.views.add_provider', name='add_provider'),
     url(r'^add_unit/', 'stock.views.add_unit', name='add_unit'),
+    url(r'^add_unit_2/', 'stock.views.add_unit_2', name='add_unit_2'),
     url(r'^add_stock/', 'stock.views.add_stock', name='add_stock'),
     url(r'^list_stock/', 'stock.views.list_stock', name='list_stock'),
     url(r'^add_sucursal/', 'user_lior.views.add_sucursal', name='add_sucursal'),
+    url(r'^add_sucursal_2/', 'user_lior.views.add_sucursal_2', name='add_sucursal_2'),
     url(r'^add_sale/', 'sales.views.add_sale', name='add_sale'),
     url(r'^$', 'home.views.home', name='home'),
     url(r'^detail_stock/', 'stock.views.detail_stock', name='detail_stock'),
+    url(r'^logout_l/', 'user_lior.views.logout_view', name='logout_view'),
+   
 ]

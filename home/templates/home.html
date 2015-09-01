@@ -7,25 +7,25 @@
 	<title>Sistema Lior</title>
 </head>
 <body>
-	<nav class="menu_conatiner">
+	<nav class="menu_container">
 		<ul class="menu">
 			<div class="menu_home">
-				<a class="icon-home" href="#"></a>
+				<a class="icon-home" href="/"></a>
 			</div>
 			<li class="menu_ventas">
-				<a href="#">Ventas</a>
+				<a href="/add_sale">Ventas</a>
 			</li>
 			<li class="menu_compras">
 				<a href="#">Compras</a>
 			</li>
 			<li class="menu_inventario">
-				<a href="#">Inventario</a>
+				<a href="/detail_stock">Inventario</a>
 			</li>
 			<li class="menu_gastos">
 				<a href="#">Gastos</a>
 			</li>
 			<li class="menu_reportes">
-				<a href="/detail_stock">Reportes</a>
+				<a href="#">Reportes</a>
 			</li>
 			<li class="menu_configuracion">
 				<a href="#">Configuración</a>
@@ -34,17 +34,25 @@
 						<a href="/add_stock">Ingreso de Stock</a>
 					</li>
 					<li class="item">
-						<a href="#">Agrega Sucursal</a>
+						<a href="/add_sucursal_2">Agrega Sucursal</a>
+					</li>
+					<li class="item">
+						<a href="/add_unit_2">Agrega Unidad</a>
 					</li>
 				</ul>
 			</li>
 			<div class="menu_usuario">
-				<span>usuario</span>
+				<span>{{request.user}}</span>
 			</div>
 			<div class="menu_logout">
-				<a class="icon-exit" href="#"></a>
+				<a class="icon-exit" href="/logout_l"></a>
 			</div>
 		</ul>
 	</nav>
+	<section id='bcontainer' class="container">
+		<div>
+			<img src="../static/imgs/lior.png">
+		</div>
+	</section>
 </body>
 </html>

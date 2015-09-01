@@ -1,8 +1,8 @@
 {
 	"name": "lior",
 	"scripts": {
-		"stylus": "stylus -c -w -o ../static/css/ stylus/singin.styl",
-		"stylus2": "stylus -c -w -o ../static/css/ stylus/add_sucursal.styl",
+		"stylus": "stylus -u nib -c -w -o ../static/css/ stylus/singin.styl",
+		"stylus2": "stylus -u nib -c -w -o ../static/css/ stylus/add_sucursal.styl",
 		"jade": "jade -w -o ../templates jade/singin.jade"
 	}
 }

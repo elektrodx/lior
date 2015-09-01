@@ -13,13 +13,13 @@
 				<a class="icon-home" href="/"></a>
 			</div>
 			<li class="menu_ventas">
-				<a href="#">Ventas</a>
+				<a href="/add_sale">Ventas</a>
 			</li>
 			<li class="menu_compras">
 				<a href="#">Compras</a>
 			</li>
 			<li class="menu_inventario">
-				<a href="#">Inventario</a>
+				<a href="/detail_stock">Inventario</a>
 			</li>
 			<li class="menu_gastos">
 				<a href="#">Gastos</a>
@@ -29,12 +29,23 @@
 			</li>
 			<li class="menu_configuracion">
 				<a href="#">Configuración</a>
+				<ul class="sub-menu">
+					<li class="item">
+						<a href="/add_stock">Ingreso de Stock</a>
+					</li>
+					<li class="item">
+						<a href="/add_sucursal_2">Agrega Sucursal</a>
+					</li>
+					<li class="item">
+						<a href="/add_unit_2">Agrega Unidad</a>
+					</li>
+				</ul>
 			</li>
 			<div class="menu_usuario">
-				<span>usuario</span>
+				<span>{{request.user}}</span>
 			</div>
 			<div class="menu_logout">
-				<a class="icon-exit" href="#"></a>
+				<a class="icon-exit" href="/logout_l"></a>
 			</div>
 		</ul>
 	</nav>

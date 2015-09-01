@@ -11,6 +11,8 @@
 		color morado
 	li:hover
 		background-color verde_claro
+		ul
+			top 53px
 	
 	&_home
 		a
@@ -41,3 +43,26 @@
 		padding 0.7em 1em
 		position absolute
 		right 1em
+
+.sub-menu
+	a
+		text-align center
+		
+	display block
+	list-style-type none
+	position absolute
+	line-height 53px
+	border-top solid 1px verde_claro
+	background-color rgba(191,191,191, 0.7)
+	width 100%
+	left 0
+	height 53px
+	text-align center
+	top -53px
+	z-index -1
+	transition 0.7s
+	display inline-flex
+
+.item
+	width 150px	
+	

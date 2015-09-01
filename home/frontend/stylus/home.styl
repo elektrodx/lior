@@ -1,11 +1,7 @@
 @import "normalize.styl"
 @import "fonts.styl"
-
-verde_claro = #EBFFF0
-plomo_claro = #DFE4EA
-plomo_oscuro = #BFBFBF
-morado = #6C6B86
-rojo = #9B4040 
+@import "menu.styl"
+@import "nib"
 
 body
 	background-color plomo_claro
@@ -13,72 +9,17 @@ body
 	font-size 16px
 	a
 		text-decoration none
-	
-.menu
-	background-color plomo_oscuro
-	display inline-flex
-	height 53px
-	width 100%
-	list-style-type none
-	margin 0
-	position relative
-	a
-		color morado
-	li:hover
-		background-color verde_claro
-		ul
-			top 53px
-	
-	&_home
-		a
-			color white
-		padding 0.7em 1em
-		font-size 1.3em
-	&_ventas
-		padding 1em
-	&_compras
-		padding 1em
-	&_inventario
-		padding 1em
-	&_gastos
-		padding 1em
-	&_reportes
-		padding 1em
-	&_configuracion
-		padding 1em
-	&_usuario
-		padding 1em
-		position absolute
-		right 3.5em
-		color verde_claro
-	&_logout
-		a
-			color white
-		font-size 1.3em
-		padding 0.7em 1em
-		position absolute
-		right 1em
 
-.sub-menu
-	a
-		text-align center
-		
-	display block
-	list-style-type none
-	position absolute
-	line-height 53px
-	border-top solid 1px verde_claro
-	background-color rgba(191,191,191, 0.7)
-	width 100%
-	left 0
-	height 53px
-	text-align center
-	top -53px
-	z-index -1
-	transition 0.7s
-	display inline-flex
-
-	
-.item
-	width 150px	
-	
+.container
+	position fixed
+	background-color white
+	width auto
+	height auto
+	margin 0 auto
+	margin-top 5em
+	left 39%
+	border 2px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px

@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
+@login_required(login_url="/singin")
 def add_sale(request):
 	if request.method == "POST":
 		form = SalesForm(request.POST)
@@ -12,4 +13,3 @@ def add_sale(request):
 	else:
 		form = SalesForm()
 	return render(request, 'add_sale.html', {'form': form })
-
