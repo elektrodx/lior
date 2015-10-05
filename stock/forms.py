@@ -12,7 +12,7 @@ class UnitForm(ModelForm):
 
 #class StockForm(ModelForm):
 class StockForm(ModelForm):
-	description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
+	# description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
 	class Meta:
 		# = autocomplete_light.get_widgets_dict(Stock)
 		model = Stock
