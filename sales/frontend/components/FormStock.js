@@ -5,6 +5,7 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
 import utils from './../node_modules/react-autosuggest/examples/src/utils.js';
+import PriceField from './PriceField'
 //import FormAutoStock from './FormAutoStock';
 
 export default class FormStock extends React.Component{
@@ -90,9 +91,10 @@ export default class FormStock extends React.Component{
   }
 
 	render(){
-		return <div>
+		return <div className="form-client-stock">
 			<label for="StockField">Producto: </label>
       <Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
+      <PriceField/>
 		</div>
 	}
 }
