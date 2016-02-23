@@ -424,6 +424,25 @@ var PriceField = (function (_React$Component) {
 				"div",
 				null,
 				_react2["default"].createElement(
+					"select",
+					null,
+					_react2["default"].createElement(
+						"option",
+						{ value: "30" },
+						"Factura"
+					),
+					_react2["default"].createElement(
+						"option",
+						{ value: "20" },
+						"Sin Factura"
+					),
+					_react2["default"].createElement(
+						"option",
+						{ value: "10" },
+						"Estuduante"
+					)
+				),
+				_react2["default"].createElement(
 					"label",
 					{ "for": "PriceField" },
 					"Precio:"
