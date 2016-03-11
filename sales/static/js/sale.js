@@ -300,14 +300,16 @@ var FormStock = (function (_React$Component) {
           'small',
           { style: { color: '#777' } },
           'Cantidad: ',
-          suggestionObj.population
+          suggestionObj.population,
+          ' --> Codigo: ',
+          suggestionObj.code
         )
       );
     }
   }, {
     key: 'getSuggestionValue',
     value: function getSuggestionValue(suggestionObj) {
-      return suggestionObj.description + ' - ' + suggestionObj.brand;
+      return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
     }
   }, {
     key: 'render',

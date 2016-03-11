@@ -81,13 +81,13 @@ export default class FormStock extends React.Component{
     return (
       <span>
         {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
-        <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population}</small>
+        <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population} --> Codigo: {suggestionObj.code}</small>
       </span>
     );
   }
 
   getSuggestionValue(suggestionObj) {
-    return suggestionObj.description + ' - ' + suggestionObj.brand;
+    return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
   }
 
 	render(){
