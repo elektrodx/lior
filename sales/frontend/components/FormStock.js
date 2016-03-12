@@ -11,7 +11,7 @@ import PriceField from './PriceField'
 export default class FormStock extends React.Component{
 	constructor(props) {
     super(props)
-    this.state = { productos: [] }
+    this.state = { productos: [], pPrice: 0 }
     const suburbs = [];
   }
 
@@ -87,6 +87,8 @@ export default class FormStock extends React.Component{
   }
 
   getSuggestionValue(suggestionObj) {
+    var pp = Number(suggestionObj.price)
+    this.setState({ pPrice: pp } )
     return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
   }
 
@@ -94,7 +96,7 @@ export default class FormStock extends React.Component{
 		return <div className="form-client-stock">
 			<label for="StockField">Producto: </label>
       <Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
-      <PriceField/>
+      <PriceField price_base={this.state.pPrice}/>
 		</div>
 	}
 }

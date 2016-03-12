@@ -13,7 +13,7 @@ export default class PriceField extends React.Component{
 				<option value="10">Estuduante</option>
 			</select>
 			<label for="PriceField">Precio:</label>
-			<input type="text" id="PriceField" />
+			<input type="text" id="PriceField" placeholder={this.props.price_base}/>
 		</div>
 	}
 }

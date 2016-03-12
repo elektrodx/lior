@@ -211,7 +211,7 @@ var FormStock = (function (_React$Component) {
     _classCallCheck(this, FormStock);
 
     _get(Object.getPrototypeOf(FormStock.prototype), 'constructor', this).call(this, props);
-    this.state = { productos: [], pPrice: 0 };
+    this.state = { productos: [], pPrice: 0.0 };
     var suburbs = [];
   }
 
@@ -309,8 +309,8 @@ var FormStock = (function (_React$Component) {
   }, {
     key: 'getSuggestionValue',
     value: function getSuggestionValue(suggestionObj) {
-      var pp = Number(suggestionObj.price);
-      this.setState({ pPrice: pp });
+      console.log(suggestionObj.price);
+      this.setState({ pCode: suggestionObj.price });
       return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
     }
   }, {
