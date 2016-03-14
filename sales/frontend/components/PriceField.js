@@ -23,6 +23,9 @@ export default class PriceField extends React.Component{
 				<option value={this.props.price_base} defaultValue="Base" >Base</option>
 			</select>
 			<PriceFinal value={this.state.price_base1}/>
+			<label for="qtyField">Cantidad:</label>
+			<input type="text" id="qtyField"/>
+			<button type="submit">Agregar</button>
 		</div>
 	}
 }

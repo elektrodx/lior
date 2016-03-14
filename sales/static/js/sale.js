@@ -462,7 +462,18 @@ var PriceField = (function (_React$Component) {
 						'Base'
 					)
 				),
-				_react2['default'].createElement(_PriceFinal2['default'], { value: this.state.price_base1 })
+				_react2['default'].createElement(_PriceFinal2['default'], { value: this.state.price_base1 }),
+				_react2['default'].createElement(
+					'label',
+					{ 'for': 'qtyField' },
+					'Cantidad:'
+				),
+				_react2['default'].createElement('input', { type: 'text', id: 'qtyField' }),
+				_react2['default'].createElement(
+					'button',
+					{ type: 'submit' },
+					'Agregar'
+				)
 			);
 		}
 	}]);
