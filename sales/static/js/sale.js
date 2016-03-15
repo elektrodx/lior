@@ -440,7 +440,7 @@ var PriceField = (function (_React$Component) {
 				null,
 				_react2['default'].createElement(
 					'select',
-					{ name: 'pricef', onChange: this.handleSelect.bind(this), value: this.state.price_base1 },
+					{ name: 'pricef', defaultValue: this.props.price_base, onChange: this.handleSelect.bind(this) },
 					_react2['default'].createElement(
 						'option',
 						{ value: this.props.price_base + 0.30 * this.props.price_base },
@@ -458,7 +458,7 @@ var PriceField = (function (_React$Component) {
 					),
 					_react2['default'].createElement(
 						'option',
-						{ value: this.props.price_base, defaultValue: 'Base' },
+						{ value: this.props.price_base },
 						'Base'
 					)
 				),

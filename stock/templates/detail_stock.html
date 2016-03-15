@@ -54,22 +54,22 @@
 		<h3 class="titulo">Listado de Productos en Tienda</h3>
 		<table class="table">
 			<tr class="table-head">
+				<th>Codigo</th>
 				<th>Marca</th>
 				<th>Producto</th>
-				<th>Cantidad</th>
-				<th>Codigo</th>
 				<th>Vencimiento</th>
+				<th>Cantidad</th>
 				<th>Precio</th>
 				<th>Presentación</th>
 				<th>Notas</th>
 			</tr>
 		{% for index in q_stock %}
 			<tr class="table-data">
+				<td>{{index.code}}</td>
 				<td>{{index.brand}}</td>
 				<td>{{index.description}}</td>
-				<td>{{index.qty}}</td>
-				<td>{{index.code}}</td>
 				<td>{{index.date_end}}</td>
+				<td>{{index.qty}}</td>
 				<td>{{index.price_base}}</td>
 				<td>{{index.units}}</td>
 				<td>{{index.note}}</td>

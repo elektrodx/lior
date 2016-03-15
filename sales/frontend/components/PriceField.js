@@ -16,11 +16,11 @@ export default class PriceField extends React.Component{
 	}
 	render(){
 		return <div> 
-			<select name="pricef" onChange={this.handleSelect.bind(this)} value={this.state.price_base1}>
+			<select name="pricef" defaultValue={this.props.price_base} onChange={this.handleSelect.bind(this)}>
 				<option value={this.props.price_base+(0.30*this.props.price_base)}>Factura</option>
 				<option value={this.props.price_base+(0.20*this.props.price_base)}>Sin Factura</option>
 				<option value={this.props.price_base+(0.10*this.props.price_base)}>Estuduante</option>
-				<option value={this.props.price_base} defaultValue="Base" >Base</option>
+				<option value={this.props.price_base}>Base</option>
 			</select>
 			<PriceFinal value={this.state.price_base1}/>
 			<label for="qtyField">Cantidad:</label>
