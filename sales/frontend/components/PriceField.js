@@ -4,6 +4,7 @@
 
 import React from 'react';
 import PriceFinal from './PriceFinal';
+import CartComponent from './CartComponent';
 
 export default class PriceField extends React.Component{
 	constructor(props){
@@ -26,6 +27,7 @@ export default class PriceField extends React.Component{
 			<label for="qtyField">Cantidad:</label>
 			<input type="text" id="qtyField"/>
 			<button type="submit">Agregar</button>
+			<CartComponent data={this.props.productSold}/>
 		</div>
 	}
 }
