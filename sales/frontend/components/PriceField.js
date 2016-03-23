@@ -9,12 +9,18 @@ import CartComponent from './CartComponent';
 export default class PriceField extends React.Component{
 	constructor(props){
 		super(props)
-		this.state = { price_base1: 0 }
+		this.state = { price_base1: 0, productSold: [] }
 		this.handleSelect = this.handleSelect.bind(this);
+		this.cickEvent = this.cickEvent.bind(this);
 	}
-	handleSelect (envet){
-		this.setState({price_base1: envet.target.value})
+	handleSelect (event){
+		this.setState({price_base1: event.target.value})
 	}
+	cickEvent (event){
+		event.preventDefault();
+		this.setState({productSold: this.props.productSold})
+	}
+
 	render(){
 		return <div> 
 			<select name="pricef" defaultValue={this.props.price_base} onChange={this.handleSelect.bind(this)}>
@@ -26,8 +32,8 @@ export default class PriceField extends React.Component{
 			<PriceFinal value={this.state.price_base1}/>
 			<label for="qtyField">Cantidad:</label>
 			<input type="text" id="qtyField"/>
-			<button type="submit">Agregar</button>
-			<CartComponent data={this.props.productSold}/>
+			<button type="submit" onClick={this.cickEvent.bind(this)}>Agregar</button>
+			<CartComponent data={this.state.productSold}/>
 		</div>
 	}
 }
