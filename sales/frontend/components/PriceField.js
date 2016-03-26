@@ -18,7 +18,17 @@ export default class PriceField extends React.Component{
 	}
 	cickEvent (event){
 		event.preventDefault();
-		this.setState({productSold: this.props.productSold})
+		var qty = document.getElementById("qtyField").value;
+		this.props.productSold.push(qty);
+		if (document.getElementById("PriceField").value == ""){
+			document.getElementById("PriceField").value=document.getElementById("PriceField").placeholder
+		}
+		this.props.productSold.push(document.getElementById("PriceField").value);
+		var priceT = document.getElementById("PriceField").value*qty; 
+		this.props.productSold.push(priceT.toFixed(2));
+		var TproductSold = this.state.productSold;
+		TproductSold.push(this.props.productSold);
+		this.setState({productSold: TproductSold})
 	}
 
 	render(){

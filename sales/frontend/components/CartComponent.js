@@ -13,14 +13,21 @@ export default class CartComponent extends React.Component{
 				<th>Descripcion</th>
 				<th>Marca</th>
 				<th>Cantidad</th>
+				<th>Precio Unitario</th>
+				<th>Precio total</th>
 
 			</tr>
-			<tr>
-				<td>{this.props.data[0]}</td>
-				<td>{this.props.data[1]}</td>
-				<td>{this.props.data[2]}</td>
-				
-			</tr>		
+			{this.props.data.map((item) => { 
+			return 	<tr>
+					<td>{item[0]}</td>
+					<td>{item[1]}</td>
+					<td>{item[2]}</td>
+					<td>{item[3]}</td>
+					<td>{item[4]}</td>
+					<td>{item[5]}</td>
+				</tr>						
+				})
+			}
 		</table>
 	}
 }

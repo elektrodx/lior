@@ -79,27 +79,54 @@ var CartComponent = (function (_React$Component) {
 						'th',
 						null,
 						'Cantidad'
+					),
+					_react2['default'].createElement(
+						'th',
+						null,
+						'Precio Unitario'
+					),
+					_react2['default'].createElement(
+						'th',
+						null,
+						'Precio total'
 					)
 				),
-				_react2['default'].createElement(
-					'tr',
-					null,
-					_react2['default'].createElement(
-						'td',
+				this.props.data.map(function (item) {
+					return _react2['default'].createElement(
+						'tr',
 						null,
-						this.props.data[0]
-					),
-					_react2['default'].createElement(
-						'td',
-						null,
-						this.props.data[1]
-					),
-					_react2['default'].createElement(
-						'td',
-						null,
-						this.props.data[2]
-					)
-				)
+						_react2['default'].createElement(
+							'td',
+							null,
+							item[0]
+						),
+						_react2['default'].createElement(
+							'td',
+							null,
+							item[1]
+						),
+						_react2['default'].createElement(
+							'td',
+							null,
+							item[2]
+						),
+						_react2['default'].createElement(
+							'td',
+							null,
+							item[3]
+						),
+						_react2['default'].createElement(
+							'td',
+							null,
+							item[4]
+						),
+						_react2['default'].createElement(
+							'td',
+							null,
+							item[5]
+						)
+					);
+				})
 			);
 		}
 	}]);
@@ -536,7 +563,17 @@ var PriceField = (function (_React$Component) {
 		key: 'cickEvent',
 		value: function cickEvent(event) {
 			event.preventDefault();
-			this.setState({ productSold: this.props.productSold });
+			var qty = document.getElementById("qtyField").value;
+			this.props.productSold.push(qty);
+			if (document.getElementById("PriceField").value == "") {
+				document.getElementById("PriceField").value = document.getElementById("PriceField").placeholder;
+			}
+			this.props.productSold.push(document.getElementById("PriceField").value);
+			var priceT = document.getElementById("PriceField").value * qty;
+			this.props.productSold.push(priceT.toFixed(2));
+			var TproductSold = this.state.productSold;
+			TproductSold.push(this.props.productSold);
+			this.setState({ productSold: TproductSold });
 		}
 	}, {
 		key: 'render',
