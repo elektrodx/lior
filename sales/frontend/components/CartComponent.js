@@ -3,9 +3,10 @@
  */
 
 import React from 'react';
+import SumComponent from './SumComponent';
 
 export default class CartComponent extends React.Component{
-
+	
 	render(){
 		return <table>
 			<tr>
@@ -17,7 +18,8 @@ export default class CartComponent extends React.Component{
 				<th>Precio total</th>
 
 			</tr>
-			{this.props.data.map((item) => { 
+			{this.props.data.map((item) => {
+			this.props.sum = this.props.sum + Number(item[5])
 			return 	<tr>
 					<td>{item[0]}</td>
 					<td>{item[1]}</td>
@@ -28,6 +30,7 @@ export default class CartComponent extends React.Component{
 				</tr>						
 				})
 			}
+			<SumComponent data={this.props.sum}/>
 		</table>
 	}
 }

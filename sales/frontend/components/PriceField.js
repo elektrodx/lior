@@ -43,7 +43,7 @@ export default class PriceField extends React.Component{
 			<label for="qtyField">Cantidad:</label>
 			<input type="text" id="qtyField"/>
 			<button type="submit" onClick={this.cickEvent.bind(this)}>Agregar</button>
-			<CartComponent data={this.state.productSold}/>
+			<CartComponent data={this.state.productSold} sum={0}/>
 		</div>
 	}
 }
