@@ -29,6 +29,10 @@ export default class PriceField extends React.Component{
 		var TproductSold = this.state.productSold;
 		TproductSold.push(this.props.productSold);
 		this.setState({productSold: TproductSold})
+		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = ""
+		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true
+		document.getElementById("qtyField").value = "";
+		document.getElementById("PriceField").value = "";
 	}
 
 	render(){
