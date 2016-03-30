@@ -6,7 +6,7 @@ import React from 'react';
 export default class PriceFinal extends React.Component{
 
 	render(){
-		return <div>
+		return <div className="PriceFinal">
 			<label for="PriceField">Precio:</label>
 			<input type="text" id="PriceField" placeholder={this.props.value}/>
 		</div>

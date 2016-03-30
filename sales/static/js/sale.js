@@ -61,79 +61,83 @@ var CartComponent = (function (_React$Component) {
 			var _this = this;
 
 			return _react2['default'].createElement(
-				'table',
-				null,
+				'div',
+				{ className: 'CartComponent' },
 				_react2['default'].createElement(
-					'tr',
-					null,
+					'table',
+					{ className: 'table-head' },
 					_react2['default'].createElement(
-						'th',
-						null,
-						'Codigo'
-					),
-					_react2['default'].createElement(
-						'th',
-						null,
-						'Descripcion'
-					),
-					_react2['default'].createElement(
-						'th',
-						null,
-						'Marca'
-					),
-					_react2['default'].createElement(
-						'th',
-						null,
-						'Cantidad'
-					),
-					_react2['default'].createElement(
-						'th',
-						null,
-						'Precio Unitario'
-					),
-					_react2['default'].createElement(
-						'th',
-						null,
-						'Precio total'
-					)
-				),
-				this.props.data.map(function (item) {
-					_this.props.sum = _this.props.sum + Number(item[5]);
-					return _react2['default'].createElement(
 						'tr',
 						null,
 						_react2['default'].createElement(
-							'td',
+							'th',
 							null,
-							item[0]
+							'Codigo'
 						),
 						_react2['default'].createElement(
-							'td',
+							'th',
 							null,
-							item[1]
+							'Descripcion'
 						),
 						_react2['default'].createElement(
-							'td',
+							'th',
 							null,
-							item[2]
+							'Marca'
 						),
 						_react2['default'].createElement(
-							'td',
+							'th',
 							null,
-							item[3]
+							'Cantidad'
 						),
 						_react2['default'].createElement(
-							'td',
+							'th',
 							null,
-							item[4]
+							'Precio Unitario'
 						),
 						_react2['default'].createElement(
-							'td',
+							'th',
 							null,
-							item[5]
+							'Sub total'
 						)
-					);
-				}),
+					),
+					this.props.data.map(function (item) {
+						_this.props.sum = _this.props.sum + Number(item[5]);
+						return _react2['default'].createElement(
+							'tr',
+							null,
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[0]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[1]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[2]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[3]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[4]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[5]
+							)
+						);
+					})
+				),
 				_react2['default'].createElement(_SumComponent2['default'], { data: this.props.sum })
 			);
 		}
@@ -595,7 +599,7 @@ var PriceField = (function (_React$Component) {
 				null,
 				_react2['default'].createElement(
 					'select',
-					{ name: 'pricef', defaultValue: this.props.price_base, onChange: this.handleSelect.bind(this) },
+					{ className: 'list', name: 'pricef', defaultValue: this.props.price_base, onChange: this.handleSelect.bind(this) },
 					_react2['default'].createElement(
 						'option',
 						{ value: this.props.price_base + 0.30 * this.props.price_base },
@@ -619,15 +623,19 @@ var PriceField = (function (_React$Component) {
 				),
 				_react2['default'].createElement(_PriceFinal2['default'], { value: this.state.price_base1 }),
 				_react2['default'].createElement(
-					'label',
-					{ 'for': 'qtyField' },
-					'Cantidad:'
-				),
-				_react2['default'].createElement('input', { type: 'text', id: 'qtyField' }),
-				_react2['default'].createElement(
-					'button',
-					{ type: 'submit', onClick: this.cickEvent.bind(this) },
-					'Agregar'
+					'div',
+					{ className: 'qtyField' },
+					_react2['default'].createElement(
+						'label',
+						{ 'for': 'qtyField' },
+						'Cantidad:'
+					),
+					_react2['default'].createElement('input', { type: 'text', id: 'qtyField' }),
+					_react2['default'].createElement(
+						'button',
+						{ className: 'boton', type: 'submit', onClick: this.cickEvent.bind(this) },
+						'Agregar'
+					)
 				),
 				_react2['default'].createElement(_CartComponent2['default'], { data: this.state.productSold, sum: 0 })
 			);
@@ -678,7 +686,7 @@ var PriceFinal = (function (_React$Component) {
 		value: function render() {
 			return _react2["default"].createElement(
 				"div",
-				null,
+				{ className: "PriceFinal" },
 				_react2["default"].createElement(
 					"label",
 					{ "for": "PriceField" },
@@ -700,21 +708,21 @@ module.exports = exports["default"];
  * Modules Dependiencies
  */
 
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _react = require('react');
 
@@ -726,22 +734,22 @@ var sumComponent = (function (_React$Component) {
 	function sumComponent() {
 		_classCallCheck(this, sumComponent);
 
-		_get(Object.getPrototypeOf(sumComponent.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(sumComponent.prototype), "constructor", this).apply(this, arguments);
 	}
 
 	_createClass(sumComponent, [{
-		key: 'render',
+		key: "render",
 		value: function render() {
-			return _react2['default'].createElement(
-				'div',
-				null,
-				_react2['default'].createElement(
-					'strong',
+			return _react2["default"].createElement(
+				"div",
+				{ className: "sumComponent" },
+				_react2["default"].createElement(
+					"strong",
 					null,
-					'Total Productos'
+					"Precio Total: "
 				),
-				_react2['default'].createElement(
-					'span',
+				_react2["default"].createElement(
+					"span",
 					null,
 					this.props.data
 				)
@@ -750,10 +758,10 @@ var sumComponent = (function (_React$Component) {
 	}]);
 
 	return sumComponent;
-})(_react2['default'].Component);
+})(_react2["default"].Component);
 
-exports['default'] = sumComponent;
-module.exports = exports['default'];
+exports["default"] = sumComponent;
+module.exports = exports["default"];
 
 },{"react":202}],10:[function(require,module,exports){
 

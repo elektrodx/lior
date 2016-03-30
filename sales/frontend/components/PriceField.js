@@ -37,16 +37,18 @@ export default class PriceField extends React.Component{
 
 	render(){
 		return <div> 
-			<select name="pricef" defaultValue={this.props.price_base} onChange={this.handleSelect.bind(this)}>
+			<select className="list" name="pricef" defaultValue={this.props.price_base} onChange={this.handleSelect.bind(this)}>
 				<option value={this.props.price_base+(0.30*this.props.price_base)}>Factura</option>
 				<option value={this.props.price_base+(0.20*this.props.price_base)}>Sin Factura</option>
 				<option value={this.props.price_base+(0.10*this.props.price_base)}>Estuduante</option>
 				<option value={this.props.price_base}>Base</option>
 			</select>
 			<PriceFinal value={this.state.price_base1}/>
-			<label for="qtyField">Cantidad:</label>
-			<input type="text" id="qtyField"/>
-			<button type="submit" onClick={this.cickEvent.bind(this)}>Agregar</button>
+			<div className="qtyField">
+				<label for="qtyField">Cantidad:</label>
+				<input type="text" id="qtyField"/>
+				<button className="boton" type="submit" onClick={this.cickEvent.bind(this)}>Agregar</button>
+			</div>	
 			<CartComponent data={this.state.productSold} sum={0}/>
 		</div>
 	}
