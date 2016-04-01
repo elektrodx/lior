@@ -28,7 +28,8 @@ export default class sumComponent extends React.Component{
 				<label for="descAmount">Descuento: </label>
 				<input type="number" id="descAmount" onKeyUp={this.eventKeyPress.bind(this)}/>
 			</div>
-			<TotalPrice amount={this.state.amount}/>	
+			<TotalPrice amount={this.state.amount}/>
+			<button className="boton padding">Procesar</button>	
 		</div>
 	}
 }

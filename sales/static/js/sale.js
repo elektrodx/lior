@@ -780,7 +780,12 @@ var sumComponent = (function (_React$Component) {
 					),
 					_react2['default'].createElement('input', { type: 'number', id: 'descAmount', onKeyUp: this.eventKeyPress.bind(this) })
 				),
-				_react2['default'].createElement(_TotalPrice2['default'], { amount: this.state.amount })
+				_react2['default'].createElement(_TotalPrice2['default'], { amount: this.state.amount }),
+				_react2['default'].createElement(
+					'button',
+					{ className: 'boton padding' },
+					'Procesar'
+				)
 			);
 		}
 	}]);
