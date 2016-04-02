@@ -1,0 +1,18 @@
+{
+  "name": "lior_shop",
+  "version": "1.0.0",
+  "description": "Modulo compras de Productos Lior",
+  "main": "shop.js",
+  "scripts": {
+  	"stylus": "stylus -c -w -o ../static/css/ stylus/add_shop.styl",
+    "build": "browserify app_shop.js > ../static/js/shop.js -t babelify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ElektroDX",
+  "license": "ISC",
+  "dependencies": {
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "react": "^0.14.8"
+  }
+}
