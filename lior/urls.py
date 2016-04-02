@@ -32,5 +32,6 @@ urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
     url(r'^detail_stock/', 'stock.views.detail_stock', name='detail_stock'),
     url(r'^logout_l/', 'user_lior.views.logout_view', name='logout_view'),
+    url(r'^add_shop/', 'shop.views.add_shop', name='add_shop')
    
 ]
