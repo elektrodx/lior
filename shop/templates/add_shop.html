@@ -50,6 +50,15 @@
 		</ul>
 	</nav>
 	<section id='bcontainer' class="container">
+		<form  class="form">
+			<h3 class="titulo">Compra de Productos</h3>
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="provider">
+				<label>Proveedor</label>
+				{{ form.provider }}
+			</div>
+		</form>
 	</section>
 	<script src="{% static "js/shop.js" %}" type="text/javascript"></script>
 </body>
