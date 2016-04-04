@@ -58,6 +58,22 @@
 				<label>Proveedor</label>
 				{{ form.provider }}
 			</div>
+			<div>
+				<label>Monto Compra:</label>
+				{{ form.total_price }}
+			</div>
+			<div>
+				<label>Gastos extras:</label>
+				{{ form.price_extra }}
+			</div>
+			<div>
+				<label>Monto Pagado:</label>
+				{{ form.payed }}
+			</div>
+			<div>
+				<label>Fecha de Pago:</label>
+				{{ form.pay_due}}
+			</div>
 		</form>
 	</section>
 	<script src="{% static "js/shop.js" %}" type="text/javascript"></script>
