@@ -37,7 +37,7 @@ export default class FormStock extends React.Component{
     const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
     //const suggestions = suburbs
     const suggestions = this.state.productos
-      .filter( suburbObj => suburbMatchRegex.test(suburbObj.description + ' Marca: ' + suburbObj.brand  + ' Codigo: ' + suburbObj.code) )
+      .filter( suburbObj => suburbMatchRegex.test(suburbObj.description + ' Marca1: ' + suburbObj.brand) )
       .sort( (suburbObj1, suburbObj2) =>
         suburbObj1.description.toLowerCase().indexOf(lowercasedInput) -
         suburbObj2.description.toLowerCase().indexOf(lowercasedInput)
@@ -67,7 +67,7 @@ export default class FormStock extends React.Component{
   renderSuggestion(suggestionObj, input) {
     const escapedInput = utils.escapeRegexCharacters(input);
     const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
-    const suggestion = 'Descripcion: ' + suggestionObj.description + ' /*/ Marca: ' + suggestionObj.brand + ' /*/ Cod.: ' + suggestionObj.code;
+    const suggestion = suggestionObj.description + '   --> Marca: ' + suggestionObj.brand;
     const firstMatchIndex = suggestion.search(suburbMatchRegex);
 
     if (firstMatchIndex === -1) {
@@ -81,7 +81,7 @@ export default class FormStock extends React.Component{
     return (
       <span>
         {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
-        <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population}</small>
+        <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population} --> Codigo: {suggestionObj.code}</small>
       </span>
     );
   }

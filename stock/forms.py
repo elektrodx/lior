@@ -1,4 +1,4 @@
-import autocomplete_light
+#import autocomplete_light
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from .models import Unit

@@ -20,7 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^singin/', 'user_lior.views.singin', name='singin'),
-    url(r'^autocomplete/', include('autocomplete_light.urls')),
+#    url(r'^autocomplete/', include('autocomplete_light.urls')),
     url(r'^add_provider/', 'relations.views.add_provider', name='add_provider'),
     url(r'^add_unit/', 'stock.views.add_unit', name='add_unit'),
     url(r'^add_unit_2/', 'stock.views.add_unit_2', name='add_unit_2'),
