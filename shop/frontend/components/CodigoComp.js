@@ -3,6 +3,7 @@
  */
 
 import React from 'react';
+import DescriptionComp from './DescriptionComp'
 
 export default class CodigoComp extends React.Component {
 	
@@ -10,6 +11,7 @@ export default class CodigoComp extends React.Component {
 		return <div>
 			<label for="codeField">Codigo: </label>
 			<input type="text" id="codeField"/>
+			<DescriptionComp/>
 		</div>
 	}
 }
