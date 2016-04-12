@@ -83,21 +83,21 @@ module.exports = exports['default'];
  * Modules Dependiencies
  */
 
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _react = require('react');
 
@@ -109,29 +109,29 @@ var DescriptionComp = (function (_React$Component) {
 	function DescriptionComp() {
 		_classCallCheck(this, DescriptionComp);
 
-		_get(Object.getPrototypeOf(DescriptionComp.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(DescriptionComp.prototype), "constructor", this).apply(this, arguments);
 	}
 
 	_createClass(DescriptionComp, [{
-		key: 'render',
+		key: "render",
 		value: function render() {
-			return _react2['default'].createElement(
-				'div',
+			return _react2["default"].createElement(
+				"div",
 				null,
-				_react2['default'].createElement(
-					'span',
-					null,
-					'Descripción'
+				_react2["default"].createElement(
+					"span",
+					{ id: "descriptionfield" },
+					"Descripción"
 				)
 			);
 		}
 	}]);
 
 	return DescriptionComp;
-})(_react2['default'].Component);
+})(_react2["default"].Component);
 
-exports['default'] = DescriptionComp;
-module.exports = exports['default'];
+exports["default"] = DescriptionComp;
+module.exports = exports["default"];
 
 },{"react":164}],4:[function(require,module,exports){
 /*
@@ -170,10 +170,6 @@ var _PriceoComp = require('./PriceoComp');
 
 var _PriceoComp2 = _interopRequireDefault(_PriceoComp);
 
-var _ShopcartComp = require('./ShopcartComp');
-
-var _ShopcartComp2 = _interopRequireDefault(_ShopcartComp);
-
 var MainComponent = (function (_React$Component) {
 	_inherits(MainComponent, _React$Component);
 
@@ -191,8 +187,7 @@ var MainComponent = (function (_React$Component) {
 				null,
 				_react2['default'].createElement(_CodigoComp2['default'], null),
 				_react2['default'].createElement(_QtyComp2['default'], null),
-				_react2['default'].createElement(_PriceoComp2['default'], null),
-				_react2['default'].createElement(_ShopcartComp2['default'], null)
+				_react2['default'].createElement(_PriceoComp2['default'], null)
 			);
 		}
 	}]);
@@ -203,7 +198,7 @@ var MainComponent = (function (_React$Component) {
 exports['default'] = MainComponent;
 module.exports = exports['default'];
 
-},{"./CodigoComp":2,"./PriceoComp":5,"./QtyComp":7,"./ShopcartComp":8,"react":164}],5:[function(require,module,exports){
+},{"./CodigoComp":2,"./PriceoComp":5,"./QtyComp":7,"react":164}],5:[function(require,module,exports){
 /*
  * Modules Dependiencies
  */
@@ -232,28 +227,59 @@ var _PricetComp = require('./PricetComp');
 
 var _PricetComp2 = _interopRequireDefault(_PricetComp);
 
+var _ShopcartComp = require('./ShopcartComp');
+
+var _ShopcartComp2 = _interopRequireDefault(_ShopcartComp);
+
 var PriceoComp = (function (_React$Component) {
 	_inherits(PriceoComp, _React$Component);
 
-	function PriceoComp() {
+	function PriceoComp(props) {
 		_classCallCheck(this, PriceoComp);
 
-		_get(Object.getPrototypeOf(PriceoComp.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(PriceoComp.prototype), 'constructor', this).call(this, props);
+		this.state = { productshop: [] };
+		this.clickEvent = this.clickEvent.bind(this);
 	}
 
 	_createClass(PriceoComp, [{
+		key: 'clickEvent',
+		value: function clickEvent(event) {
+			event.preventDefault();
+			var item = [];
+			var array = this.state.productshop;
+			item.push(document.getElementById('codeField').value);
+			item.push(document.getElementById('descriptionfield').innerHTML);
+			array.push(item);
+			this.setState({ productshop: array });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
 				null,
 				_react2['default'].createElement(
-					'label',
-					{ 'for': 'priceoField' },
-					'Precio Unit:'
+					'div',
+					null,
+					_react2['default'].createElement(
+						'label',
+						{ 'for': 'priceoField' },
+						'Precio Unit:'
+					),
+					_react2['default'].createElement('input', { type: 'text', id: 'priceoField' }),
+					_react2['default'].createElement(_PricetComp2['default'], null),
+					_react2['default'].createElement(
+						'button',
+						{ type: 'submit', onClick: this.clickEvent.bind(this) },
+						'agregar'
+					)
 				),
-				_react2['default'].createElement('input', { type: 'text', id: 'priceoField' }),
-				_react2['default'].createElement(_PricetComp2['default'], null)
+				_react2['default'].createElement(
+					'div',
+					null,
+					_react2['default'].createElement(_ShopcartComp2['default'], { productsshop: this.state.productshop })
+				)
 			);
 		}
 	}]);
@@ -264,7 +290,7 @@ var PriceoComp = (function (_React$Component) {
 exports['default'] = PriceoComp;
 module.exports = exports['default'];
 
-},{"./PricetComp":6,"react":164}],6:[function(require,module,exports){
+},{"./PricetComp":6,"./ShopcartComp":8,"react":164}],6:[function(require,module,exports){
 /*
  * Modules Dependiencies
  */
@@ -447,7 +473,43 @@ var ShopcartComp = (function (_React$Component) {
 						'th',
 						null,
 						'Precio Ajustado'
-					)
+					),
+					this.props.productsshop.map(function (item) {
+						return _react2['default'].createElement(
+							'tr',
+							null,
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[0]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[1]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[2]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[3]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[4]
+							),
+							_react2['default'].createElement(
+								'td',
+								null,
+								item[5]
+							)
+						);
+					})
 				)
 			);
 		}
