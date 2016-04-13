@@ -238,7 +238,7 @@ var PriceoComp = (function (_React$Component) {
 		_classCallCheck(this, PriceoComp);
 
 		_get(Object.getPrototypeOf(PriceoComp.prototype), 'constructor', this).call(this, props);
-		this.state = { productshop: [] };
+		this.state = { productshop: [], pricet: 0 };
 		this.clickEvent = this.clickEvent.bind(this);
 	}
 
@@ -250,6 +250,9 @@ var PriceoComp = (function (_React$Component) {
 			var array = this.state.productshop;
 			item.push(document.getElementById('codeField').value);
 			item.push(document.getElementById('descriptionfield').innerHTML);
+			item.push(document.getElementById('qtyComp').value);
+			item.push(document.getElementById('priceoField').value);
+			item.push(Number(document.getElementById('qtyComp').value) * Number(document.getElementById('priceoField').value));
 			array.push(item);
 			this.setState({ productshop: array });
 		}
@@ -268,7 +271,7 @@ var PriceoComp = (function (_React$Component) {
 						'Precio Unit:'
 					),
 					_react2['default'].createElement('input', { type: 'text', id: 'priceoField' }),
-					_react2['default'].createElement(_PricetComp2['default'], null),
+					_react2['default'].createElement(_PricetComp2['default'], { data: this.state.pricet }),
 					_react2['default'].createElement(
 						'button',
 						{ type: 'submit', onClick: this.clickEvent.bind(this) },
@@ -333,7 +336,8 @@ var PricetComp = (function (_React$Component) {
 				_react2['default'].createElement(
 					'span',
 					null,
-					'Precio Total'
+					'Precio Total: ',
+					this.props.data
 				)
 			);
 		}
