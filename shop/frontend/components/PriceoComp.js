@@ -21,7 +21,14 @@ export default class PriceoComp extends React.Component{
 		item.push(document.getElementById('descriptionfield').innerHTML);
 		item.push(document.getElementById('qtyComp').value);
 		item.push(document.getElementById('priceoField').value);
-		item.push(Number(document.getElementById('qtyComp').value) * Number(document.getElementById('priceoField').value))
+		var pt, ptc, ge, ppt, ppu = 0
+		pt = Number(document.getElementById('qtyComp').value) * Number(document.getElementById('priceoField').value);
+		ptc = Number(document.getElementById('id_total_price').value);
+		ge = Number(document.getElementById('id_price_extra').value);
+		item.push(pt);
+		ppt = pt + (( pt/ptc ) * ge);
+		ppu = ppt/Number(document.getElementById('qtyComp').value);
+		item.push(ppu);
 		array.push(item);
 		this.setState({productshop: array});
 
