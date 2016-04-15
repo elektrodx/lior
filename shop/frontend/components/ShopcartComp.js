@@ -6,7 +6,7 @@ import React from 'react';
 export default class ShopcartComp extends React.Component{
 	render(){
 		return <div>
-			<table>
+			<table className="table-head">
 				<th>Codigo</th>
 				<th>Descripcion</th>
 				<th>Cantidad</th>
