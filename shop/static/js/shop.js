@@ -246,6 +246,11 @@ var PriceoComp = (function (_React$Component) {
 		key: 'clickEvent',
 		value: function clickEvent(event) {
 			event.preventDefault();
+			document.getElementById('id_provider').disabled = true;
+			document.getElementById('id_total_price').disabled = true;
+			document.getElementById('id_price_extra').disabled = true;
+			document.getElementById('id_payed').disabled = true;
+			document.getElementById('id_pay_due').disabled = true;
 			var item = [];
 			var array = this.state.productshop;
 			item.push(document.getElementById('codeField').value);
@@ -260,10 +265,10 @@ var PriceoComp = (function (_React$Component) {
 			pt = Number(document.getElementById('qtyComp').value) * Number(document.getElementById('priceoField').value);
 			ptc = Number(document.getElementById('id_total_price').value);
 			ge = Number(document.getElementById('id_price_extra').value);
-			item.push(pt);
+			item.push(pt.toFixed(2));
 			ppt = pt + pt / ptc * ge;
 			ppu = ppt / Number(document.getElementById('qtyComp').value);
-			item.push(ppu);
+			item.push(ppu.toFixed(2));
 			array.push(item);
 			this.setState({ productshop: array });
 		}
@@ -272,7 +277,7 @@ var PriceoComp = (function (_React$Component) {
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
-				null,
+				{ className: 'lastcomponent' },
 				_react2['default'].createElement(
 					'div',
 					null,
@@ -285,7 +290,7 @@ var PriceoComp = (function (_React$Component) {
 					_react2['default'].createElement(_PricetComp2['default'], { data: this.state.pricet }),
 					_react2['default'].createElement(
 						'button',
-						{ type: 'submit', onClick: this.clickEvent.bind(this) },
+						{ className: 'boton', type: 'submit', onClick: this.clickEvent.bind(this) },
 						'agregar'
 					)
 				),
