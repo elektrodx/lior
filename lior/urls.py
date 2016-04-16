@@ -20,7 +20,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^singin/', 'user_lior.views.singin', name='singin'),
-#    url(r'^autocomplete/', include('autocomplete_light.urls')),
+    url(r'^autocomplete/', include('autocomplete_light.urls')),
     url(r'^add_provider/', 'relations.views.add_provider', name='add_provider'),
     url(r'^add_unit/', 'stock.views.add_unit', name='add_unit'),
     url(r'^add_unit_2/', 'stock.views.add_unit_2', name='add_unit_2'),
@@ -32,6 +32,5 @@ urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
     url(r'^detail_stock/', 'stock.views.detail_stock', name='detail_stock'),
     url(r'^logout_l/', 'user_lior.views.logout_view', name='logout_view'),
-    url(r'^add_shop/', 'shop.views.add_shop', name='add_shop')
-   
+    url(r'^add_shop/', 'shop.views.add_shop', name='add_shop'),  
 ]

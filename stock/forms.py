@@ -1,4 +1,4 @@
-#import autocomplete_light
+import autocomplete_light
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from .models import Unit
@@ -10,9 +10,8 @@ class UnitForm(ModelForm):
 		model = Unit
 		fields = ('unit',)
 
-#class StockForm(ModelForm):
 class StockForm(ModelForm):
-	# description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
+	description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
 	class Meta:
 		# = autocomplete_light.get_widgets_dict(Stock)
 		model = Stock
