@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^add_unit_2/', 'stock.views.add_unit_2', name='add_unit_2'),
     url(r'^add_stock/', 'stock.views.add_stock', name='add_stock'),
     url(r'^list_stock/', 'stock.views.list_stock', name='list_stock'),
+    url(r'^list_stock_2/', 'stock.views.list_stock_2', name='list_stock_2'),
     url(r'^add_sucursal/', 'user_lior.views.add_sucursal', name='add_sucursal'),
     url(r'^add_sucursal_2/', 'user_lior.views.add_sucursal_2', name='add_sucursal_2'),
     url(r'^add_sale/', 'sales.views.add_sale', name='add_sale'),

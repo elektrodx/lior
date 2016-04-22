@@ -4,10 +4,10 @@
 
 import React from 'react';
 
-export default class DescriptionComp extends React.Component{
-	render(){
+export default class DescriptionComp extends React.Component{		
+	render(){		
 		return <div>
-			<span id="descriptionfield">Descripción</span>
+			<span id='descriptionfield'>Descripción: {this.props.prod}</span>
 		</div>
 	}
 }

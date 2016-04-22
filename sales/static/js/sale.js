@@ -352,7 +352,7 @@ var FormStock = (function (_React$Component) {
     value: function componentWillMount() {
       var _this = this;
 
-      fetch('http://localhost:8000/list_stock/').then(function (response) {
+      fetch('http://127.0.0.1:8000/list_stock/').then(function (response) {
         return response.json();
       }).then(function (productos) {
         _this.setState({ productos: productos });
