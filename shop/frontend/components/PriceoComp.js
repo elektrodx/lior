@@ -23,7 +23,7 @@ export default class PriceoComp extends React.Component{
 		var item = [];
 		var array = this.state.productshop;
 		item.push(document.getElementById('codeField').value);
-		item.push(document.getElementById('descriptionfield').innerHTML);
+		item.push(document.getElementById('descriptionfield').value);
 		item.push(document.getElementById('qtyComp').value);
 		item.push(document.getElementById('priceoField').value);
 		var pt, ptc, ge, ppt, ppu = 0
@@ -36,7 +36,7 @@ export default class PriceoComp extends React.Component{
 		item.push(ppu.toFixed(2));
 		array.push(item);
 		this.setState({productshop: array});
-
+		document.getElementById('codeField').focus();
 	}
 
 	render(){

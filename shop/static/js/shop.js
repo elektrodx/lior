@@ -61,7 +61,7 @@ var CodigoComp = (function (_React$Component) {
 		_classCallCheck(this, CodigoComp);
 
 		_get(Object.getPrototypeOf(CodigoComp.prototype), 'constructor', this).call(this, props);
-		this.state = { productos: [], prods: [] };
+		this.state = { productos: [], prods: [], descrip: [] };
 		var suburbs = [];
 	}
 
@@ -79,6 +79,16 @@ var CodigoComp = (function (_React$Component) {
 	}, {
 		key: 'getSuggestions',
 		value: function getSuggestions(input, callback) {
+			// var suggestions = "";
+			// console.log(input)
+			// fetch('http://127.0.0.1:8000/list_code/'+ input )
+			//      .then((response) => {
+			//        return response.json()
+			//      })
+			//      .then((productos) => {
+			//        this.setState({ productos: productos })
+			//      })
+			//    console.log(this.state.productos)
 			var requestDelay = 50 + Math.floor(300 * Math.random());
 			var escapedInput = _node_modulesReactAutosuggestExamplesSrcUtilsJs2['default'].escapeRegexCharacters(input.trim());
 			var lowercasedInput = input.trim().toLowerCase();
@@ -90,53 +100,20 @@ var CodigoComp = (function (_React$Component) {
 			}).slice(0, 7).map(function (suburbObj) {
 				return suburbObj.code;
 			});
-
-			setTimeout(function () {
-				return callback(null, suggestions);
-			}, requestDelay);
-
-			var mproduct = [];
 			console.log(suggestions);
+			var mproduct = [];
 			this.state.productos.map(function (iteme) {
 				if (iteme.code == suggestions) {
 					mproduct.push(iteme.description);
 					console.log(mproduct);
-				};
+				}
 			});
 			this.setState({ prods: mproduct });
+
+			setTimeout(function () {
+				return callback(null, suggestions);
+			}, requestDelay);
 		}
-
-		// renderSuggestion(suggestionObj, input) {
-		//     const escapedInput = utils.escapeRegexCharacters(input);
-		//     const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
-		//     const suggestion = 'Codigo: ' + suggestionObj.code;
-		//     const firstMatchIndex = suggestion.search(suburbMatchRegex);
-
-		//     if (firstMatchIndex === -1) {
-		//       return suggestion;
-		//     }
-
-		//     const beforeMatch = suggestion.slice(0, firstMatchIndex);
-		//     const match = suggestion.slice(firstMatchIndex, firstMatchIndex + input.length);
-		//     const afterMatch = suggestion.slice(firstMatchIndex + input.length);
-
-		//     return (
-		//       <span>
-		//         {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
-		//         <small style={{ color: '#777' }}>Descripcion: {suggestionObj.description}</small>
-		//       </span>
-		//     );
-		// }
-
-		// getSuggestionValue(suggestion) {
-		// 	var mproduct = []
-		// 	mproduct.push(suggestion.description)
-		// 	console.log(mproduct)
-		// 	debugger
-		// 	this.setState({prods: mproduct })
-		// 	return suggestion.code;
-		// }
-
 	}, {
 		key: 'render',
 		value: function render() {
@@ -165,21 +142,21 @@ module.exports = exports['default'];
  * Modules Dependiencies
  */
 
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _react = require('react');
 
@@ -191,30 +168,35 @@ var DescriptionComp = (function (_React$Component) {
 	function DescriptionComp() {
 		_classCallCheck(this, DescriptionComp);
 
-		_get(Object.getPrototypeOf(DescriptionComp.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(DescriptionComp.prototype), "constructor", this).apply(this, arguments);
 	}
 
 	_createClass(DescriptionComp, [{
-		key: 'render',
+		key: "render",
 		value: function render() {
-			return _react2['default'].createElement(
-				'div',
+			return _react2["default"].createElement(
+				"div",
 				null,
-				_react2['default'].createElement(
-					'span',
-					{ id: 'descriptionfield' },
-					'Descripción: ',
+				_react2["default"].createElement(
+					"label",
+					{ "for": "descriptionfield" },
+					"Descripción: "
+				),
+				_react2["default"].createElement(
+					"span",
+					null,
 					this.props.prod
-				)
+				),
+				_react2["default"].createElement("data", { id: "descriptionfield", value: this.props.prod })
 			);
 		}
 	}]);
 
 	return DescriptionComp;
-})(_react2['default'].Component);
+})(_react2["default"].Component);
 
-exports['default'] = DescriptionComp;
-module.exports = exports['default'];
+exports["default"] = DescriptionComp;
+module.exports = exports["default"];
 
 },{"react":170}],4:[function(require,module,exports){
 /*
@@ -337,7 +319,7 @@ var PriceoComp = (function (_React$Component) {
 			var item = [];
 			var array = this.state.productshop;
 			item.push(document.getElementById('codeField').value);
-			item.push(document.getElementById('descriptionfield').innerHTML);
+			item.push(document.getElementById('descriptionfield').value);
 			item.push(document.getElementById('qtyComp').value);
 			item.push(document.getElementById('priceoField').value);
 			var pt,
@@ -354,6 +336,7 @@ var PriceoComp = (function (_React$Component) {
 			item.push(ppu.toFixed(2));
 			array.push(item);
 			this.setState({ productshop: array });
+			document.getElementById('codeField').focus();
 		}
 	}, {
 		key: 'render',

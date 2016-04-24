@@ -48,12 +48,6 @@ def list_stock(request):
 	data = [{'description': item.description, 'brand': item.brand, 'code': item.code, 'qty': item.qty, 'price': item.price_base, 'unit': item.units.unit, 'place': item.place.name, 'pk': item.pk } for item in q_stock ]
 	return JsonResponse(data, safe=False)
 
-def list_stock_2(request):
-	request = 'col003'
-	q_stock = Stock.objects.filter(code = request)
-	data = [{'description': item.description, 'code': item.code, 'pk': item.pk } for item in q_stock ]
-	return JsonResponse(data, safe=False)
-
 @login_required(login_url="/singin")
 def detail_stock(request):
 	q_stock = Stock.objects.all()

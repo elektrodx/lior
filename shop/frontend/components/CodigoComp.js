@@ -10,7 +10,7 @@ import DescriptionComp from './DescriptionComp';
 export default class CodigoComp extends React.Component {
 	constructor(props) {
 	    super(props)
-	    this.state = { productos: [], prods: [] }
+	    this.state = { productos: [], prods: [], descrip: [] }
 	    const suburbs = [];
   	}
 
@@ -25,62 +25,40 @@ export default class CodigoComp extends React.Component {
   	}
 
 	getSuggestions(input, callback) {
+		// var suggestions = "";
+		// console.log(input)
+		// fetch('http://127.0.0.1:8000/list_code/'+ input )
+	 //      .then((response) => {
+	 //        return response.json()
+	 //      })
+	 //      .then((productos) => {
+	 //        this.setState({ productos: productos })
+	 //      })
+	 //    console.log(this.state.productos)
 		const requestDelay = 50 + Math.floor(300 * Math.random());
 	    const escapedInput = utils.escapeRegexCharacters(input.trim());
 	    const lowercasedInput = input.trim().toLowerCase();
 	    const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
-	    const suggestions = this.state.productos
-	    .filter( suburbObj => suburbMatchRegex.test(' Codigo: ' + suburbObj.code) )
+	    var suggestions = this.state.productos
+	    .filter( suburbObj => suburbMatchRegex.test(' Codigo: ' + suburbObj.code ) )
 	    	.sort( (suburbObj1, suburbObj2) =>
 	    		suburbObj1.code.toLowerCase().indexOf(lowercasedInput) -
 	    		suburbObj2.code.toLowerCase().indexOf(lowercasedInput)
 	    	)
 	    	.slice(0, 7)
 	    	.map( suburbObj => suburbObj.code );
-
-	    setTimeout(() => callback(null, suggestions), requestDelay);
-
-	    var mproduct = []
 	    console.log(suggestions)
+	    var mproduct = []
 	    this.state.productos.map((iteme) => {
 	    	if (iteme.code == suggestions) {
 	    		mproduct.push(iteme.description)
 	    		console.log(mproduct)
-	    	};
+	    	}
 	    })
 		this.setState({prods: mproduct })
+
+	    setTimeout(() => callback(null, suggestions), requestDelay);
 	}
-
-	// renderSuggestion(suggestionObj, input) {
-	//     const escapedInput = utils.escapeRegexCharacters(input);
-	//     const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
-	//     const suggestion = 'Codigo: ' + suggestionObj.code;
-	//     const firstMatchIndex = suggestion.search(suburbMatchRegex);
-
-	//     if (firstMatchIndex === -1) {
-	//       return suggestion;
-	//     }
-
-	//     const beforeMatch = suggestion.slice(0, firstMatchIndex);
-	//     const match = suggestion.slice(firstMatchIndex, firstMatchIndex + input.length);
-	//     const afterMatch = suggestion.slice(firstMatchIndex + input.length);
-
-	//     return (
-	//       <span>
-	//         {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
-	//         <small style={{ color: '#777' }}>Descripcion: {suggestionObj.description}</small>
-	//       </span>
-	//     );
-	// }
-
-	// getSuggestionValue(suggestion) { 
-	// 	var mproduct = []
-	// 	mproduct.push(suggestion.description)
-	// 	console.log(mproduct)
-	// 	debugger
-	// 	this.setState({prods: mproduct })
-	// 	return suggestion.code;
-	// }
 
 	render(){
 		return <div>
