@@ -16,6 +16,7 @@ Including another URLconf
 #from django.conf.urls import include, url
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
+from sales.views import Invoice
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -35,5 +36,6 @@ urlpatterns = [
     url(r'^$', 'home.views.home', name='home'),
     url(r'^detail_stock/', 'stock.views.detail_stock', name='detail_stock'),
     url(r'^logout_l/', 'user_lior.views.logout_view', name='logout_view'),
-    url(r'^add_shop/', 'shop.views.add_shop', name='add_shop'),  
+    url(r'^add_shop/', 'shop.views.add_shop', name='add_shop'),
+    url(r'^invoice/',  Invoice.as_view()), 
 ]
