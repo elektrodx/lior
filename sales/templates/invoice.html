@@ -10,12 +10,11 @@
 		</figure>
 		<div class="line1">
 			<span>RECIBO</span>
-			<span>No.</span>
-			<span>NNN</span>
+			<span>No. {{ pk }}</span>
 		</div>
 		<div class="line2">
-			<span>XXXXXXXXXXXXXXXX</span>
-			<span>NN/NN/NN</span>
+			<span>{{ customer }}</span>
+			<span>{{ date|date:"d M Y" }}</span>
 		</div>
 		<table class="table-items">
 			<tr>

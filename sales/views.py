@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import *
+from .models import *
 from django.contrib.auth.decorators import login_required
-from wkhtmltopdf.views import PDFTemplateView
+from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 
 @login_required(login_url="/singin")
 def add_sale(request):
@@ -18,9 +19,17 @@ def add_sale(request):
 
 
 class Invoice(PDFTemplateView):
-    filename = 'my_pdf.pdf'
-    template_name = 'invoice.html'
-    cmd_options = {
-        'margin-top': 3,
-        'orientation': 'Landscape',
-    }
+    template='invoice.html'
+    q_sales= Sales.objects.all().last()
+    context = { 'pk': q_sales.pk, 'customer': q_sales.customer, 'date': q_sales.date }
+    def get(self, request):
+        response = PDFTemplateResponse(request=request,
+                                       template=self.template,
+                                       filename="hello.pdf",
+                                       context= self.context,
+                                       show_content_in_browser=True,
+                                       cmd_options={'margin-top': 5,
+                                       'orientation': 'Landscape',
+                                       'page-size': 'Letter'},
+                                       )
+        return response
