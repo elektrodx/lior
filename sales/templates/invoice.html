@@ -24,11 +24,21 @@
 				<th>CANTIDAD</th>
 				<th>PRECIO</th>
 				<th>SUBTOTAL</th>
-			</tr>	
+			</tr>
+			{% for index in items %}
+			<tr>
+				<td>{{ forloop.counter }}</td>
+				<td>{{ index.item.code }}</td>
+				<td>{{ index.item.description }}</td>
+				<td>{{ index.qty }}</td>
+				<td>{{ index.price }}</td>
+				<td>{% widthratio index.qty 1 index.price %}</td>
+			</tr>
+			{% endfor %}	
 		</table>
 		<div class="total">
 			<span>Total Bs.</span>
-			<span>NNNNN.NN</span>
+			<span>{{ total }}</span>
 		</div>
 	</div>
 </body>

@@ -20,8 +20,9 @@ def add_sale(request):
 
 class Invoice(PDFTemplateView):
     template='invoice.html'
-    q_sales= Sales.objects.all().last()
-    context = { 'pk': q_sales.pk, 'customer': q_sales.customer, 'date': q_sales.date }
+    q_sales = Sales.objects.all().last()
+    d_sales = SalesDetail.objects.filter(sale=q_sales.pk)
+    context = { 'pk': q_sales.pk, 'customer': q_sales.customer, 'date': q_sales.date, 'total': q_sales.amount, 'items': d_sales }
     def get(self, request):
         response = PDFTemplateResponse(request=request,
                                        template=self.template,
