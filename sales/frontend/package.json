@@ -2,6 +2,7 @@
   "name": "lior",
   "scripts": {
     "stylus": "stylus -c -w -o ../static/css/ stylus/add_sale.styl",
+    "sty_in": "stylus -c -w -o ../static/css/ stylus/invoice.styl",
     "build": "browserify app.js > ../static/js/sale.js -t babelify"
   },
   "dependencies": {

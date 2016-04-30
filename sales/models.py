@@ -23,4 +23,7 @@ class SalesDetail(models.Model):
 	price = models.DecimalField(max_digits=6, decimal_places=2)
 	note = models.TextField(blank=True, null=True)
 
+	@property
+	def total_cost(self):
+		return self.qty * self.price
 
