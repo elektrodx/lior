@@ -6,19 +6,20 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/invoice.css" %}"> -->
 	<title>Recibo</title>
 </head>
-<body style="font-family:Arial; font-size:12px;">
-	<div class="main_left" style="width:200px;">
-		<figure>
+<body style="font-family:Arial; font-size:14px;">
+	<div class="main_left" style="width:400px;">
+		<figure style="width:50px; margin:0">
+			<img style="width:50px; margin:0" src="/Users/elektrodx/Documents/Development/lior/lior/lior.png">
 		</figure>
-		<div class="line1">
-			<span>RECIBO</span>
-			<span>No. {{ pk }}</span>
+		<div>
+			<span style="font-size:18px; left:60px; margin-left:60px;">RECIBO</span>
+			<span style="float:right;">No. {{ pk }}</span>
 		</div>
 		<div class="line2">
 			<span>{{ customer }}</span>
-			<span>{{ date|date:"d M Y" }}</span>
+			<span style="float:right;">{{ date|date:"d M Y" }}</span>
 		</div>
-		<table class="table-items">
+		<table style="margin-top:28px;">
 			<tr>
 				<th>ITEM</th>
 				<th>CODIGO</th>
@@ -28,7 +29,7 @@
 				<th>SUBTOTAL</th>
 			</tr>
 			{% for index in items %}
-			<tr style="font-size:8px;">
+			<tr style="font-size:10px;">
 				<td>{{ forloop.counter }}</td>
 				<td>{{ index.item.code }}</td>
 				<td>{{ index.item.description }}</td>
