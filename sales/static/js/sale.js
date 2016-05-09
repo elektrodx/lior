@@ -102,7 +102,8 @@ var CartComponent = (function (_React$Component) {
 					),
 					this.props.data.map(function (item) {
 						_this.props.sum = _this.props.sum + Number(item[5]);
-						return _react2['default'].createElement(
+						return;
+						_react2['default'].createElement(
 							'tr',
 							null,
 							_react2['default'].createElement(
@@ -585,7 +586,7 @@ var PriceField = (function (_React$Component) {
 			TproductSold.push(this.props.productSold);
 			this.setState({ productSold: TproductSold });
 			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;
+			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;;
 			document.getElementById("qtyField").value = "";
 			document.getElementById("PriceField").value = "";
 		}
