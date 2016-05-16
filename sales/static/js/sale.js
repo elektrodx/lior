@@ -102,8 +102,7 @@ var CartComponent = (function (_React$Component) {
 					),
 					this.props.data.map(function (item) {
 						_this.props.sum = _this.props.sum + Number(item[5]);
-						return;
-						_react2['default'].createElement(
+						return _react2['default'].createElement(
 							'tr',
 							null,
 							_react2['default'].createElement(
@@ -586,7 +585,7 @@ var PriceField = (function (_React$Component) {
 			TproductSold.push(this.props.productSold);
 			this.setState({ productSold: TproductSold });
 			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;;
+			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;
 			document.getElementById("qtyField").value = "";
 			document.getElementById("PriceField").value = "";
 		}
@@ -598,26 +597,31 @@ var PriceField = (function (_React$Component) {
 				null,
 				_react2['default'].createElement(
 					'select',
-					{ className: 'list', name: 'pricef', defaultValue: this.props.price_base, onChange: this.handleSelect.bind(this) },
+					{ className: 'list', name: 'pricef', onChange: this.handleSelect.bind(this) },
+					_react2['default'].createElement(
+						'option',
+						{ value: '' },
+						'Elija valor...'
+					),
 					_react2['default'].createElement(
 						'option',
 						{ value: this.props.price_base + 0.30 * this.props.price_base },
-						'Factura'
+						'C/ Factura'
 					),
 					_react2['default'].createElement(
 						'option',
 						{ value: this.props.price_base + 0.20 * this.props.price_base },
-						'Sin Factura'
+						'S/ Factura'
 					),
 					_react2['default'].createElement(
 						'option',
 						{ value: this.props.price_base + 0.10 * this.props.price_base },
-						'Estuduante'
+						'Estudiante'
 					),
 					_react2['default'].createElement(
 						'option',
 						{ value: this.props.price_base },
-						'Base'
+						'Precio Base'
 					)
 				),
 				_react2['default'].createElement(_PriceFinal2['default'], { value: this.state.price_base1 }),

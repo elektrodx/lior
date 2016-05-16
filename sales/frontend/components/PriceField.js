@@ -30,18 +30,19 @@ export default class PriceField extends React.Component{
 		TproductSold.push(this.props.productSold);
 		this.setState({productSold: TproductSold})
 		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;;
+		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;
 		document.getElementById("qtyField").value = "";
 		document.getElementById("PriceField").value = "";
 	}
 
 	render(){
 		return <div> 
-			<select className="list" name="pricef" defaultValue={this.props.price_base} onChange={this.handleSelect.bind(this)}>
-				<option value={this.props.price_base+(0.30*this.props.price_base)}>Factura</option>
-				<option value={this.props.price_base+(0.20*this.props.price_base)}>Sin Factura</option>
-				<option value={this.props.price_base+(0.10*this.props.price_base)}>Estuduante</option>
-				<option value={this.props.price_base}>Base</option>
+			<select className="list" name="pricef" onChange={this.handleSelect.bind(this)}>
+				<option value="">Elija valor...</option>
+				<option value={this.props.price_base+(0.30*this.props.price_base)}>C/ Factura</option>
+				<option value={this.props.price_base+(0.20*this.props.price_base)}>S/ Factura</option>
+				<option value={this.props.price_base+(0.10*this.props.price_base)}>Estudiante</option>
+				<option value={this.props.price_base}>Precio Base</option>
 			</select>
 			<PriceFinal value={this.state.price_base1}/>
 			<div className="qtyField">

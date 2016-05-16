@@ -45,3 +45,6 @@ def json_sale_d(request, code_sale_d):
 	with open(path, 'r') as f:
 		sales_data = json.load(f)
 	return render(request, 'json_sales.html', locals())
+
+def json_data(request):
+	descrip = request

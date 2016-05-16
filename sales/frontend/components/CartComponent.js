@@ -20,8 +20,7 @@ export default class CartComponent extends React.Component{
 				</tr>
 				{this.props.data.map((item) => {
 				this.props.sum = this.props.sum + Number(item[5])
-				return 	
-					<tr>
+				return 	<tr>
 						<td>{item[0]}</td>
 						<td>{item[1]}</td>
 						<td>{item[2]}</td>
