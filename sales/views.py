@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 import os, json
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
+
 
 @login_required(login_url="/singin")
 def add_sale(request):
@@ -89,3 +91,13 @@ class Invoice(PDFTemplateView):
                                        'page-size': 'Letter'},
                                        )
         return response
+@csrf_exempt
+def sales_postjson(request):
+  if request.method == 'POST':
+    if request.is_ajax():
+      data = request.body
+      return data
+    s = Sales()
+    s.amount = data.amount
+    s.save()
+    return render(request,'home.html')

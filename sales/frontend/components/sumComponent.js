@@ -3,7 +3,10 @@
  */
 
 import React from 'react';
+import jquery from 'jquery';
 import TotalPrice from './TotalPrice';
+
+var $ = require('jquery');
 
 export default class sumComponent extends React.Component{
 	constructor(props){
@@ -17,7 +20,14 @@ export default class sumComponent extends React.Component{
 		console.log(sum)
 		this.setState({ amount: sum })
 	}
-
+	OncickEvent (event){
+		$.ajax({
+			url: "/sales_savejson/",
+			dataType: "json",
+			type: "POST",
+			data: { amount: this.state.amount, customer: 1 } 
+			});
+	}
 	render(){
 		return <div className="sumComponent">
 			<div>
@@ -29,7 +39,7 @@ export default class sumComponent extends React.Component{
 				<input type="number" id="descAmount" onKeyUp={this.eventKeyPress.bind(this)}/>
 			</div>
 			<TotalPrice amount={this.state.amount}/>
-			<button className="boton padding">Procesar</button>	
+			<button className="boton padding" onClick={this.OncickEvent.bind(this)} >Procesar</button>	
 		</div>
 	}
 }

@@ -43,4 +43,5 @@ urlpatterns = [
     url(r'^json_sale_d/(?P<code_sale_d>\w+)/$', 'filters.views.json_sale_d', name='json_sale_d'),
     url(r'^add_sale_d/(?P<code_sale_d>\w+)/$', 'sales.views.add_sale_d', name='add_sale_d'),
     url(r'^add_sale_det/(?P<code_sale_det>\w+)/$', 'sales.views.add_sale_det', name='add_sale_det'),
+    url(r'^sales_savejson/$', 'sales.views.sales_postjson', name='sales_postjson'),
 ]
