@@ -762,11 +762,19 @@ var sumComponent = (function (_React$Component) {
 	}, {
 		key: 'OncickEvent',
 		value: function OncickEvent(event) {
+
+			event.preventDefault();
+
+			$.ajaxSetup({
+				headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+			});
+
 			$.ajax({
-				url: "/sales_savejson/",
+				url: "/sales/",
 				dataType: "json",
+				contentType: "application/json; charset=utf-8",
 				type: "POST",
-				data: { amount: this.state.amount, customer: 1 }
+				data: { user: 1, amount: 45, payed: 0, pay_date: null, customer: 3 }
 			});
 		}
 	}, {

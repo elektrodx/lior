@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
-from sales.views import Invoice
+from sales import views
+# from sales.views import invoice
+from rest_framework import routers
+
+routers = routers.DefaultRouter()
+routers.register(r'sales', views.SalesViewSet)
+routers.register(r'salesdetail', views.SalesDetailViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -36,12 +42,15 @@ urlpatterns = [
     url(r'^detail_stock/', 'stock.views.detail_stock', name='detail_stock'),
     url(r'^logout_l/', 'user_lior.views.logout_view', name='logout_view'),
     url(r'^add_shop/', 'shop.views.add_shop', name='add_shop'),
-    url(r'^invoice/',  Invoice.as_view()), 
+    # url(r'^invoice/',  Invoice.as_view()), 
     url(r'^list_sales/', 'filters.views.list_sales', name='list_sales'),
     url(r'^list_detail_sale/(?P<code_sale>\w+)/$', 'filters.views.list_detail_sale', name='list_detail_sale'),
-    url(r'^json_sales/', 'filters.views.json_sales', name='json_sales'),
-    url(r'^json_sale_d/(?P<code_sale_d>\w+)/$', 'filters.views.json_sale_d', name='json_sale_d'),
-    url(r'^add_sale_d/(?P<code_sale_d>\w+)/$', 'sales.views.add_sale_d', name='add_sale_d'),
-    url(r'^add_sale_det/(?P<code_sale_det>\w+)/$', 'sales.views.add_sale_det', name='add_sale_det'),
-    url(r'^sales_savejson/$', 'sales.views.sales_postjson', name='sales_postjson'),
+    # url(r'^json_sales/', 'filters.views.json_sales', name='json_sales'),
+    # url(r'^json_sale_d/(?P<code_sale_d>\w+)/$', 'filters.views.json_sale_d', name='json_sale_d'),
+    # url(r'^add_sale_d/(?P<code_sale_d>\w+)/$', 'sales.views.add_sale_d', name='add_sale_d'),
+    # url(r'^add_sale_det/(?P<code_sale_det>\w+)/$', 'sales.views.add_sale_det', name='add_sale_det'),
+    # url(r'^sales_savejson/$', 'sales.views.sales_postjson', name='sales_postjson'),
+    url(r'^api/', include(routers.urls)),
+    url(r'^sales/$', 'sales.views.sale_list', name="sale_list"),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
