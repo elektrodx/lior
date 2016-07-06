@@ -60,7 +60,9 @@
 				<th>Vencimiento</th>
 				<th>Cantidad</th>
 				<th>Precio</th>
+				<th>Total</th>
 				<th>Presentación</th>
+				<th>Fraccionado</th>
 				<th>Notas</th>
 			</tr>
 		{% for index in q_stock %}
@@ -71,7 +73,9 @@
 				<td>{{index.date_end}}</td>
 				<td>{{index.qty}}</td>
 				<td>{{index.price_base}}</td>
+				<td>{{index.total_price}}</td>
 				<td>{{index.units}}</td>
+				<td class="center">{{index.parts}}
 				<td>{{index.note}}</td>
 			</tr>
 		{% endfor %}
