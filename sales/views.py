@@ -12,6 +12,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import SalesSerializer, SalesDetailSerializer
+import pdb
+
 
 @login_required(login_url="/singin")
 def add_sale(request):
@@ -59,12 +61,15 @@ class SalesDetailViewSet(viewsets.ModelViewSet):
   queryset = SalesDetail.objects.all()
   serializer_class = SalesDetailSerializer
 
-@api_view(['GET', 'POST'])
-def sale_list(request, format=None):
-    if request.method == 'POST':
-        serializer = SalesSerializer(data=request.data)
-        print serializer
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST,)
+@csrf_exempt
+def sale_list(request):
+    if request.is_ajax:
+      user = int(request.POST.get('user'))
+      amount = float(request.POST.get('amount'))
+      payed = float(request.POST.get('payed'))
+      # pay_date = request.POST.get('pay_date')
+      customer = int(request.POST.get('customer'))
+      # pdb.set_trace()
+      sale = Sales(user_id=user, amount=amount, payed=payed, customer_id=customer)
+      sale.save()
+      return

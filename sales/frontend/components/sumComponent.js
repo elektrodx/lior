@@ -24,17 +24,16 @@ export default class sumComponent extends React.Component{
 		
 		event.preventDefault();
 		
-		$.ajaxSetup({
-            headers:
-            { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
-        });
-		
 		$.ajax({
-			url: "/sales/",
-			dataType: "json",
-			contentType: "application/json; charset=utf-8",
+			url: '/sales/',
+			dataType: 'json',
 			type: "POST",
-			data: { user: 1, amount: 45, payed: 0, pay_date: null, customer: 3 } 
+			data: { 'user': 1,
+			 'amount': this.state.amount,
+			 'payed': 0,
+			 'pay_date': 'null',
+			 'customer': 3,
+			 csrfmiddlewaretoken: '{{ csrf_token }}' } 
 			});
 	}
 	render(){
