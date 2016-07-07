@@ -64,24 +64,14 @@
 			{% csrf_token %}
 			{{ form.non_field_errors }}
 			<div class="field aling">
-				{{ form.brand.errors }}
-				<label for="id_brand" class="field-label">Marca del Producto:</label>
-				{{form.brand}}
-			</div>
-			<div class="field aling">
 				{{form.code.errors}}
 				<label for="id_code" class="field-label">Codigo de Producto:</label>
 				{{ form.code }}
 			</div>
 			<div class="field aling">
-				{{ form.date_end.errors }}
-				<label for="id_date_end" class="field-label">Fecha de Vencimiento:</label>
-				{{ form.date_end }}
-			</div>
-			<div class="field aling">
-				{{ form.qty.errors }}
-				<label for="id_qty" class="field-label">Cantidad:</label>
-				{{ form.qty }}
+				{{ form.brand.errors }}
+				<label for="id_brand" class="field-label">Marca del Producto:</label>
+				{{form.brand}}
 			</div>
 			<div class="field">
 				{{ form.description.errors }}
@@ -91,13 +81,10 @@
 				</div>
 				{{ form.description }}
 			</div>
-			<div class="field">
-				{{ form.price_base.errors }}
-				<label for="id_price_base" class="field-label">Precio Base:</label>
-				<div class="msg-container icon-notification">
-					<span id="msg_price_base">Precio de lista</span>
-				</div>
-				{{ form.price_base }}
+			<div class="field aling">
+				{{ form.qty.errors }}
+				<label for="id_qty" class="field-label">Cantidad:</label>
+				{{ form.qty }}
 			</div>
 			<span id="span_units">
 				<div class="field">
@@ -109,6 +96,27 @@
 					</span>
 				</div>
 			</span>
+			<div class="field">
+				{{ form.price_base.errors }}
+				<label for="id_price_base" class="field-label">Precio Base:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Precio de lista</span>
+				</div>
+				{{ form.price_base }}
+			</div>
+			<div class="field">
+				{{ form.parts.errors }}
+				<label for="id_parts" class="field-label">Fraccionamiento:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Detalle para venta al menudeo</span>
+				</div>
+				{{ form.parts }}
+			</div>
+			<div class="field aling">
+				{{ form.date_end.errors }}
+				<label for="id_date_end" class="field-label">Fecha de Vencimiento:</label>
+				{{ form.date_end }}
+			</div>
 			<span id="span_location">
 				<div class="field">
 					{{ form.place.errors }}

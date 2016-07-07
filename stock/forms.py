@@ -11,10 +11,10 @@ class UnitForm(ModelForm):
 		fields = ('unit',)
 
 class StockForm(ModelForm):
-	description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
+	#description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
 	class Meta:
 		# = autocomplete_light.get_widgets_dict(Stock)
 		model = Stock
-		fields = ('brand', 'qty', 'description', 'code', 'date_end', 'price_base', 'units', 'place', 'note')
+		fields = ('brand', 'qty', 'description', 'code', 'date_end', 'price_base', 'units', 'place', 'note', 'parts')
 		#autocomplete_fields = ['brand']
 		#autocomplete_names = {'brand': 'BrandAutocomplete'}

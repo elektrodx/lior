@@ -13,7 +13,6 @@ class Stock(models.Model):
 	qty = models.IntegerField()
 	parts = models.IntegerField(default=0)
 	parts_left = models.IntegerField(blank=True, null=True)
-	price_by_parts = models.DecimalField(max_digits=6, decimal_places=2)
 	description = models.CharField(max_length=200)
 	price_base = models.DecimalField(max_digits=6, decimal_places=2)
 	units = models.ForeignKey(Unit)
@@ -25,3 +24,7 @@ class Stock(models.Model):
 	@property
 	def total_price(self):
 		return self.qty * self.price_base
+
+	@property
+	def price_by_parts(self):
+		return self.price_base / self.parts
