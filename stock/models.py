@@ -19,8 +19,10 @@ class Stock(models.Model):
 	place = models.ForeignKey(Sucursal)
 	note = models.TextField(blank=True, null=True)
 	def __unicode__(self):
-		# 	return self.brand
-		return "{0}".format(self.description,)
+		return self.description
+		#return "{0}".format(self.description, self.brand,)
+		#return '%s %s' % (self.description, self.brand) 
+		#return "{0} {1}".format(self.description, self.brand)
 	@property
 	def total_price(self):
 		return self.qty * self.price_base

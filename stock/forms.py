@@ -3,7 +3,6 @@ from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from .models import Unit
 from .models import Stock
-from django.forms import widgets
 
 class UnitForm(ModelForm):
 	class Meta:
@@ -11,10 +10,10 @@ class UnitForm(ModelForm):
 		fields = ('unit',)
 
 class StockForm(ModelForm):
-	#description = autocomplete_light.ModelChoiceField('StockDescAutocomplete')
-	class Meta:
-		# = autocomplete_light.get_widgets_dict(Stock)
-		model = Stock
-		fields = ('brand', 'qty', 'description', 'code', 'date_end', 'price_base', 'units', 'place', 'note', 'parts')
-		#autocomplete_fields = ['brand']
-		#autocomplete_names = {'brand': 'BrandAutocomplete'}
+    class Meta:
+        model = Stock
+        autocomplete_fields = ("description",)
+        fields = ('brand', 'qty', 'description', 'code', 'date_end', 'price_base', 'units', 'place', 'note', 'parts')
+        widgets = {
+           "description":autocomplete_light.TextWidget("StockDescAutocomplete"),
+        }
