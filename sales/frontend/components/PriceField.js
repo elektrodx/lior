@@ -14,7 +14,12 @@ export default class PriceField extends React.Component{
 		this.cickEvent = this.cickEvent.bind(this);
 	}
 	handleSelect (event){
-		this.setState({price_base1: event.target.value})
+		Number.prototype.round = function(places) {
+  			return +(Math.round(this + "e+" + places)  + "e-" + places);
+		}
+		var price_sellT = event.target.value;
+		var price_sell = parseFloat(price_sellT).toFixed(2);
+		this.setState({price_base1: price_sell});
 	}
 	cickEvent (event){
 		event.preventDefault();
@@ -39,9 +44,15 @@ export default class PriceField extends React.Component{
 		return <div> 
 			<select className="list" name="pricef" onChange={this.handleSelect.bind(this)}>
 				<option value="">Elija valor...</option>
-				<option value={this.props.price_base+(0.30*this.props.price_base)}>C/ Factura</option>
-				<option value={this.props.price_base+(0.20*this.props.price_base)}>S/ Factura</option>
-				<option value={this.props.price_base+(0.10*this.props.price_base)}>Estudiante</option>
+				<option value={this.props.price_base/(1-0.50)}>50 %</option>
+				<option value={this.props.price_base/(1-0.45)}>45 %</option>
+				<option value={this.props.price_base/(1-0.40)}>40 %</option>
+				<option value={this.props.price_base/(1-0.35)}>35 %</option>
+				<option value={this.props.price_base/(1-0.30)}>30 %</option>
+				<option value={this.props.price_base/(1-0.25)}>25 %</option>
+				<option value={this.props.price_base/(1-0.20)}>20 %</option>
+				<option value={this.props.price_base/(1-0.15)}>15 %</option>
+				<option value={this.props.price_base/(1-0.10)}>10 %</option>
 				<option value={this.props.price_base}>Precio Base</option>
 			</select>
 			<PriceFinal value={this.state.price_base1}/>

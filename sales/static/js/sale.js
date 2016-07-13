@@ -567,7 +567,12 @@ var PriceField = (function (_React$Component) {
 	_createClass(PriceField, [{
 		key: 'handleSelect',
 		value: function handleSelect(event) {
-			this.setState({ price_base1: event.target.value });
+			Number.prototype.round = function (places) {
+				return +(Math.round(this + "e+" + places) + "e-" + places);
+			};
+			var price_sellT = event.target.value;
+			var price_sell = parseFloat(price_sellT).toFixed(2);
+			this.setState({ price_base1: price_sell });
 		}
 	}, {
 		key: 'cickEvent',
@@ -605,18 +610,48 @@ var PriceField = (function (_React$Component) {
 					),
 					_react2['default'].createElement(
 						'option',
-						{ value: this.props.price_base + 0.30 * this.props.price_base },
-						'C/ Factura'
+						{ value: this.props.price_base / (1 - 0.50) },
+						'50 %'
 					),
 					_react2['default'].createElement(
 						'option',
-						{ value: this.props.price_base + 0.20 * this.props.price_base },
-						'S/ Factura'
+						{ value: this.props.price_base / (1 - 0.45) },
+						'45 %'
 					),
 					_react2['default'].createElement(
 						'option',
-						{ value: this.props.price_base + 0.10 * this.props.price_base },
-						'Estudiante'
+						{ value: this.props.price_base / (1 - 0.40) },
+						'40 %'
+					),
+					_react2['default'].createElement(
+						'option',
+						{ value: this.props.price_base / (1 - 0.35) },
+						'35 %'
+					),
+					_react2['default'].createElement(
+						'option',
+						{ value: this.props.price_base / (1 - 0.30) },
+						'30 %'
+					),
+					_react2['default'].createElement(
+						'option',
+						{ value: this.props.price_base / (1 - 0.25) },
+						'25 %'
+					),
+					_react2['default'].createElement(
+						'option',
+						{ value: this.props.price_base / (1 - 0.20) },
+						'20 %'
+					),
+					_react2['default'].createElement(
+						'option',
+						{ value: this.props.price_base / (1 - 0.15) },
+						'15 %'
+					),
+					_react2['default'].createElement(
+						'option',
+						{ value: this.props.price_base / (1 - 0.10) },
+						'10 %'
 					),
 					_react2['default'].createElement(
 						'option',
