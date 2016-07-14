@@ -31,7 +31,7 @@ export default class CartComponent extends React.Component{
 					})
 				}
 			</table>
-		<SumComponent data={this.props.sum}/>
+		<SumComponent data={this.props.sum} items={this.props.data}/>
 		</div>
 	}
 }

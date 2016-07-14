@@ -17,15 +17,22 @@ export default class sumComponent extends React.Component{
 
 	eventKeyPress (event) {
 		var sum = Number(this.props.data) - Number(document.getElementById("descAmount").value);
-		console.log(sum)
+		// console.log(sum)
 		this.setState({ amount: sum })
 	}
 	OncickEvent (event){
+		event.preventDefault();
+		var dataj = JSON.stringify(this.props.items)
+		console.log(dataj);
 		$.ajax({
-			url: "/sales_savejson/",
-			dataType: "json",
+			url: '/sales/',
+			dataType: 'json',
 			type: "POST",
-			data: { amount: this.state.amount, customer: 1 } 
+			data: { 'amount': this.state.amount,
+			 'customer': document.getElementById("ClientCI").value,
+			 'items':  dataj
+			 // csrfmiddlewaretoken: "{{ csrf_token }}"
+			 } 
 			});
 	}
 	render(){

@@ -138,7 +138,7 @@ var CartComponent = (function (_React$Component) {
 						);
 					})
 				),
-				_react2['default'].createElement(_SumComponent2['default'], { data: this.props.sum })
+				_react2['default'].createElement(_SumComponent2['default'], { data: this.props.sum, items: this.props.data })
 			);
 		}
 	}]);
@@ -791,17 +791,24 @@ var sumComponent = (function (_React$Component) {
 		key: 'eventKeyPress',
 		value: function eventKeyPress(event) {
 			var sum = Number(this.props.data) - Number(document.getElementById("descAmount").value);
-			console.log(sum);
+			// console.log(sum)
 			this.setState({ amount: sum });
 		}
 	}, {
 		key: 'OncickEvent',
 		value: function OncickEvent(event) {
+			event.preventDefault();
+			var dataj = JSON.stringify(this.props.items);
+			console.log(dataj);
 			$.ajax({
-				url: "/sales_savejson/",
-				dataType: "json",
+				url: '/sales/',
+				dataType: 'json',
 				type: "POST",
-				data: { amount: this.state.amount, customer: 1 }
+				data: { 'amount': this.state.amount,
+					'customer': document.getElementById("ClientCI").value,
+					'items': dataj
+					// csrfmiddlewaretoken: "{{ csrf_token }}"
+				}
 			});
 		}
 	}, {
