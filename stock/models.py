@@ -8,7 +8,7 @@ class Unit(models.Model):
 
 class Stock(models.Model):
 	brand = models.CharField(max_length=50)
-	code = models.CharField(max_length=50)
+	code = models.CharField(unique=True, max_length=50)
 	date_end = models.DateField(blank=True, null=True)
 	qty = models.IntegerField()
 	parts = models.IntegerField(default=0)
