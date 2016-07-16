@@ -11,8 +11,8 @@ from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 import os, json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.http import HttpResponse, JsonResponse
 import pdb, ast
-
 
 @login_required(login_url="/singin")
 def add_sale(request):
@@ -43,6 +43,21 @@ class Invoice(PDFTemplateView):
         return response
 
 @csrf_exempt
+def sales_postjson(request):
+  if request.method == 'POST':
+    if request.is_ajax():
+      data = request.body
+      return data
+    s = Sales()
+    s.amount = data.amount
+    s.save()
+    return render(request,'home.html')
+
+def list_customer(request):
+  q_stock = Customers.objects.all()
+  data = [{'id': item.id, 'name': item.name, 'address': item.email, 'fono': item.fono, 'ci': item.ci, } for item in q_stock ]
+  return JsonResponse(data, safe=False)
+
 def sale_list(request):
     if request.is_ajax:
       user = request.user.pk
@@ -64,3 +79,4 @@ def sale_list(request):
         saledetail = SalesDetail(sale_id=int(lastsale.pk), item_id=int(itempk.pk), qty=int(index[3]), place_id=1, price=float(index[4]))
         saledetail.save()  
       return HttpResponse(status=201)
+

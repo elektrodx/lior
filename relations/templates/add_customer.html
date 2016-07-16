@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/add_customer.css" %}">
+	<title>Agregar Nuevo Cliente</title>
+</head>
+<body>
+	<section class="container">
+		<h3 class="titulo">Registro de Nuevo Cliente</h3>
+		<form action="" class="form" method="POST">
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="field">
+				{{form.ci.errors}}
+				<label for="id_ci" class="field-label">CI/NIT Cliente:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_description">Ingrese el CI o NIT del Cliente</span>		
+				</div>
+				{{ form.ci }}
+			</div>
+			<div class="field">
+				{{ form.name.errors }}
+				<label for="id_name" class="field-label">Nombre del Cliente:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_description">Ingrese el Nombre o Razón Social</span>		
+				</div>
+				{{form.name}}
+			</div>
+			<div class="field">
+				{{ form.fono.errors }}
+				<label for="id_fono" class="field-label">Teléfono de contacto:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_description">Ingrese un número de teléfono</span>		
+				</div>
+				{{form.fono}}			
+			</div>
+			<div class="field aling">
+				{{ form.email.errors }}
+				<label for="id_email" class="field-label">Correo electrónico:</label>
+				{{ form.email }}
+			</div>
+			<div class="field aling last">
+				{{ form.address.errors }}
+				<label for="id_address" class="field-label">Dirección del Cliente:</label>
+				{{ form.address }}
+			</div>
+			<input class="boton" type="submit" value="Grabar">
+		</form>
+	</section>
+</body>
+</html>
