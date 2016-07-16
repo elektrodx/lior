@@ -58,6 +58,7 @@ def list_customer(request):
   data = [{'id': item.id, 'name': item.name, 'address': item.email, 'fono': item.fono, 'ci': item.ci, } for item in q_stock ]
   return JsonResponse(data, safe=False)
 
+@csrf_exempt
 def sale_list(request):
     if request.is_ajax:
       user = request.user.pk
