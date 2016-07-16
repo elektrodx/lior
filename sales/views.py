@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import *
 from .models import *
 from home.views import home
 from relations.models import Customers
 from stock.models import Stock
+from assets.models import Income
 from django.contrib.auth.decorators import login_required
 from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 import os, json
@@ -52,10 +53,14 @@ def sale_list(request):
       customer = Customers.objects.get(ci=customerdni)
       sale = Sales(user_id=user, amount=amount, payed=amount, customer_id=customer.pk)
       sale.save()
+      incomen = Income(customer_id=customer.pk, amount=amount, concept="ventas")
+      incomen.save()
       data = ast.literal_eval(items['items'])
       lastsale = Sales.objects.last()
       for index in data:
         itempk = Stock.objects.get(code=index[0])
+        itempk.qty = itempk.qty - int(index[3])
+        itempk.save()
         saledetail = SalesDetail(sale_id=int(lastsale.pk), item_id=int(itempk.pk), qty=int(index[3]), place_id=1, price=float(index[4]))
         saledetail.save()  
-      return redirect('/add_sale/')
+      return HttpResponse(status=201)

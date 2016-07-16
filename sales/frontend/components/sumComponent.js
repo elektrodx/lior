@@ -23,7 +23,6 @@ export default class sumComponent extends React.Component{
 	OncickEvent (event){
 		event.preventDefault();
 		var dataj = JSON.stringify(this.props.items)
-		console.log(dataj);
 		$.ajax({
 			url: '/sales/',
 			dataType: 'json',
@@ -31,8 +30,13 @@ export default class sumComponent extends React.Component{
 			data: { 'amount': this.state.amount,
 			 'customer': document.getElementById("ClientCI").value,
 			 'items':  dataj
-			 // csrfmiddlewaretoken: "{{ csrf_token }}"
-			 } 
+			 }, 
+			 statusCode: {
+    			201: function() {
+    				console.log("hola")
+      				location.reload();
+    				}
+  				}
 			});
 	}
 	render(){

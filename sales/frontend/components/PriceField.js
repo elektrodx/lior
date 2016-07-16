@@ -24,20 +24,25 @@ export default class PriceField extends React.Component{
 	cickEvent (event){
 		event.preventDefault();
 		var qty = document.getElementById("qtyField").value;
-		this.props.productSold.push(qty);
-		if (document.getElementById("PriceField").value == ""){
-			document.getElementById("PriceField").value=document.getElementById("PriceField").placeholder
-		}
-		this.props.productSold.push(document.getElementById("PriceField").value);
-		var priceT = document.getElementById("PriceField").value*qty; 
-		this.props.productSold.push(priceT.toFixed(2));
-		var TproductSold = this.state.productSold;
-		TproductSold.push(this.props.productSold);
-		this.setState({productSold: TproductSold})
-		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-		document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;
-		document.getElementById("qtyField").value = "";
-		document.getElementById("PriceField").value = "";
+		if (qty <= this.props.qtyp) {
+			this.props.productSold.push(qty);
+			if (document.getElementById("PriceField").value == ""){
+				document.getElementById("PriceField").value=document.getElementById("PriceField").placeholder
+			}
+			this.props.productSold.push(document.getElementById("PriceField").value);
+			var priceT = document.getElementById("PriceField").value*qty; 
+			this.props.productSold.push(priceT.toFixed(2));
+			var TproductSold = this.state.productSold;
+			TproductSold.push(this.props.productSold);
+			this.setState({productSold: TproductSold})
+			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
+			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;
+			document.getElementById("qtyField").value = "";
+			document.getElementById("PriceField").value = "";
+		} else {
+			alert("No existe esa Cantidad de Productos");
+		};
+	
 	}
 
 	render(){

@@ -343,7 +343,7 @@ var FormStock = (function (_React$Component) {
     _classCallCheck(this, FormStock);
 
     _get(Object.getPrototypeOf(FormStock.prototype), 'constructor', this).call(this, props);
-    this.state = { productos: [], pPrice: 0, productSale: [] };
+    this.state = { productos: [], pPrice: 0, productSale: [], qty: 0 };
     var suburbs = [];
   }
 
@@ -441,8 +441,9 @@ var FormStock = (function (_React$Component) {
     value: function getSuggestionValue(suggestionObj) {
       var pp = Number(suggestionObj.price);
       var pproduct = [];
+      var qty = Number(suggestionObj.population);
       pproduct.push(suggestionObj.code, suggestionObj.description, suggestionObj.brand);
-      this.setState({ pPrice: pp, productSale: pproduct });
+      this.setState({ pPrice: pp, productSale: pproduct, qty: qty });
       return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
     }
   }, {
@@ -457,7 +458,7 @@ var FormStock = (function (_React$Component) {
           'Producto: '
         ),
         _react2['default'].createElement(_reactAutosuggest2['default'], { suggestions: this.getSuggestions.bind(this), suggestionRenderer: this.renderSuggestion.bind(this), suggestionValue: this.getSuggestionValue.bind(this) }),
-        _react2['default'].createElement(_PriceField2['default'], { price_base: this.state.pPrice, productSold: this.state.productSale })
+        _react2['default'].createElement(_PriceField2['default'], { price_base: this.state.pPrice, productSold: this.state.productSale, qtyp: this.state.qty })
       );
     }
   }]);
@@ -579,20 +580,24 @@ var PriceField = (function (_React$Component) {
 		value: function cickEvent(event) {
 			event.preventDefault();
 			var qty = document.getElementById("qtyField").value;
-			this.props.productSold.push(qty);
-			if (document.getElementById("PriceField").value == "") {
-				document.getElementById("PriceField").value = document.getElementById("PriceField").placeholder;
-			}
-			this.props.productSold.push(document.getElementById("PriceField").value);
-			var priceT = document.getElementById("PriceField").value * qty;
-			this.props.productSold.push(priceT.toFixed(2));
-			var TproductSold = this.state.productSold;
-			TproductSold.push(this.props.productSold);
-			this.setState({ productSold: TproductSold });
-			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;
-			document.getElementById("qtyField").value = "";
-			document.getElementById("PriceField").value = "";
+			if (qty <= this.props.qtyp) {
+				this.props.productSold.push(qty);
+				if (document.getElementById("PriceField").value == "") {
+					document.getElementById("PriceField").value = document.getElementById("PriceField").placeholder;
+				}
+				this.props.productSold.push(document.getElementById("PriceField").value);
+				var priceT = document.getElementById("PriceField").value * qty;
+				this.props.productSold.push(priceT.toFixed(2));
+				var TproductSold = this.state.productSold;
+				TproductSold.push(this.props.productSold);
+				this.setState({ productSold: TproductSold });
+				document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
+				document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;
+				document.getElementById("qtyField").value = "";
+				document.getElementById("PriceField").value = "";
+			} else {
+				alert("No existe esa Cantidad de Productos");
+			};
 		}
 	}, {
 		key: 'render',
@@ -799,7 +804,6 @@ var sumComponent = (function (_React$Component) {
 		value: function OncickEvent(event) {
 			event.preventDefault();
 			var dataj = JSON.stringify(this.props.items);
-			console.log(dataj);
 			$.ajax({
 				url: '/sales/',
 				dataType: 'json',
@@ -807,7 +811,12 @@ var sumComponent = (function (_React$Component) {
 				data: { 'amount': this.state.amount,
 					'customer': document.getElementById("ClientCI").value,
 					'items': dataj
-					// csrfmiddlewaretoken: "{{ csrf_token }}"
+				},
+				statusCode: {
+					201: function _() {
+						console.log("hola");
+						location.reload();
+					}
 				}
 			});
 		}
