@@ -7,6 +7,8 @@ from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 import os, json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from relations.models import Customers
+from django.http import HttpResponse, JsonResponse
 
 
 @login_required(login_url="/singin")
@@ -101,3 +103,8 @@ def sales_postjson(request):
     s.amount = data.amount
     s.save()
     return render(request,'home.html')
+
+def list_customer(request):
+  q_stock = Customers.objects.all()
+  data = [{'id': item.id, 'name': item.name, 'address': item.email, 'fono': item.fono, 'ci': item.ci, } for item in q_stock ]
+  return JsonResponse(data, safe=False)
