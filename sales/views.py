@@ -10,13 +10,8 @@ from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 import os, json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
-<<<<<<< HEAD
-from relations.models import Customers
 from django.http import HttpResponse, JsonResponse
-=======
 import pdb, ast
->>>>>>> origin/master
-
 
 @login_required(login_url="/singin")
 def add_sale(request):

@@ -15,5 +15,5 @@ class StockForm(ModelForm):
         autocomplete_fields = ("description",)
         fields = ('brand', 'qty', 'description', 'code', 'date_end', 'price_base', 'units', 'place', 'note', 'parts')
         widgets = {
-           "description":autocomplete_light.TextWidget("StockDescAutocomplete"),
+           #"description":autocomplete_light.TextWidget("StockDescAutocomplete"),
         }
