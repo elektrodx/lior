@@ -34,6 +34,7 @@ export default class PriceoComp extends React.Component{
 		ppt = pt + (( pt/ptc ) * ge);
 		ppu = ppt/Number(document.getElementById('qtyComp').value);
 		item.push(ppu.toFixed(2));
+		item.push(ppt.toFixed(2));
 		array.push(item);
 		this.setState({productshop: array});
 		document.getElementById('codeField').focus();
@@ -48,7 +49,7 @@ export default class PriceoComp extends React.Component{
 				<button className="boton" type="submit" onClick={this.clickEvent.bind(this)}>agregar</button>
 			</div>
 			<div>
-				<ShopcartComp productsshop={this.state.productshop}/>
+				<ShopcartComp productsshop={this.state.productshop} sum={0}/>
 			</div>
 		</div>	
 	}

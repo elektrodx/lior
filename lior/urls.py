@@ -48,5 +48,6 @@ urlpatterns = [
     # url(r'^add_sale_det/(?P<code_sale_det>\w+)/$', 'sales.views.add_sale_det', name='add_sale_det'),
     # url(r'^sales_savejson/$', 'sales.views.sales_postjson', name='sales_postjson'),
     # url(r'^img_add/', 'admin/img/icon_addlink.gif'),
-    url(r'^sales/$', 'sales.views.sale_list', name='sale_list') 
+    url(r'^sales/$', 'sales.views.sale_add', name='sale_add'),
+    url(r'^shops/$', 'shop.views.shop_add', name='shop_add') 
 ]

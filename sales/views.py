@@ -59,7 +59,7 @@ def list_customer(request):
   return JsonResponse(data, safe=False)
 
 @csrf_exempt
-def sale_list(request):
+def sale_add(request):
     if request.is_ajax:
       user = request.user.pk
       amount = float(request.POST.get('amount'))

@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
-import utils from './../node_modules/react-autosuggest/examples/src/utils.js';
+import utils from '../node_modules/react-autosuggest/examples/src/utils.js';
 import DescriptionComp from './DescriptionComp';
 
 export default class CodigoComp extends React.Component {
