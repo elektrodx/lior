@@ -4,7 +4,7 @@
 
 import React from 'react';
 
-var $ = require('jquery')
+var $ = require('jquery');
 
 export default class SumComponent extends React.Component {
 	constructor(props){
@@ -12,10 +12,10 @@ export default class SumComponent extends React.Component {
 		this.OnClickEvent = this.OnClickEvent.bind(this);
 
 	}
-	OnClickEvent(event){
+	OnClickEvent (event){
 		var dataj = JSON.stringify(this.props.items)
 		var provider = document.getElementById("id_provider")
-		var providerN = provider.options[provider.selectedIndex].text
+		var providerN = provider.options[provider.selectedIndex].value
 		$.ajax({
 			url: '/shops/',
 			dataType: 'json',
@@ -39,7 +39,7 @@ export default class SumComponent extends React.Component {
 				<strong>Total Productos:</strong>
 				<span>{this.props.sum}</span>
 			</div>
-			<button OnClick={this.OnClickEvent.bind(this)}>Procesar</button>
+			<button className="boton" onClick={this.OnClickEvent.bind(this)}>Procesar</button>
 		</div>
 	}
 }

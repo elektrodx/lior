@@ -668,7 +668,7 @@ var SumComponent = (function (_React$Component) {
 		value: function OnClickEvent(event) {
 			var dataj = JSON.stringify(this.props.items);
 			var provider = document.getElementById("id_provider");
-			var providerN = provider.options[provider.selectedIndex].text;
+			var providerN = provider.options[provider.selectedIndex].value;
 			$.ajax({
 				url: '/shops/',
 				dataType: 'json',
@@ -708,7 +708,7 @@ var SumComponent = (function (_React$Component) {
 				),
 				_react2['default'].createElement(
 					'button',
-					{ OnClick: this.OnClickEvent.bind(this) },
+					{ className: 'boton', onClick: this.OnClickEvent.bind(this) },
 					'Procesar'
 				)
 			);
