@@ -209,7 +209,7 @@ var FormClient = (function (_React$Component) {
 		value: function componentWillMount() {
 			var _this = this;
 
-			fetch('http://127.0.0.1:8000/list_customer/').then(function (response) {
+			fetch('http://lior.omcor.us:8000/list_customer/').then(function (response) {
 				return response.json();
 			}).then(function (clientes) {
 				_this.setState({ clientes: clientes });
@@ -322,7 +322,7 @@ var FormClient = (function (_React$Component) {
 					{ className: 'form-search' },
 					_react2['default'].createElement(
 						'label',
-						{ 'for': 'SearchClient' },
+						{ ClassName: 'field-label', 'for': 'SearchClient' },
 						'Buscar Cliente por Nombre o CI/NIT:'
 					),
 					_react2['default'].createElement(_reactAutosuggest2['default'], { suggestions: this.getSuggestions.bind(this), suggestionRenderer: this.renderSuggestion.bind(this), suggestionValue: this.getSuggestionValue.bind(this) }),
@@ -492,7 +492,7 @@ var FormStock = (function (_React$Component) {
     value: function componentWillMount() {
       var _this = this;
 
-      fetch('http://127.0.0.1:8000/list_stock/').then(function (response) {
+      fetch('http://lior.omcor.us:8000/list_stock/').then(function (response) {
         return response.json();
       }).then(function (productos) {
         _this.setState({ productos: productos });

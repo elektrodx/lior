@@ -3,7 +3,7 @@ from .models import *
 from user_lior.models import Sucursal
 
 class StockAdmin(admin.ModelAdmin):
-	list_display = ('brand', 'qty', 'description', 'code', 'date_end', 'price_base', 'units', 'place', 'note')
+	list_display = ('brand', 'qty', 'description', 'code', 'date_end', 'parts', 'parts_left', 'price_base', 'units', 'place', 'note')
 
 admin.site.register(Stock, StockAdmin)
 

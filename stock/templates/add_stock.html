@@ -112,6 +112,14 @@
 				</div>
 				{{ form.parts }}
 			</div>
+			<div class="field">
+				{{ form.parts_left.errors }}
+				<label for="id_parts_left" class="field-label">Saldo Fraccionado:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Ítems fracccionados para ingreso a Stock</span>
+				</div>
+				{{ form.parts_left }}
+			</div>
 			<div class="field aling">
 				{{ form.date_end.errors }}
 				<label for="id_date_end" class="field-label">Fecha de Vencimiento:</label>
