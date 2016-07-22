@@ -19,7 +19,7 @@ export default class FormClient extends React.Component{
 	}
 
 	componentWillMount() {
-		fetch('http://lior.omcor.us:8000/list_customer/')
+		fetch('http://lior.omcor.us/list_customer/')
 		.then((response) => {
 			return response.json()
 		})
