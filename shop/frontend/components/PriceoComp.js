@@ -18,8 +18,8 @@ export default class PriceoComp extends React.Component{
 		document.getElementById('id_provider').disabled = true;
 		document.getElementById('id_total_price').disabled = true;
 		document.getElementById('id_price_extra').disabled = true;
-		document.getElementById('id_payed').disabled = true;
-		document.getElementById('id_pay_due').disabled = true;
+		// document.getElementById('id_payed').disabled = true;
+		// document.getElementById('id_pay_due').disabled = true;
 		var item = [];
 		var array = this.state.productshop;
 		item.push(document.getElementById('codeField').value);
