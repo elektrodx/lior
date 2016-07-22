@@ -46,7 +46,6 @@
 						<a href="/add_customer_2">Agrega Cliente</a>
 					</li>
 				</ul>
-				</ul>
 			</li>
 			<div class="menu_usuario">
 				<span>{{request.user}}</span>
@@ -85,12 +84,12 @@
 				</div>
 				{{form.fono}}			
 			</div>
-			<div class="field">
+			<div class="field aling">
 				{{ form.email.errors }}
 				<label for="id_email" class="field-label">Correo-e de contacto:</label>
 				{{ form.email }}
 			</div>
-			<div class="field">
+			<div class="field aling last">
 				{{ form.address.errors }}
 				<label for="id_address" class="field-label">Dirección del Cliente:</label>
 				{{ form.address }}
