@@ -8,13 +8,13 @@ export default class ShopcartComp extends React.Component{
 	render(){
 		return <div>
 			<table className="table-head">
-				<th>Codigo</th>
-				<th>Descripcion</th>
+				<th>Código</th>
+				<th>Descripción</th>
 				<th>Cantidad</th>
-				<th>precio U</th>
-				<th>precio T</th>
+				<th>Precio Unitario</th>
+				<th>Precio Un. Total</th>
 				<th>Precio Ajustado</th>
-				<th>Precio Ajustado T</th>
+				<th>Precio Aj. Total</th>
 				{this.props.productsshop.map((item) =>{
 					this.props.sum = this.props.sum + Number(item[6])
 					return <tr>
@@ -23,7 +23,7 @@ export default class ShopcartComp extends React.Component{
 						<td>{item[2]}</td>
 						<td>{item[3]}</td>
 						<td>{item[4]}</td>
-						<td>{item[5]}</td>
+						<td className="producto">{item[5]}</td>
 						<td>{item[6]}</td>
 					</tr>
 
