@@ -45,7 +45,7 @@ def add_stock(request):
 
 def list_stock(request):
 	q_stock = Stock.objects.all()
-	data = [{'description': item.description, 'brand': item.brand, 'code': item.code, 'qty': item.qty, 'price': item.price_base, 'unit': item.units.unit, 'place': item.place.name, 'pk': item.pk } for item in q_stock ]
+	data = [{'description': item.description, 'brand': item.brand, 'code': item.code, 'qty': item.qty, 'price': item.price_base, 'unit': item.units.unit, 'place': item.place.name, 'pk': item.pk, 'parts_left': item.parts_left, 'parts': item.parts } for item in q_stock ]
 	return JsonResponse(data, safe=False)
 
 @login_required(login_url="/singin")

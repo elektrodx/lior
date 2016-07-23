@@ -11,12 +11,12 @@ import PriceField from './PriceField'
 export default class FormStock extends React.Component{
 	constructor(props) {
     super(props)
-    this.state = { productos: [], pPrice: 0, productSale: [], qty: 0}
+    this.state = { productos: [], pPrice: 0, productSale: [], qty: 0, qtyf:0, pPricef: 0, parts: 0}
     const suburbs = [];
   }
 
   componentWillMount() {
-    fetch('http://lior.omcor.us:8000/list_stock/')
+    fetch('http://127.0.0.1:8000/list_stock/')
       .then((response) => {
         return response.json()
       })
@@ -82,16 +82,22 @@ export default class FormStock extends React.Component{
       <span>
         {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
         <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population}</small>
+        <small style={{ color: '#777' }}> Fraccionado: {suggestionObj.parts}</small>
       </span>
     );
   }
 
   getSuggestionValue(suggestionObj) {
+    if (suggestionObj.parts>0){
+      var ppf = Number(suggestionObj.price/suggestionObj.parts)  
+    }
     var pp = Number(suggestionObj.price)
+    var parts = Number(suggestionObj.parts)
     var pproduct = []
     var qty = Number(suggestionObj.population)
+    var qtyf = Number(suggestionObj.parts_left)
     pproduct.push(suggestionObj.code, suggestionObj.description, suggestionObj.brand)
-    this.setState({ pPrice: pp, productSale: pproduct, qty: qty} )
+    this.setState({ pPrice: pp, productSale: pproduct, qty: qty, qtyf: qtyf, pPricef: ppf, parts: parts})
     return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
   }
 
@@ -99,7 +105,7 @@ export default class FormStock extends React.Component{
 		return <div className="form-client-stock">
 			<label for="StockField">Producto: </label>
       <Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
-      <PriceField price_base={this.state.pPrice} productSold={this.state.productSale} qtyp={this.state.qty}/>
+      <PriceField price_base={this.state.pPrice} productSold={this.state.productSale} qtyp={this.state.qty} price_basef={this.state.pPricef} qtyf={this.state.qtyf} parts={this.state.parts}/>
 		</div>
 	}
 }

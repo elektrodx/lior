@@ -47,7 +47,7 @@ export default class sumComponent extends React.Component{
 			</div>
 			<div>
 				<label for="descAmount">Descuento: </label>
-				<input type="number" id="descAmount" onKeyUp={this.eventKeyPress.bind(this)}/>
+				<input type="number" step="0.01" id="descAmount" onKeyUp={this.eventKeyPress.bind(this)}/>
 			</div>
 			<TotalPrice amount={this.state.amount}/>
 			<button className="boton padding" onClick={this.OncickEvent.bind(this)} >Procesar</button>	

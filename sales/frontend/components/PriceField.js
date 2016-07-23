@@ -17,6 +17,14 @@ export default class PriceField extends React.Component{
 		Number.prototype.round = function(places) {
   			return +(Math.round(this + "e+" + places)  + "e-" + places);
 		}
+		if (this.props.parts==0){
+			document.getElementById('qtyfField').disabled = true;
+			document.getElementById('qtyfField').placeholder=this.props.parts
+		}
+		if (this.props.parts>0){
+			document.getElementById('qtyfField').disabled = false;
+			document.getElementById('qtyfField').placeholder=this.props.parts
+		}
 		var price_sellT = event.target.value;
 		var price_sell = parseFloat(price_sellT).toFixed(2);
 		this.setState({price_base1: price_sell});
@@ -29,9 +37,24 @@ export default class PriceField extends React.Component{
 			if (document.getElementById("PriceField").value == ""){
 				document.getElementById("PriceField").value=document.getElementById("PriceField").placeholder
 			}
+			if (document.getElementById("qtyfField").value == ""){
+				document.getElementById("qtyfField").value=0
+			}
+			if (this.props.parts>0){
+				var priceff = document.getElementById("PriceField").value/this.props.parts	
+			} else {
+				var priceff = 0
+			}
+			var qtyf = document.getElementById("qtyfField").value;
 			this.props.productSold.push(document.getElementById("PriceField").value);
-			var priceT = document.getElementById("PriceField").value*qty; 
+			var priceT = document.getElementById("PriceField").value*qty;
+			var priceTf = priceff*qtyf
+			var totalg = priceT+priceTf 
 			this.props.productSold.push(priceT.toFixed(2));
+			this.props.productSold.push(qtyf);
+			this.props.productSold.push(priceff.toFixed(2));
+			this.props.productSold.push(priceTf.toFixed(2));
+			this.props.productSold.push(totalg.toFixed(2));
 			var TproductSold = this.state.productSold;
 			TproductSold.push(this.props.productSold);
 			this.setState({productSold: TproductSold})
@@ -39,6 +62,7 @@ export default class PriceField extends React.Component{
 			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;
 			document.getElementById("qtyField").value = "";
 			document.getElementById("PriceField").value = "";
+			document.getElementById("qtyfField").value = "";
 		} else {
 			alert("No existe esa Cantidad de Productos");
 		};
@@ -63,7 +87,9 @@ export default class PriceField extends React.Component{
 			<PriceFinal value={this.state.price_base1}/>
 			<div className="qtyField">
 				<label for="qtyField">Cantidad:</label>
-				<input type="text" id="qtyField"/>
+				<input type="number" step="1.0" id="qtyField"/>
+				<label for="qtyfField">Cantidad fraccionada:</label>
+				<input type="number" step="1.0" id="qtyfField" min="0" max={this.props.parts} placeholder="0" disabled/>
 				<button className="boton" type="submit" onClick={this.cickEvent.bind(this)}>Agregar</button>
 			</div>	
 			<CartComponent data={this.state.productSold} sum={0}/>

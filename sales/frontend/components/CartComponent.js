@@ -16,10 +16,14 @@ export default class CartComponent extends React.Component{
 					<th>Marca</th>
 					<th>Cantidad</th>
 					<th>Precio Unitario</th>
-					<th>Sub total</th>
+					<th>Sub Total</th>
+					<th>Cantidad Fraccionada</th>
+					<th>precio Fraccionado</th>
+					<th>Sub Total Fraccionado</th>
+					<th>Total</th>
 				</tr>
 				{this.props.data.map((item) => {
-				this.props.sum = this.props.sum + Number(item[5])
+				this.props.sum = this.props.sum + Number(item[9])
 				return 	<tr>
 						<td>{item[0]}</td>
 						<td>{item[1]}</td>
@@ -27,6 +31,10 @@ export default class CartComponent extends React.Component{
 						<td>{item[3]}</td>
 						<td>{item[4]}</td>
 						<td>{item[5]}</td>
+						<td>{item[6]}</td>
+						<td>{item[7]}</td>
+						<td>{item[8]}</td>
+						<td>{item[9]}</td>
 					</tr>						
 					})
 				}

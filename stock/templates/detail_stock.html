@@ -69,7 +69,7 @@
 				<th>Total</th>
 				<th>Presentación</th>
 				<th>Fraccionado</th>
-				<th>Notas</th>
+				<th>Fraccionado Restante</th>
 			</tr>
 		{% for index in q_stock %}
 			<tr class="table-data">
@@ -82,7 +82,7 @@
 				<td>{{index.total_price}}</td>
 				<td>{{index.units}}</td>
 				<td class="center">{{index.parts}}
-				<td>{{index.note}}</td>
+				<td>{{index.parts_left}}</td>
 			</tr>
 		{% endfor %}
 		</table>
