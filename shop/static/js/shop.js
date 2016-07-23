@@ -390,7 +390,7 @@ var PriceoComp = (function (_React$Component) {
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
-				{ className: 'lastcomponent separador' },
+				{ className: 'separador' },
 				_react2['default'].createElement(
 					'div',
 					{ className: 'monto' },

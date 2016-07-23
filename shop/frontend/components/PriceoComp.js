@@ -43,7 +43,7 @@ export default class PriceoComp extends React.Component{
 	}
 
 	render(){
-		return <div className="lastcomponent separador"> 
+		return <div className="separador"> 
 			<div className="monto">
 				<label for='priceoField'>Precio Unitario: </label>
 				<input type="text" id="priceoField"/>
