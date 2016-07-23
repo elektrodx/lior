@@ -70,7 +70,7 @@ var CodigoComp = (function (_React$Component) {
     value: function componentWillMount() {
       var _this = this;
 
-      fetch('http://127.0.0.1/list_stock/').then(function (response) {
+      fetch('http://lior.omcor.us/list_stock/').then(function (response) {
         return response.json();
       }).then(function (productos) {
         _this.setState({ productos: productos });
