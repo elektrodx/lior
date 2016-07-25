@@ -19,6 +19,8 @@ class SalesDetail(models.Model):
 	sale = models.ForeignKey(Sales)
 	item = models.ForeignKey(Stock)
 	qty = models.IntegerField()
+	qtyf = models.IntegerField()
+	pricef = models.DecimalField(max_digits=6, decimal_places=2)
 	place = models.ForeignKey(Sucursal)
 	price = models.DecimalField(max_digits=6, decimal_places=2)
 	note = models.TextField(blank=True, null=True)

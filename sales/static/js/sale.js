@@ -107,7 +107,7 @@ var CartComponent = (function (_React$Component) {
 						_react2['default'].createElement(
 							'th',
 							null,
-							'precio Fraccionado'
+							'Precio Fraccionado'
 						),
 						_react2['default'].createElement(
 							'th',
@@ -618,6 +618,12 @@ var FormStock = (function (_React$Component) {
           'small',
           { style: { color: '#777' } },
           ' Fraccionado: ',
+          suggestionObj.parts_left
+        ),
+        _react2['default'].createElement(
+          'small',
+          { style: { color: '#777' } },
+          ' de ',
           suggestionObj.parts
         )
       );
@@ -649,7 +655,7 @@ var FormStock = (function (_React$Component) {
           'Producto: '
         ),
         _react2['default'].createElement(_reactAutosuggest2['default'], { suggestions: this.getSuggestions.bind(this), suggestionRenderer: this.renderSuggestion.bind(this), suggestionValue: this.getSuggestionValue.bind(this) }),
-        _react2['default'].createElement(_PriceField2['default'], { price_base: this.state.pPrice, productSold: this.state.productSale, qtyp: this.state.qty, price_basef: this.state.pPricef, qtyf: this.state.qtyf, parts: this.state.parts })
+        _react2['default'].createElement(_PriceField2['default'], { price_base: this.state.pPrice, productSold: this.state.productSale, qtyp: this.state.qty, price_basef: this.state.pPricef, parts_left: this.state.qtyf, parts: this.state.parts })
       );
     }
   }]);
@@ -793,26 +799,38 @@ var PriceField = (function (_React$Component) {
 					var priceff = 0;
 				}
 				var qtyf = document.getElementById("qtyfField").value;
-				this.props.productSold.push(document.getElementById("PriceField").value);
-				var priceT = document.getElementById("PriceField").value * qty;
-				var priceTf = priceff * qtyf;
-				var totalg = priceT + priceTf;
-				this.props.productSold.push(priceT.toFixed(2));
-				this.props.productSold.push(qtyf);
-				this.props.productSold.push(priceff.toFixed(2));
-				this.props.productSold.push(priceTf.toFixed(2));
-				this.props.productSold.push(totalg.toFixed(2));
-				var TproductSold = this.state.productSold;
-				TproductSold.push(this.props.productSold);
-				this.setState({ productSold: TproductSold });
-				document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-				document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;
-				document.getElementById("qtyField").value = "";
-				document.getElementById("PriceField").value = "";
-				document.getElementById("qtyfField").value = "";
-			} else {
-				alert("No existe esa Cantidad de Productos");
-			};
+				if (this.props.qtyp - qty >= 0) {
+					if (Number(this.props.parts_left) == 0) {
+						var p_left = this.props.parts;
+					} else {
+						var p_left = this.props.parts_left;
+						console.log(p_left);
+					}
+					if (qtyf <= p_left) {
+						this.props.productSold.push(document.getElementById("PriceField").value);
+						var priceT = document.getElementById("PriceField").value * qty;
+						var priceTf = priceff * qtyf;
+						var totalg = priceT + priceTf;
+						this.props.productSold.push(priceT.toFixed(2));
+						this.props.productSold.push(qtyf);
+						this.props.productSold.push(priceff.toFixed(2));
+						this.props.productSold.push(priceTf.toFixed(2));
+						this.props.productSold.push(totalg.toFixed(2));
+						var TproductSold = this.state.productSold;
+						TproductSold.push(this.props.productSold);
+						this.setState({ productSold: TproductSold });
+						document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
+						document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus = true;
+						document.getElementById("qtyField").value = 0;
+						document.getElementById("PriceField").value = "";
+						document.getElementById("qtyfField").value = "";
+					} else {
+						alert("No existe esa cantidad fraccionada de Productos");
+					}
+				} else {
+					alert("No existe esa Cantidad de Productos");
+				};
+			}
 		}
 	}, {
 		key: 'render',
@@ -888,7 +906,7 @@ var PriceField = (function (_React$Component) {
 						{ 'for': 'qtyField' },
 						'Cantidad:'
 					),
-					_react2['default'].createElement('input', { type: 'number', step: '1.0', id: 'qtyField' }),
+					_react2['default'].createElement('input', { type: 'number', step: '1.0', min: '0', defaultValue: '0', id: 'qtyField' }),
 					_react2['default'].createElement(
 						'label',
 						{ 'for': 'qtyfField' },

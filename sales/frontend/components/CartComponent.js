@@ -18,7 +18,7 @@ export default class CartComponent extends React.Component{
 					<th>Precio Unitario</th>
 					<th>Sub Total</th>
 					<th>Cantidad Fraccionada</th>
-					<th>precio Fraccionado</th>
+					<th>Precio Fraccionado</th>
 					<th>Sub Total Fraccionado</th>
 					<th>Total</th>
 				</tr>

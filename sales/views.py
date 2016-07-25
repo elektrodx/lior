@@ -73,11 +73,17 @@ def sale_add(request):
       incomen.save()
       data = ast.literal_eval(items['items'])
       lastsale = Sales.objects.last()
+      # pdb.set_trace()
       for index in data:
         itempk = Stock.objects.get(code=index[0])
         itempk.qty = itempk.qty - int(index[3])
+        if int(index[6])>0:
+          if itempk.parts_left==0:
+            itempk.parts_left=itempk.parts
+          itempk.qty = itempk.qty - 1  
+          itempk.parts_left=itempk.parts_left-int(index[6])  
         itempk.save()
-        saledetail = SalesDetail(sale_id=int(lastsale.pk), item_id=int(itempk.pk), qty=int(index[3]), place_id=1, price=float(index[4]))
-        saledetail.save()  
+        saledetail = SalesDetail(sale_id=int(lastsale.pk), item_id=int(itempk.pk), qty=int(index[3]), place_id=1, price=float(index[4]), qtyf=int(index[6]), pricef=float(index[7]))
+        saledetail.save()
       return HttpResponse(status=201)
 

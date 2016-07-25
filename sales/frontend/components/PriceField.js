@@ -46,26 +46,37 @@ export default class PriceField extends React.Component{
 				var priceff = 0
 			}
 			var qtyf = document.getElementById("qtyfField").value;
-			this.props.productSold.push(document.getElementById("PriceField").value);
-			var priceT = document.getElementById("PriceField").value*qty;
-			var priceTf = priceff*qtyf
-			var totalg = priceT+priceTf 
-			this.props.productSold.push(priceT.toFixed(2));
-			this.props.productSold.push(qtyf);
-			this.props.productSold.push(priceff.toFixed(2));
-			this.props.productSold.push(priceTf.toFixed(2));
-			this.props.productSold.push(totalg.toFixed(2));
-			var TproductSold = this.state.productSold;
-			TproductSold.push(this.props.productSold);
-			this.setState({productSold: TproductSold})
-			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
-			document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;
-			document.getElementById("qtyField").value = "";
-			document.getElementById("PriceField").value = "";
-			document.getElementById("qtyfField").value = "";
+			if (this.props.qtyp-qty>=0){
+				if (Number(this.props.parts_left)==0){
+					var p_left = this.props.parts
+				} else { var p_left = this.props.parts_left
+						console.log(p_left)
+				}
+			 	if (qtyf <= p_left){	
+					this.props.productSold.push(document.getElementById("PriceField").value);
+					var priceT = document.getElementById("PriceField").value*qty;
+					var priceTf = priceff*qtyf
+					var totalg = priceT+priceTf 
+					this.props.productSold.push(priceT.toFixed(2));
+					this.props.productSold.push(qtyf);
+					this.props.productSold.push(priceff.toFixed(2));
+					this.props.productSold.push(priceTf.toFixed(2));
+					this.props.productSold.push(totalg.toFixed(2));
+					var TproductSold = this.state.productSold;
+					TproductSold.push(this.props.productSold);
+					this.setState({productSold: TproductSold})
+					document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].value = "";
+					document.getElementsByClassName("react-autosuggest")[0].getElementsByTagName("input")[0].autofocus=true;
+					document.getElementById("qtyField").value = 0;
+					document.getElementById("PriceField").value = "";
+					document.getElementById("qtyfField").value = "";
+				} else {
+				alert("No existe esa cantidad fraccionada de Productos")
+			} 
 		} else {
 			alert("No existe esa Cantidad de Productos");
 		};
+			}
 	
 	}
 
@@ -87,7 +98,7 @@ export default class PriceField extends React.Component{
 			<PriceFinal value={this.state.price_base1}/>
 			<div className="qtyField">
 				<label for="qtyField">Cantidad:</label>
-				<input type="number" step="1.0" id="qtyField"/>
+				<input type="number" step="1.0" min="0" defaultValue="0" id="qtyField"/>
 				<label for="qtyfField">Cantidad fraccionada:</label>
 				<input type="number" step="1.0" id="qtyfField" min="0" max={this.props.parts} placeholder="0" disabled/>
 				<button className="boton" type="submit" onClick={this.cickEvent.bind(this)}>Agregar</button>

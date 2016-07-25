@@ -7,6 +7,6 @@ class SalesAdmin(admin.ModelAdmin):
 admin.site.register(Sales, SalesAdmin)
 
 class SalesDetailAdmin(admin.ModelAdmin):
-	list_display = ('sale', 'item', 'qty', 'place', 'price', 'note')
+	list_display = ('sale', 'item', 'qty', 'price', 'qtyf', 'pricef', 'place', 'note')
 
 admin.site.register(SalesDetail, SalesDetailAdmin)

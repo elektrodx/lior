@@ -82,7 +82,8 @@ export default class FormStock extends React.Component{
       <span>
         {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
         <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population}</small>
-        <small style={{ color: '#777' }}> Fraccionado: {suggestionObj.parts}</small>
+        <small style={{ color: '#777' }}> Fraccionado: {suggestionObj.parts_left}</small>
+        <small style={{ color: '#777' }}> de {suggestionObj.parts}</small>
       </span>
     );
   }
@@ -105,7 +106,7 @@ export default class FormStock extends React.Component{
 		return <div className="form-client-stock">
 			<label for="StockField">Producto: </label>
       <Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
-      <PriceField price_base={this.state.pPrice} productSold={this.state.productSale} qtyp={this.state.qty} price_basef={this.state.pPricef} qtyf={this.state.qtyf} parts={this.state.parts}/>
+      <PriceField price_base={this.state.pPrice} productSold={this.state.productSale} qtyp={this.state.qty} price_basef={this.state.pPricef} parts_left={this.state.qtyf} parts={this.state.parts} />
 		</div>
 	}
 }

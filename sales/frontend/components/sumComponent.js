@@ -33,7 +33,6 @@ export default class sumComponent extends React.Component{
 			 }, 
 			 statusCode: {
     			201: function() {
-    				console.log("hola")
       				location.reload();
     				}
   				}
