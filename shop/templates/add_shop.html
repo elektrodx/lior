@@ -16,7 +16,7 @@
 				<a href="#">Ventas</a>
 			</li>
 			<li class="menu_compras">
-				<a href="#">Compras</a>
+				<a href="/add_shop">Compras</a>
 			</li>
 			<li class="menu_inventario">
 				<a href="/detail_stock">Inventario</a>
@@ -61,15 +61,15 @@
 			{% csrf_token %}
 			{{ form.non_field_errors }}
 			<div class="provider">
-				<label>Proveedor</label>
+				<label>Proveedor: </label>
 				{{ form.provider }}
 			</div>
-			<div>
-				<label>Monto Compra:</label>
+			<div class="monto">
+				<label>Monto Compra: </label>
 				{{ form.total_price }}
 			</div>
-			<div>
-				<label>Gastos extras:</label>
+			<div class="monto">
+				<label>Gastos extras: </label>
 				{{ form.price_extra }}
 			</div>
 			<!-- <div>

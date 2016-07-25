@@ -35,11 +35,11 @@ export default class SumComponent extends React.Component {
 	}
 	render(){
 		return <div>
-			<div>
+			<div className="separador last">
 				<strong>Total Productos:</strong>
 				<span>{this.props.sum}</span>
 			</div>
-			<button className="boton" onClick={this.OnClickEvent.bind(this)}>Procesar</button>
+			<button className="btn_shop" onClick={this.OnClickEvent.bind(this)}>Procesar</button>
 		</div>
 	}
 }

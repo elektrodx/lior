@@ -2,6 +2,7 @@
 @import "fonts.styl"
 @import "menu.styl"
 @import "field.styl"
+@import "field_sales.styl"
 
 body
 	background-color plomo_claro
@@ -14,43 +15,24 @@ body
 .aling
 	padding-right 1.6em
 .container
-	position fixed
 	background-color white
 	width 1000px
 	height auto
 	margin 0 auto
 	margin-top 5em
-	left 15%
 	border 2px solid black
 	border-bottom-left-radius 12px
 	border-bottom-right-radius 12px
 	border-top-left-radius 12px
 	border-top-right-radius 12px
+	position fixed
+	left 30%
 .CartComponent
 	width 100%
 	// margin-top 2em
 .form
 	// margin 1em 0.8em
 	position relative
-.form-client-nombre
-	width 300px
-	margin 0
-	margin-left 1em
-	float left
-.form-client-ci
-	width 300px
-	margin-left 1em
-	float left
-.form-client-date
-	width 100px
-	float right
-.form-client-stock
-	margin-top 1em
-	margin-left 1em
-	display inline-block
-.form-search
-	margin-top 1em
-	margin-left 18em
 .last
 	margin-bottom 5em
 .list
@@ -104,7 +86,7 @@ body
 		border-right 2px solid black
 		border-bottom 2px solid black
 		width 88%
-		z-index 11
+		//z-index 11
 		li:hover
 			background-color verde_claro
 .sumComponent

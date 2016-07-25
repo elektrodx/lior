@@ -19,7 +19,7 @@ export default class FormClient extends React.Component{
 	}
 
 	componentWillMount() {
-		fetch('http://127.0.0.1:8000/list_customer/')
+		fetch('http://lior.omcor.us/list_customer/')
 		.then((response) => {
 			return response.json()
 		})
@@ -108,14 +108,14 @@ export default class FormClient extends React.Component{
 	render(){
 		var hoy = Date.now();
 		return <div className="form-client">
-          	<div className="form-search">
+          	<div className="form-search field_sales">
           		<label ClassName="field-label" for="SearchClient">Buscar Cliente por Nombre o CI/NIT:</label>
           		<Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
           	    <span id="span_customer">
           	    	<a href="/add_customer" className="add-another" id="add_id_customer" onClick={this.showRelatedObjectPopup.bind(this)}> <img src="../static/admin/img/icon_addlink.gif" width="10" height="10" /> </a>
           		</span>	
           	</div>
-          	<br/><br/><br/>
+          	<br/>
 			<div className="form-client-nombre">
 				<label for="ClientName">Nombre: </label>
 	          	<input type="text" className="form-control" id="ClientName"/>

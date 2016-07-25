@@ -37,16 +37,18 @@ export default class PriceoComp extends React.Component{
 		item.push(ppt.toFixed(2));
 		array.push(item);
 		this.setState({productshop: array});
+		document.getElementById('qtyComp').value = "";
+		document.getElementById('priceoField').value = "";
 		document.getElementById('codeField').focus();
 	}
 
 	render(){
-		return <div className="lastcomponent"> 
-			<div>
-				<label for='priceoField'>Precio Unit:</label>
+		return <div className="separador"> 
+			<div className="monto">
+				<label for='priceoField'>Precio Unitario: </label>
 				<input type="text" id="priceoField"/>
-				<PricetComp data={this.state.pricet}/>
-				<button className="boton" type="submit" onClick={this.clickEvent.bind(this)}>agregar</button>
+				<br/>
+				<button className="btn_shop" type="submit" onClick={this.clickEvent.bind(this)}>agregar</button>
 			</div>
 			<div>
 				<ShopcartComp productsshop={this.state.productshop} sum={0}/>

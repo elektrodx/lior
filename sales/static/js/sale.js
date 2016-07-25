@@ -249,7 +249,7 @@ var FormClient = (function (_React$Component) {
 		value: function componentWillMount() {
 			var _this = this;
 
-			fetch('http://127.0.0.1:8000/list_customer/').then(function (response) {
+			fetch('http://lior.omcor.us/list_customer/').then(function (response) {
 				return response.json();
 			}).then(function (clientes) {
 				_this.setState({ clientes: clientes });
@@ -359,7 +359,7 @@ var FormClient = (function (_React$Component) {
 				{ className: 'form-client' },
 				_react2['default'].createElement(
 					'div',
-					{ className: 'form-search' },
+					{ className: 'form-search field_sales' },
 					_react2['default'].createElement(
 						'label',
 						{ ClassName: 'field-label', 'for': 'SearchClient' },
@@ -378,8 +378,6 @@ var FormClient = (function (_React$Component) {
 						)
 					)
 				),
-				_react2['default'].createElement('br', null),
-				_react2['default'].createElement('br', null),
 				_react2['default'].createElement('br', null),
 				_react2['default'].createElement(
 					'div',
@@ -532,7 +530,7 @@ var FormStock = (function (_React$Component) {
     value: function componentWillMount() {
       var _this = this;
 
-      fetch('http://127.0.0.1:8000/list_stock/').then(function (response) {
+      fetch('http://lior.omcor.us/list_stock/').then(function (response) {
         return response.json();
       }).then(function (productos) {
         _this.setState({ productos: productos });
@@ -1053,7 +1051,6 @@ var sumComponent = (function (_React$Component) {
 				},
 				statusCode: {
 					201: function _() {
-						console.log("hola");
 						location.reload();
 					}
 				}

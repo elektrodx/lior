@@ -15,7 +15,7 @@ export default class CodigoComp extends React.Component {
   	}
 
 	componentWillMount() {
-	    fetch('http://127.0.0.1:8000/list_stock/')
+	    fetch('http://lior.omcor.us/list_stock/')
 	      .then((response) => {
 	        return response.json()
 	      })
@@ -24,47 +24,74 @@ export default class CodigoComp extends React.Component {
 	      })
   	}
 
-	getSuggestions(input, callback) {
-		// var suggestions = "";
-		// console.log(input)
-		// fetch('http://127.0.0.1:8000/list_code/'+ input )
-	 //      .then((response) => {
-	 //        return response.json()
-	 //      })
-	 //      .then((productos) => {
-	 //        this.setState({ productos: productos })
-	 //      })
-	 //    console.log(this.state.productos)
-		const requestDelay = 50 + Math.floor(300 * Math.random());
-	    const escapedInput = utils.escapeRegexCharacters(input.trim());
-	    const lowercasedInput = input.trim().toLowerCase();
-	    const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
-	    var suggestions = this.state.productos
-	    .filter( suburbObj => suburbMatchRegex.test(' Codigo: ' + suburbObj.code ) )
-	    	.sort( (suburbObj1, suburbObj2) =>
-	    		suburbObj1.code.toLowerCase().indexOf(lowercasedInput) -
-	    		suburbObj2.code.toLowerCase().indexOf(lowercasedInput)
-	    	)
-	    	.slice(0, 7)
-	    	.map( suburbObj => suburbObj.code );
-	    console.log(suggestions)
-	    var mproduct = []
-	    this.state.productos.map((iteme) => {
-	    	if (iteme.code == suggestions) {
-	    		mproduct.push(iteme.description)
-	    		console.log(mproduct)
-	    	}
-	    })
-		this.setState({prods: mproduct })
+  	population(suburbObj) {
+  	  return suburbObj.description.split('').reduce((result, char) => result + char.charCodeAt(0), 0) +
+  	       +suburbObj.brand.split('').reverse().join('');
+  	}
 
-	    setTimeout(() => callback(null, suggestions), requestDelay);
-	}
+  	getSuggestions(input, callback) {
+  	  const requestDelay = 50 + Math.floor(300 * Math.random());
+  	  const escapedInput = utils.escapeRegexCharacters(input.trim());
+  	  const lowercasedInput = input.trim().toLowerCase();
+  	  const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
+  	  const suggestions = this.state.productos
+  	    .filter( suburbObj => suburbMatchRegex.test(suburbObj.description + ' Marca: ' + suburbObj.brand  + ' Codigo: ' + suburbObj.code) )
+  	    .sort( (suburbObj1, suburbObj2) =>
+  	      suburbObj1.description.toLowerCase().indexOf(lowercasedInput) -
+  	      suburbObj2.description.toLowerCase().indexOf(lowercasedInput)
+  	    )
+  	    .slice(0, 7)
+  	    .map( suburbObj => {
+  	      suburbObj.population = suburbObj.qty;
+  	      return suburbObj;
+  	    } )
+  	    .sort( (suburbObj1, suburbObj2) => suburbObj2.population - suburbObj1.population );
+  	  setTimeout(() => callback(null, suggestions), requestDelay);
+  	}
+
+  	renderSuggestion(suggestionObj, input) {
+  	  const escapedInput = utils.escapeRegexCharacters(input);
+  	  const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
+  	  const suggestion = 'Descripcion: ' + suggestionObj.description + ' /*/ Marca: ' + suggestionObj.brand + ' /*/ Cod.: ' + suggestionObj.code;
+  	  const firstMatchIndex = suggestion.search(suburbMatchRegex);
+
+  	  if (firstMatchIndex === -1) {
+  	    return suggestion;
+  	  }
+
+  	  const beforeMatch = suggestion.slice(0, firstMatchIndex);
+  	  const match = suggestion.slice(firstMatchIndex, firstMatchIndex + input.length);
+  	  const afterMatch = suggestion.slice(firstMatchIndex + input.length);
+
+  	  return (
+  	    <span>
+  	      {beforeMatch}<strong>{match}</strong>{afterMatch}<br />
+  	      <small style={{ color: '#777' }}>Cantidad: {suggestionObj.population}</small>
+  	    </span>
+  	  );
+  	}
+
+  	getSuggestionValue(suggestionObj) {
+  	  var pp = Number(suggestionObj.price)
+  	  var pproduct = []
+  	  var mproduct = []
+  	  var nproduct = []
+  	  var qty = Number(suggestionObj.population)
+  	  pproduct.push(suggestionObj.code, suggestionObj.description, suggestionObj.brand)
+  	  mproduct.push(suggestionObj.description)
+  	  nproduct.push(suggestionObj.code)
+  	  this.setState({ pPrice: pp, productSale: pproduct, qty: qty, prods: mproduct, prods_code: nproduct})
+  	  //return suggestionObj.code + ' - ' + suggestionObj.description + ' - ' + suggestionObj.brand;
+  	  return suggestionObj.code;
+  	}
 
 	render(){
-		return <div>
-			<label for="codeField">Codigo: </label>
-			<Autosuggest suggestions={this.getSuggestions.bind(this)} inputAttributes={{ id: 'codeField' }} />
-			<DescriptionComp  prod={this.state.prods}/>
+		return <div className="separador">
+			<div className="field_shop">
+          		<label ClassName="field-label" for="codeField">Código o Descripción: </label>
+          		<Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} inputAttributes={{ id: 'codeField' }} />
+          	</div>
+			<DescriptionComp  prod={this.state.prods} />
 		</div>
 	}
 }
