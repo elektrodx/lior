@@ -39,7 +39,7 @@ urlpatterns = [
     url(r'^detail_stock/', 'stock.views.detail_stock', name='detail_stock'),
     url(r'^logout_l/', 'user_lior.views.logout_view', name='logout_view'),
     url(r'^add_shop/', 'shop.views.add_shop', name='add_shop'),
-    # url(r'^invoice/',  Invoice.as_view()), 
+    url(r'^invoice/', 'sales.views.invoice', name='invoice'), 
     # url(r'^list_sales/', 'filters.views.list_sales', name='list_sales'),
     # url(r'^list_detail_sale/(?P<code_sale>\w+)/$', 'filters.views.list_detail_sale', name='list_detail_sale'),
     # url(r'^json_sales/', 'filters.views.json_sales', name='json_sales'),
