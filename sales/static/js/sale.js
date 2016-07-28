@@ -171,9 +171,13 @@ var CartComponent = (function (_React$Component) {
 								item[8]
 							),
 							_react2['default'].createElement(
-								'td',
+								'strong',
 								null,
-								item[9]
+								_react2['default'].createElement(
+									'td',
+									null,
+									item[9]
+								)
 							)
 						);
 					})
@@ -1152,9 +1156,13 @@ var TotalPrice = (function (_React$Component) {
 					'Total A Pagar: '
 				),
 				_react2['default'].createElement(
-					'span',
+					'strong',
 					null,
-					this.props.amount
+					_react2['default'].createElement(
+						'span',
+						null,
+						this.props.amount
+					)
 				)
 			);
 		}

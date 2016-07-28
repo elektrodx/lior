@@ -34,7 +34,7 @@ export default class CartComponent extends React.Component{
 						<td>{item[6]}</td>
 						<td>{item[7]}</td>
 						<td>{item[8]}</td>
-						<td>{item[9]}</td>
+						<strong><td>{item[9]}</td></strong>
 					</tr>						
 					})
 				}
