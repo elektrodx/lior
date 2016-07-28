@@ -105,7 +105,9 @@ export default class FormStock extends React.Component{
 	render(){
 		return <div className="form-client-stock">
 			<label for="StockField">Producto: </label>
-      <Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
+      <span className="field_auto">
+        <Autosuggest suggestions={this.getSuggestions.bind(this)} suggestionRenderer={this.renderSuggestion.bind(this)} suggestionValue={this.getSuggestionValue.bind(this)} />
+      </span>
       <PriceField price_base={this.state.pPrice} productSold={this.state.productSale} qtyp={this.state.qty} price_basef={this.state.pPricef} parts_left={this.state.qtyf} parts={this.state.parts} />
 		</div>
 	}

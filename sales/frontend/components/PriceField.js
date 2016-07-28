@@ -82,7 +82,7 @@ export default class PriceField extends React.Component{
 
 	render(){
 		return <div> 
-			<select className="list" name="pricef" onChange={this.handleSelect.bind(this)}>
+			<select className="list select" name="pricef" onChange={this.handleSelect.bind(this)}>
 				<option value="">Elija valor...</option>
 				<option value={this.props.price_base/(1-0.50)}>50 %</option>
 				<option value={this.props.price_base/(1-0.45)}>45 %</option>
@@ -96,7 +96,7 @@ export default class PriceField extends React.Component{
 				<option value={this.props.price_base}>Precio Base</option>
 			</select>
 			<PriceFinal value={this.state.price_base1}/>
-			<div className="qtyField">
+			<div className="qtyField monto last">
 				<label for="qtyField">Cantidad:</label>
 				<input type="number" step="1.0" min="0" defaultValue="0" id="qtyField"/>
 				<label for="qtyfField">Cantidad fraccionada:</label>
