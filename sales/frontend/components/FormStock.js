@@ -16,8 +16,8 @@ export default class FormStock extends React.Component{
   }
 
   componentWillMount() {
-    //fetch('http://lior.omcor.us/list_stock/')
-    fetch('http://127.0.0.1/list_stock/')
+    fetch('http://lior.omcor.us/list_stock/')
+    //fetch('http://127.0.0.1/list_stock/')
       .then((response) => {
         return response.json()
       })

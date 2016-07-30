@@ -253,8 +253,9 @@ var FormClient = (function (_React$Component) {
 		value: function componentWillMount() {
 			var _this = this;
 
-			//fetch('http://lior.omcor.us/list_customer/')
-			fetch('http://127.0.0.1/list_customer/').then(function (response) {
+			fetch('http://lior.omcor.us/list_customer/')
+			//fetch('http://127.0.0.1/list_customer/')
+			.then(function (response) {
 				return response.json();
 			}).then(function (clientes) {
 				_this.setState({ clientes: clientes });
@@ -535,8 +536,9 @@ var FormStock = (function (_React$Component) {
     value: function componentWillMount() {
       var _this = this;
 
-      //fetch('http://lior.omcor.us/list_stock/')
-      fetch('http://127.0.0.1/list_stock/').then(function (response) {
+      fetch('http://lior.omcor.us/list_stock/')
+      //fetch('http://127.0.0.1/list_stock/')
+      .then(function (response) {
         return response.json();
       }).then(function (productos) {
         _this.setState({ productos: productos });
