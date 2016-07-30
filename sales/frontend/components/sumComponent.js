@@ -33,7 +33,11 @@ export default class sumComponent extends React.Component{
 			 }, 
 			 statusCode: {
     			201: function() {
-      				location.reload();
+      				// location.reload();
+      				window.location = "/invoice/"
+    				},
+    			500: function()	{
+    				alert("Existe un Error en su Solicitud")
     				}
   				}
 			});

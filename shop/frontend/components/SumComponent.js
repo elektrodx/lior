@@ -29,7 +29,10 @@ export default class SumComponent extends React.Component {
 			statusCode:{
 				201: function(){
 					location.reload();
-				} 
+				},
+				500: function(){
+					alert("Existe un Error en su Solicitud")
+				}
 			}
 		})
 	}
