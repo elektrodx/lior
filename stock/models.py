@@ -12,7 +12,7 @@ class Stock(models.Model):
 	date_end = models.DateField(blank=True, null=True)
 	qty = models.IntegerField()
 	parts = models.IntegerField(default=0)
-	parts_left = models.IntegerField(blank=True, null=True)
+	parts_left = models.IntegerField(default=0)
 	description = models.CharField(max_length=200)
 	price_base = models.DecimalField(max_digits=6, decimal_places=2)
 	units = models.ForeignKey(Unit)
