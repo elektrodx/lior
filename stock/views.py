@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import UnitForm
 from .forms import StockForm
 from .models import *
@@ -42,6 +42,14 @@ def add_stock(request):
 	else:
 		form = StockForm()
 	return render(request, 'add_stock.html', {'form': form })
+
+def edit_stock(request, id): 
+    item = get_object_or_404(Stock, code=id)
+    form = StockForm(request.POST or None, instance=item)
+    if form.is_valid():
+          form.save()
+          return redirect('home')
+    return render(request, 'edit_stock.html', {'form': form}) 
 
 def list_stock(request):
 	q_stock = Stock.objects.all()

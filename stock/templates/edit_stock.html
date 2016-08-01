@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/add_stock.css" %}">
+	{% include 'autocomplete_light/static.html' %}
+	<title>Edicion Items del Stock</title>
+</head>
+<body>
+	<nav class="menu_container">
+		<ul class="menu">
+			<div class="menu_home">
+				<a class="icon-home" href="/"></a>
+			</div>
+			<li class="menu_ventas">
+				<a href="/add_sale">Ventas</a>
+			</li>
+			<li class="menu_compras">
+				<a href="/add_shop">Compras</a>
+			</li>
+			<li class="menu_inventario">
+				<a href="/detail_stock">Inventario</a>
+			</li>
+			<li class="menu_gastos">
+				<a href="#">Gastos</a>
+			</li>
+			<li class="menu_reportes">
+				<a href="#">Reportes</a>
+			</li>
+			<li class="menu_configuracion">
+				<a href="#">Configuración</a>
+				<ul class="sub-menu">
+					<li class="item">
+						<a href="/add_stock">Ingreso de Stock</a>
+					</li>
+					<li class="item">
+						<a href="/add_sucursal_2">Agrega Sucursal</a>
+					</li>
+					<li class="item">
+						<a href="/add_unit_2">Agrega Unidad</a>
+					</li>
+					<li class="item">
+						<a href="/add_provider">Agrega Provedor</a>
+					</li>
+					<li class="item">
+						<a href="/add_customer_2">Agrega Cliente</a>
+					</li>
+				</ul>
+			</li>
+			<div class="menu_usuario">
+				<span>{{request.user}}</span>
+			</div>
+			<div class="menu_logout">
+				<a class="icon-exit" href="/logout_l"></a>
+			</div>
+		</ul>
+	</nav>
+	<section class="container">
+		<h3 class="titulo">Edicion de Items del Stock</h3>
+		<form action="" class="form" method="POST">
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="field aling">
+				{{form.code.errors}}
+				<label for="id_code" class="field-label">Codigo de Producto:</label>
+				{{ form.code }}
+			</div>
+			<div class="field aling">
+				{{ form.brand.errors }}
+				<label for="id_brand" class="field-label">Marca del Producto:</label>
+				{{form.brand}}
+			</div>
+			<div class="field">
+				{{ form.description.errors }}
+				<label for="id_description" class="field-label">Descripción:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_description">Detalle del Producto</span>		
+				</div>
+				{{form.description}}
+			</div>
+			<div class="field aling">
+				{{ form.qty.errors }}
+				<label for="id_qty" class="field-label">Cantidad:</label>
+				{{ form.qty }}
+			</div>
+			<span id="span_units">
+				<div class="field">
+					{{ form.units.errors }}
+					<label for="id_units" class="field-label">Unidad de medida:</label>
+					{{ form.units }}
+					<span>
+						<a href="/add_unit" class="add-another" id="add_id_{{ field }}" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" width="10" height="10" alt="Add Another"/></a>
+					</span>
+				</div>
+			</span>
+			<div class="field">
+				{{ form.price_base.errors }}
+				<label for="id_price_base" class="field-label">Precio Base:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Precio de lista</span>
+				</div>
+				{{ form.price_base }}
+			</div>
+			<div class="field">
+				{{ form.parts.errors }}
+				<label for="id_parts" class="field-label">Fraccionamiento:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Detalle para venta al menudeo</span>
+				</div>
+				{{ form.parts }}
+			</div>
+			<div class="field">
+				{{ form.parts_left.errors }}
+				<label for="id_parts_left" class="field-label">Saldo Fraccionado:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Ítems fracccionados para ingreso a Stock</span>
+				</div>
+				{{ form.parts_left }}
+			</div>
+			<div class="field aling">
+				{{ form.date_end.errors }}
+				<label for="id_date_end" class="field-label">Fecha de Vencimiento:</label>
+				{{ form.date_end }}
+			</div>
+			<span id="span_location">
+				<div class="field">
+					{{ form.place.errors }}
+					<label for="id_place" class="field-label">Ubicacion:</label>
+					{{ form.place }}
+					<span>
+						<a href="/add_sucursal" class="add-another" id="add_id_{{ field }}" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" width="10" height="10" alt="Add Another"/></a>
+					</span>
+				</div>
+			</span>
+			<div class="field last">
+				{{ form.note.errors }}
+				<label for="id_note" class="field-label">Notas:</label>
+				<div class="msg-container icon-notification">
+ 					<span id="msg_notes">Notas u observaciones</span>
+				</div>
+				{{ form.note }}
+			</div>
+			<input class="boton" type="submit" value="Grabar">
+		</form>
+	</section>
+</body>
+</html>
