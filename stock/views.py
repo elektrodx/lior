@@ -48,7 +48,7 @@ def edit_stock(request, id):
     form = StockForm(request.POST or None, instance=item)
     if form.is_valid():
           form.save()
-          return redirect('home')
+          return redirect('detail_stock')
     return render(request, 'edit_stock.html', {'form': form}) 
 
 def list_stock(request):

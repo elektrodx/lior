@@ -50,5 +50,5 @@ urlpatterns = [
     # url(r'^img_add/', 'admin/img/icon_addlink.gif'),
     url(r'^sales/$', 'sales.views.sale_add', name='sale_add'),
     url(r'^shops/$', 'shop.views.shop_add', name='shop_add'),
-    url(r'^eitem/(?P<id>[-\w]+)/$', 'stock.views.edit_stock', name='edit_stock') 
+    url(r'^eitem/(?P<id>.*)/$', 'stock.views.edit_stock', name='edit_stock') 
 ]
