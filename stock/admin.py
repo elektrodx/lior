@@ -12,3 +12,9 @@ class UnitAdmin(admin.ModelAdmin):
 	list_display = ('unit',)
 
 admin.site.register(Unit, UnitAdmin)
+
+class QtystockAdmin(admin.ModelAdmin):
+	list_display = ('item','qty', 'place', 'parts_left', 'price_base')
+	list_filter =('place',)
+
+admin.site.register(Qtystock, QtystockAdmin)

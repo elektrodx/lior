@@ -30,3 +30,10 @@ class Stock(models.Model):
 	@property
 	def price_by_parts(self):
 		return self.price_base / self.parts
+
+class Qtystock(models.Model):
+	item = models.ForeignKey(Stock)
+	qty = models.IntegerField(default=0)
+	place = models.ForeignKey(Sucursal)
+	price_base = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+	parts_left = models.DecimalField(max_digits=6, decimal_places=2, default=0)
