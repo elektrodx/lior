@@ -3,6 +3,7 @@
   "scripts": {
     "stylus": "stylus -c -w -o ../static/css/ stylus/add_sale.styl",
     "sty_in": "stylus -c -w -o ../static/css/ stylus/invoice.styl",
+    "sty_rep": "stylus -c -w -o ../static/css stylus/report_sale.styl",
     "build": "browserify app.js > ../static/js/sale.js -t babelify"
   },
   "dependencies": {

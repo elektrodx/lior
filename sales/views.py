@@ -10,7 +10,6 @@ from assets.models import Income
 from django.contrib.auth.decorators import login_required
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter, landscape
-#from wkhtmltopdf.views import PDFTemplateView, PDFTemplateResponse
 import os, json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
@@ -29,22 +28,9 @@ def add_sale(request):
 		form = SalesForm()
 	return render(request, 'add_sale.html', {'form': form })
 
-#class Invoice(PDFTemplateView):
-#    template='invoice.html'
-#    q_sales = Sales.objects.all().last()
-#    d_sales = SalesDetail.objects.filter(sale=q_sales.pk)
-#    context = { 'pk': q_sales.pk, 'customer': q_sales.customer, 'date': q_sales.date, 'total': q_sales.amount, 'items': d_sales }
-#    def get(self, request):
-#        response = PDFTemplateResponse(request=request,
-#                                       template=self.template,
-#                                       filename="hello.pdf",
-#                                       context= self.context,
-#                                       show_content_in_browser=True,
-#                                       cmd_options={'margin-top': 5,
-#                                       'orientation': 'Landscape',
-#                                       'page-size': 'Letter'},
-#                                       )
-#        return response
+def report_sale(request):
+  context = 'hola'
+  return render(request, 'report_sale.html', {'context': context})
 
 @csrf_exempt
 def sales_postjson(request):
