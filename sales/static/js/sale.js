@@ -559,11 +559,12 @@ var FormStock = (function (_React$Component) {
       var lowercasedInput = input.trim().toLowerCase();
       var suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
       //const suggestions = suburbs
+      var size = this.state.productos.length;
       var suggestions = this.state.productos.filter(function (suburbObj) {
         return suburbMatchRegex.test(suburbObj.description + ' Marca: ' + suburbObj.brand + ' Codigo: ' + suburbObj.code);
       }).sort(function (suburbObj1, suburbObj2) {
         return suburbObj1.description.toLowerCase().indexOf(lowercasedInput) - suburbObj2.description.toLowerCase().indexOf(lowercasedInput);
-      }).slice(0, 7).map(function (suburbObj) {
+      }).slice(0, 30).map(function (suburbObj) {
         //suburbObj.population = population(suburbObj);
         suburbObj.population = suburbObj.qty;
         return suburbObj;

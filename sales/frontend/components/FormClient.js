@@ -47,7 +47,7 @@ export default class FormClient extends React.Component{
     		suburbObj1.ci.toLowerCase().indexOf(lowercasedInput) -
     		suburbObj2.ci.toLowerCase().indexOf(lowercasedInput)
     	)
-    	.slice(0, 7)
+    	.slice(0, 15)
     	.map( suburbObj => {
         	suburbObj.population = suburbObj.fono;
         	return suburbObj;

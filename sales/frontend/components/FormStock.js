@@ -37,13 +37,14 @@ export default class FormStock extends React.Component{
     const lowercasedInput = input.trim().toLowerCase();
     const suburbMatchRegex = new RegExp('\\b' + escapedInput, 'i');
     //const suggestions = suburbs
+    const size = this.state.productos.length;
     const suggestions = this.state.productos
       .filter( suburbObj => suburbMatchRegex.test(suburbObj.description + ' Marca: ' + suburbObj.brand  + ' Codigo: ' + suburbObj.code) )
       .sort( (suburbObj1, suburbObj2) =>
         suburbObj1.description.toLowerCase().indexOf(lowercasedInput) -
         suburbObj2.description.toLowerCase().indexOf(lowercasedInput)
       )
-      .slice(0, 7)
+      .slice(0, 15)
       .map( suburbObj => {
         //suburbObj.population = population(suburbObj);
         suburbObj.population = suburbObj.qty;
