@@ -29,8 +29,19 @@ def add_sale(request):
 	return render(request, 'add_sale.html', {'form': form })
 
 def report_sale(request):
-  context = 'hola'
-  return render(request, 'report_sale.html', {'context': context})
+  salesd = Sales.objects.filter(date=datetime.date.today())
+  count = len(salesd)
+  Sum = 0
+  SumItemsS = 0
+  SumPriceBase = 0
+  for index in salesd:
+    Sum = Sum + index.amount
+    itemsD = SalesDetail.objects.filter(sale=index.pk)
+    for index2 in itemsD:
+      SumItemsS = SumItemsS + index2.price + index2.pricef
+      StockPrice = Stock.objects.get(pk=index2.item_id)
+      SumPriceBase = SumPriceBase + StockPrice.price_base
+  return render(request, 'report_sale.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase})
 
 @csrf_exempt
 def sales_postjson(request):

@@ -57,7 +57,17 @@
 	</nav>
 	<section id='bcontainer' class="container">
 	<h3 class="titulo">Reporte Diario de Ventas</h3>
-		<span>{{ context }}</span>
+		<div class="resumen">
+			<div>
+				<span>Cantidad de Ventas: {{count}}</span>
+			</div>
+			<div >
+				<span>Por un monto total de: {{amount}} Bs.</span>
+			</div>
+			<div>
+				<span>Con una Ganancia de: {{income}} Bs.</span>
+			</div>
+		</div>
 	</section>
 </body>
 </html>
