@@ -68,6 +68,25 @@
 				<span>Con una Ganancia de: {{income}} Bs.</span>
 			</div>
 		</div>
+	<h4 class="titulo">Listado de las ventas del Dia</h4>
+		<div class="listado">
+			<table class="table">
+			<tr class="table-head">
+				<th>Numero</th>
+				<th class="cliente">Cliente</th>
+				<th class="monto">Monto</th>
+				<th>Usuario<th>
+			</tr>
+		{% for index in sales %}
+			<tr class="table-data">
+				<td>{{index.pk}}</td>
+				<td class="cliente">{{index.customer}}</td>
+				<td class="monto">{{index.amount}}</td>
+				<td>{{index.user}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+		</div>	
 	</section>
 </body>
 </html>

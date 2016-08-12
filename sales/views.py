@@ -41,7 +41,7 @@ def report_sale(request):
       SumItemsS = SumItemsS + index2.price + index2.pricef
       StockPrice = Stock.objects.get(pk=index2.item_id)
       SumPriceBase = SumPriceBase + StockPrice.price_base
-  return render(request, 'report_sale.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase})
+  return render(request, 'report_sale.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesd})
 
 @csrf_exempt
 def sales_postjson(request):
