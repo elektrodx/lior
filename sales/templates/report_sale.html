@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	{% load static from staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static "css/add_sucursal.css" %}">
-	<title>Nuevas Sucursales</title>
+	<link rel="stylesheet" type="text/css" href="{% static "css/report_sale.css" %}">
+	<title>Reporte de Ventas</title>
 </head>
 <body>
 	<nav class="menu_container">
@@ -19,15 +19,7 @@
 				<a href="/add_shop">Compras</a>
 			</li>
 			<li class="menu_inventario">
-				<a href="#">Inventario</a>
-				<ul class="sub-menu">
-					<li class="item">
-						<a href="/detail_stock">Detalle Inventario</a>
-					</li>
-					<li class="item">
-						<a href="/search_stock" class="icon-search"></a>
-					</li>
-				</ul>
+				<a href="/detail_stock">Inventario</a>
 			</li>
 			<li class="menu_gastos">
 				<a href="#">Gastos</a>
@@ -63,21 +55,38 @@
 			</div>
 		</ul>
 	</nav>
-	<section class="container">
-		<h3 class="titulo">Registro de Sucursales</h3>
-		<form action="" class="form" method="POST">
-			{% csrf_token %}
-			{{ form.non_field_errors }}
-			<div class="field">
-				{{ form.name.errors }}
-				<label for="id_sucursal">Nombre de sucursal:</label>
-				<div class="msg-container icon-notification">
-					<span id="msg_sucursal">Ej. sucursal: Cochabamba, La Paz, Santa Cruz, etc.</span>
-				</div>
-				{{form.name}}
+	<section id='bcontainer' class="container">
+	<h3 class="titulo">Reporte Diario de Ventas</h3>
+		<div class="resumen">
+			<div>
+				<span>Cantidad de Ventas: {{count}}</span>
 			</div>
-			<input class="boton" type="submit" value="Grabar">
-		</form>
+			<div >
+				<span>Por un monto total de: {{amount}} Bs.</span>
+			</div>
+			<div>
+				<span>Con una Ganancia de: {{income}} Bs.</span>
+			</div>
+		</div>
+	<h4 class="titulo">Listado de las ventas del Dia</h4>
+		<div class="listado">
+			<table class="table">
+			<tr class="table-head">
+				<th>Numero</th>
+				<th class="cliente">Cliente</th>
+				<th class="monto">Monto</th>
+				<th>Usuario<th>
+			</tr>
+		{% for index in sales %}
+			<tr class="table-data">
+				<td>{{index.pk}}</td>
+				<td class="cliente">{{index.customer}}</td>
+				<td class="monto">{{index.amount}}</td>
+				<td>{{index.user}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+		</div>	
 	</section>
 </body>
 </html>

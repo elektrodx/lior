@@ -60,3 +60,19 @@ def list_stock(request):
 def detail_stock(request):
 	q_stock = Stock.objects.all()
 	return render(request, 'detail_stock.html', locals())
+
+@login_required(login_url="/singin")
+def search_stock(request):
+	form = StockForm()
+	if request.method == "POST":
+		form = StockForm(request.POST)
+		message = request.POST.get('description')
+		print(message)
+		q_stock = Stock.objects.filter(description__icontains = message)
+		if len(q_stock) == 0:
+			q_stock = Stock.objects.filter(code__icontains = message)
+			print(q_stock)
+		return render(request, 'searched_stock.html', locals())
+	else:
+		form = StockForm()
+	return render(request, 'search_stock.html', {'form': form })

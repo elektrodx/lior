@@ -41,7 +41,7 @@ export default class CodigoComp extends React.Component {
   	      suburbObj1.description.toLowerCase().indexOf(lowercasedInput) -
   	      suburbObj2.description.toLowerCase().indexOf(lowercasedInput)
   	    )
-  	    .slice(0, 7)
+  	    .slice(0, 15)
   	    .map( suburbObj => {
   	      suburbObj.population = suburbObj.qty;
   	      return suburbObj;
