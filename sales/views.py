@@ -44,7 +44,7 @@ def report_sale(request):
       SumPriceBase = SumPriceBase + StockPrice.price_base
   return render(request, 'report_sale.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesd})
 
-def report_saleW(request):
+def report_salew(request):
   last_seventh = datetime.today() - timedelta(days=7)
   salesd = Sales.objects.filter(date__gte=last_seventh)
   count = len(salesd)
@@ -58,9 +58,9 @@ def report_saleW(request):
       SumItemsS = SumItemsS + index2.price + index2.pricef
       StockPrice = Stock.objects.get(pk=index2.item_id)
       SumPriceBase = SumPriceBase + StockPrice.price_base
-  return render(request, 'report_saleW.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesd})
+  return render(request, 'report_salew.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesd})
 
-def report_saleM(request):
+def report_salem(request):
   today = datetime.today()
   salesm = Sales.objects.filter(date__month=today.month, date__year=today.year)
   count = len(salesm)
