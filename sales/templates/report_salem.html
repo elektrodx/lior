@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/report_sale.css" %}">
+	<title>Reporte de Ventas</title>
+</head>
+<body>
+	<nav class="menu_container">
+		<ul class="menu">
+			<div class="menu_home">
+				<a class="icon-home" href="/"></a>
+			</div>
+			<li class="menu_ventas">
+				<a href="/add_sale">Ventas</a>
+			</li>
+			<li class="menu_compras">
+				<a href="/add_shop">Compras</a>
+			</li>
+			<li class="menu_inventario">
+				<a href="/detail_stock">Inventario</a>
+			</li>
+			<li class="menu_gastos">
+				<a href="#">Gastos</a>
+			</li>
+			<li class="menu_reportes">
+				<a href="#">Reportes</a>
+			</li>
+			<li class="menu_configuracion">
+				<a href="#">Configuración</a>
+				<ul class="sub-menu">
+					<li class="item">
+						<a href="/add_stock">Ingreso de Stock</a>
+					</li>
+					<li class="item">
+						<a href="/add_sucursal_2">Agrega Sucursal</a>
+					</li>
+					<li class="item">
+						<a href="/add_unit_2">Agrega Unidad</a>
+					</li>
+					<li class="item">
+						<a href="/add_provider">Agrega Provedor</a>
+					</li>
+					<li class="item">
+						<a href="/add_customer_2">Agrega Cliente</a>
+					</li>
+				</ul>
+			</li>
+			<div class="menu_usuario">
+				<span>{{request.user}}</span>
+			</div>
+			<div class="menu_logout">
+				<a class="icon-exit" href="/logout_l"></a>
+			</div>
+		</ul>
+	</nav>
+	<section id='bcontainer' class="container">
+	<h3 class="titulo">Reporte Mensual de Ventas</h3>
+		<div class="resumen">
+			<div>
+				<span>Cantidad de Ventas: {{count}}</span>
+			</div>
+			<div >
+				<span>Por un monto total de: {{amount}} Bs.</span>
+			</div>
+			<div>
+				<span>Con una Ganancia de: {{income}} Bs.</span>
+			</div>
+		</div>
+	<h4 class="titulo">Listado de las ventas del Mes</h4>
+		<div class="listado">
+			<table class="table">
+			<tr class="table-head">
+				<th>Numero</th>
+				<th class="cliente">Cliente</th>
+				<th class="monto">Monto</th>
+				<th>Usuario<th>
+			</tr>
+		{% for index in sales %}
+			<tr class="table-data">
+				<td>{{index.pk}}</td>
+				<td class="cliente">{{index.customer}}</td>
+				<td class="monto">{{index.amount}}</td>
+				<td>{{index.user}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+		</div>	
+	</section>
+</body>
+</html>

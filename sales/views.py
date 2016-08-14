@@ -14,7 +14,7 @@ import os, json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.http import HttpResponse, JsonResponse
-import datetime
+from datetime import datetime, timedelta
 import pdb, ast
 
 @login_required(login_url="/singin")
@@ -42,6 +42,38 @@ def report_sale(request):
       StockPrice = Stock.objects.get(pk=index2.item_id)
       SumPriceBase = SumPriceBase + StockPrice.price_base
   return render(request, 'report_sale.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesd})
+
+def report_saleW(request):
+  last_seventh = datetime.today() - timedelta(days=7)
+  salesd = Sales.objects.filter(date__gte=last_seventh)
+  count = len(salesd)
+  Sum = 0
+  SumItemsS = 0
+  SumPriceBase = 0
+  for index in salesd:
+    Sum = Sum + index.amount
+    itemsD = SalesDetail.objects.filter(sale=index.pk)
+    for index2 in itemsD:
+      SumItemsS = SumItemsS + index2.price + index2.pricef
+      StockPrice = Stock.objects.get(pk=index2.item_id)
+      SumPriceBase = SumPriceBase + StockPrice.price_base
+  return render(request, 'report_saleW.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesd})
+
+def report_saleM(request):
+  today = datetime.today()
+  salesm = Sales.objects.filter(date__month=today.month, date__year=today.year)
+  count = len(salesm)
+  Sum = 0
+  SumItemsS = 0
+  SumPriceBase = 0
+  for index in salesm:
+    Sum = Sum + index.amount
+    itemsM = SalesDetail.objects.filter(sale=index.pk)
+    for index2 in itemsM:
+      SumItemsS = SumItemsS + index2.price + index2.pricef
+      StockPrice = Stock.objects.get(pk=index2.item_id)
+      SumPriceBase = SumPriceBase + StockPrice.price_base
+  return render(request, 'report_salem.html', {'count': count, 'amount': Sum, 'income': SumItemsS-SumPriceBase, 'sales': salesm})
 
 @csrf_exempt
 def sales_postjson(request):
