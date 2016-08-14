@@ -29,7 +29,8 @@ def add_sale(request):
 	return render(request, 'add_sale.html', {'form': form })
 
 def report_sale(request):
-  salesd = Sales.objects.filter(date=datetime.date.today())
+  salesd = Sales.objects.filter(date=datetime.today())
+  print datetime.today()
   count = len(salesd)
   Sum = 0
   SumItemsS = 0
