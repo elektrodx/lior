@@ -43,6 +43,7 @@ def add_stock(request):
 		form = StockForm()
 	return render(request, 'add_stock.html', {'form': form })
 
+@login_required(login_url="/singin")
 def edit_stock(request, id): 
     item = get_object_or_404(Stock, code=id)
     form = StockForm(request.POST or None, instance=item)
@@ -70,8 +71,8 @@ def search_stock(request):
 		print(message)
 		q_stock = Stock.objects.filter(description__icontains = message)
 		if len(q_stock) == 0:
-			q_stock = Stock.objects.filter(code__icontains = message)
-			print(q_stock)
+			mess_split = message.split(' ')
+			q_stock = Stock.objects.filter(code__icontains = mess_split[0])
 		return render(request, 'searched_stock.html', locals())
 	else:
 		form = StockForm()
