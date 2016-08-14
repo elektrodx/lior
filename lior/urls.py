@@ -52,7 +52,7 @@ urlpatterns = [
     url(r'^shops/$', 'shop.views.shop_add', name='shop_add'),
     url(r'^eitem/(?P<id>.*)/$', 'stock.views.edit_stock', name='edit_stock'),
     url(r'^report_sale/', 'sales.views.report_sale', name="report_sale"),
-    url(r'^report_salew/', 'sales.views.report_saleW', name="report_saleW"),
-    url(r'^report_salem/', 'sales.views.report_saleM', name="report_saleM"),
+    url(r'^report_salew/', 'sales.views.report_salew', name="report_salew"),
+    url(r'^report_salem/', 'sales.views.report_salem', name="report_salem"),
     url(r'^search_stock/', 'stock.views.search_stock', name='search_stock'),
 ]
