@@ -60,6 +60,13 @@ def list_stock(request):
 @login_required(login_url="/singin")
 def detail_stock(request):
 	q_stock = Stock.objects.all()
+	qty = len(q_stock)
+	sumstock = 0
+	for index in q_stock:
+		if index.parts <> 0:
+			sumstock = sumstock + (index.qty*index.price_base) + (index.price_by_parts*index.parts_left)
+		else:
+			sumstock = sumstock + (index.qty*index.price_base)
 	return render(request, 'detail_stock.html', locals())
 
 @login_required(login_url="/singin")

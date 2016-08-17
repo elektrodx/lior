@@ -8,8 +8,17 @@
 </head>
 <body>
 	{% include "menu.html" %}
-	<section class="container">
+	<section class="container center">
 		<h3 class="titulo">Listado de Productos en Tienda</h3>
+		<h4 class="subtitulo center">Resumen de Productos</h4>
+		<div class="head center">
+			<div class="">
+				<span>Cantidad de Productos en tienda: {{qty}} </span>
+			</div>
+			<div class="">
+				<span>Por un Valor de: {{sumstock|floatformat:2}} Bs.</span>
+			</div>
+		</div>
 		<table class="table">
 			<tr class="table-head">
 				<th>Codigo</th>
