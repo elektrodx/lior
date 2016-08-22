@@ -1,0 +1,7 @@
+{
+	"name": "lior",
+	"scripts": {
+		"stylus": "stylus -u nib -c -w -o ../static/css/ stylus/add_expenses.styl",
+		"build": "browserify app.js > ../static/js/expenses.js -t babelify"
+	}
+}

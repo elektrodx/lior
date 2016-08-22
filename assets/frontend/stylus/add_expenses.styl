@@ -1,6 +1,8 @@
 @import "normalize.styl"
 @import "fonts.styl"
 @import "menu.styl"
+@import "field.styl"
+@import "nib"
 
 body
 	background-color plomo_claro
@@ -8,103 +10,14 @@ body
 	font-size 16px
 	a
 		text-decoration none
-
-.container
-	background-color white
-	width 440px
-	height auto
-	margin 0 auto
-	margin-top 5em
-	border 2px solid black
-	border-bottom-left-radius 12px
-	border-bottom-right-radius 12px
-	border-top-left-radius 12px
-	border-top-right-radius 12px
-	position absolute
-	left 36%
-
-.containerpop
-	background-color white
-	width 470px
-	height auto
-	margin 0 auto
-	margin-top 3em
-	border 2px solid black
-	border-bottom-left-radius 12px
-	border-bottom-right-radius 12px
-	border-top-left-radius 12px
-	border-top-right-radius 12px
-
-.form
-	margin 1em 0.8em
-	position relative
-	// overflow hidden
-
-.form-field
-	margin 1em 0em
-	padding 0.8em 0
-	position relative
-	label
-		float left
-	input
-		border 1.5px solid black
-		border-bottom-left-radius 10px
-		border-bottom-right-radius 10px
-		border-top-left-radius 10px
-		border-top-right-radius 10px
-		float right
-		padding-left 0.5em
-		width 235px
-	div:hover
-		span			
-			display block
-.errorlist
-	color rojo
-	font-size 0.9em
-	margin 0 1em 0.5em 1em
-	
-			
-.aling
-	padding-right 1.6em
-	
-.last
-	margin-bottom 5em
-	
-.msg-container
-	color morado
-	margin-top 0.1em
-	font-size 1.1em
-	margin-left 0.5em
-	float right
-	span
-		display none
-		font-size 0.8em
-		font-family 'Roboto'
-		padding 0.5em
-		margin-left 3em
-		background-color white
-		text-align left
-		// z-index 1
-		position absolute
-#form_msg_account
-	right -250px
-	top 10px
-#form_msg_bank
-	width auto
-	right -230px
-	top 10px
-		
-#form_msg_contact
-	right -165px
-	top 10px
-
-.titulo
-	background-color plomo_oscuro
-	height 33px
-	text-align center
-	padding-top 0.7em
-	margin 0
-	border-bottom 3px solid black
+#msg_description
+	width 130px
+#msg_price_base
+	width 90px
+#msg_notes
+	width 145px
+#id_note
+	width 415px
 	border-bottom-left-radius 12px
 	border-bottom-right-radius 12px
 	border-top-left-radius 12px
@@ -121,3 +34,54 @@ body
 	border-top-left-radius 12px
 	border-top-right-radius 12px
 	position absolute
+.container
+	background-color white
+	width 470px
+	height auto
+	margin 0 auto
+	margin-top 5em
+	border 2px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px
+	position absolute
+	left 36%
+.form
+	margin 1em 0.8em
+	position relative
+.errorlist
+	color rojo
+	font-size 0.9em
+	margin 0 1em 0.5em 1em
+.aling
+	padding-right 1.6em
+.last
+	margin-bottom 5em
+.msg-container
+	color morado
+	margin-top 0.1em
+	font-size 1.1em
+	margin-left 0.5em
+	float right
+	span
+		display none
+		font-size 0.8em
+		font-family 'Roboto'
+		padding 0.5em
+		margin-left 3em
+		background-color white
+		text-align left
+		position absolute
+		top 10px
+.titulo
+	background-color plomo_oscuro
+	height 33px
+	text-align center
+	padding-top 0.7em
+	margin 0
+	border-bottom 3px solid black
+	border-bottom-left-radius 12px
+	border-bottom-right-radius 12px
+	border-top-left-radius 12px
+	border-top-right-radius 12px

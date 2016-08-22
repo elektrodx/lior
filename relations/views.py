@@ -17,6 +17,17 @@ def add_provider(request):
 	return render(request, 'add_provider.html', {'form': form })
 
 @login_required(login_url="/singin")
+def add_provider_2(request):
+  if request.method == "POST":
+    form = ProvidersForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return HttpResponse('<script type="text/javascript">window.opener.reloadMyDivProvider(); window.close();</script>')
+  else:
+    form = ProvidersForm()
+  return render(request, 'add_provider_2.html', {'form': form })
+
+@login_required(login_url="/singin")
 def add_customer(request):
   if request.method == "POST":
     form = CustomersForm(request.POST)

@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^singin/', 'user_lior.views.singin', name='singin'),
     url(r'^autocomplete/', include('autocomplete_light.urls')),    
     url(r'^add_provider/', 'relations.views.add_provider', name='add_provider'),
+    url(r'^add_provider_2/', 'relations.views.add_provider_2', name='add_provider_2'),
     url(r'^add_unit/', 'stock.views.add_unit', name='add_unit'),
     url(r'^add_unit_2/', 'stock.views.add_unit_2', name='add_unit_2'),
     url(r'^add_stock/', 'stock.views.add_stock', name='add_stock'),
@@ -55,4 +56,6 @@ urlpatterns = [
     url(r'^report_salew/', 'sales.views.report_salew', name="report_salew"),
     url(r'^report_salem/', 'sales.views.report_salem', name="report_salem"),
     url(r'^search_stock/', 'stock.views.search_stock', name='search_stock'),
+    url(r'^add_expenses/', 'assets.views.add_expenses', name='add_expenses'),
+    # url(r'^report_exp/', 'assets.views.report_exp', name='report_exp'),
 ]

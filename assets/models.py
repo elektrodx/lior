@@ -7,6 +7,8 @@ class Expenses(models.Model):
 	amount = models.DecimalField(max_digits=6, decimal_places=2)
 	concept = models.CharField(max_length=100)
 	note = models.TextField(blank=True, null=True)
+	def __unicode__(self):
+		return self.concept
 
 class Income(models.Model):
 	date = models.DateField(auto_now_add=True)

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/add_expenses.css" %}">
+	<script type="text/javascript" src="{% static "admin/js/admin/RelatedObjectLookups.js" %}"></script>
+	<script type="text/javascript" src="{% static "admin/js/jquery.js" %}"></script>
+	<script language="javascript">
+		function reloadMyDivProvider() {
+			$("#span_provider").load("add_expenses.html #span_provider");}
+	</script>
+	{% include 'autocomplete_light/static.html' %}
+	<title>Registro de Gasto</title>
+</head>
+<body>
+	{% include "menu.html" %}
+	<section class="container">
+		<h3 class="titulo">Registro de Gasto</h3>
+		<form action="" class="form" method="POST">
+			{% csrf_token %}
+			{{ form.non_field_errors }}
+			<div class="field aling">
+				{{form.date.errors}}
+				<label for="id_date" class="field-label">Fecha de gasto:</label>
+				{% now 'd/m/Y' %}
+			</div>
+			<span id="span_provider">
+				<div class="field">
+					{{ form.provider.errors }}
+					<label for="id_provider" class="field-label">Proveedor:</label>
+					<div class="msg-container icon-notification">
+						<span id="msg_description">Nombre del proveedor o a quién se pago</span>
+					</div>
+					{{ form.provider }}
+					<span>
+						<a href="/add_provider_2" class="add-another" id="add_id_{{ field }}" onclick="return showAddAnotherPopup(this);"> <img src="{% static "admin/img/icon_addlink.gif" %}" width="10" height="10" alt="Add Another"/></a>
+					</span>
+				</div>
+			</span>
+			<div class="field aling">
+				{{ form.amount.errors }}
+				<label for="id_amount" class="field-label">Monto:</label>
+				{{ form.amount }}
+			</div>
+			<div class="field">
+				{{ form.concept.errors }}
+				<label for="id_concept" class="field-label">Concepto:</label>
+				<div class="msg-container icon-notification">
+					<span id="msg_price_base">Concepto del Gasto</span>
+				</div>
+				{{ form.concept }}
+			</div>
+			<div class="field last">
+				{{ form.note.errors }}
+				<label for="id_note" class="field-label">Notas:</label>
+				<div class="msg-container icon-notification">
+ 					<span id="msg_notes">Notas u observaciones</span>
+				</div>
+				{{ form.note }}
+			</div>
+			<input class="boton" type="submit" value="Grabar">
+		</form>
+	</section>
+</body>
+</html>
