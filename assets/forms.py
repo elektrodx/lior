@@ -3,7 +3,6 @@ from django.forms import ModelForm
 from .models import Expenses
 
 class ExpensesForm(ModelForm):
-    #concept = autocomplete_light.ModelChoiceField('ExpensesDescAutocomplete')
     class Meta:
         model = Expenses
         autocomplete_fields = ("concept",)
