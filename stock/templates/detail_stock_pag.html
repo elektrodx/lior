@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% load static from staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/detail_stock_pag.css" %}">
+	<title>Lista de Productos en Tienda</title>
+</head>
+<body>
+	{% include "menu.html" %}
+	<section class="container center">
+		<h3 class="titulo">Listado de Productos en Tienda</h3>
+		<h4 class="subtitulo center">Resumen de Productos</h4>
+		<div class="head center">
+			<div class="">
+				<span>Cantidad de Productos en tienda: {{qty}} </span>
+			</div>
+			<div class="">
+				<span>Por un Valor de: {{sumstock|floatformat:2}} Bs.</span>
+			</div>
+		</div>
+		<table class="table">
+			<tr class="table-head">
+				<th>Codigo</th>
+				<th>Marca</th>
+				<th>Producto</th>
+				<th>Vencimiento</th>
+				<th>Cantidad</th>
+				<th>Precio</th>
+				<th>Total</th>
+				<th>Presentación</th>
+				<th>Fraccionado</th>
+				<th>Fraccionado Restante</th>
+			</tr>
+		{% for index in stock_pag %}
+			<tr class="table-data">
+				<td><a href="/eitem/{{index.code}}">{{index.code}}</a></td>
+				<td>{{index.brand}}</td>
+				<td>{{index.description}}</td>
+				<td class="center">{{index.date_end|date:"d-m-Y"}}</td>
+				<td class="center">{{index.qty}}</td>
+				<td class="center">{{index.price_base}}</td>
+				<td class="center">{{index.total_price}}</td>
+				<td class="center">{{index.units}}</td>
+				<td class="center">{{index.parts}}
+				<td class="center">{{index.parts_left}}</td>
+			</tr>
+		{% endfor %}
+		</table>
+		{% load xpaginator %}
+		{% xpaginator pageURI total_item current 21 1 True 1 %}
+		{% include "xpaginate.html" %}
+<!-- 		<div class="pagination">
+		    <span class="step-links">
+		        {% if stock_pag.has_previous %}
+		            <a href="?page={{ stock_pag.previous_page_number }}"> << ... </a>
+		        {% endif %}
+		        <span class="current">
+		            Página <strong>{{ stock_pag.number }}</strong> de {{ stock_pag.paginator.num_pages }}
+		        </span>
+		        {% if stock_pag.has_next %}
+		            <a href="?page={{ stock_pag.next_page_number }}"> ... >> </a>
+		        {% endif %}
+		    </span>
+		</div>
+		<div class="pagination current">
+			{{ stock_pag.paginator.page_range }}
+		</div> -->
+	</section>
+</body>
+</html>

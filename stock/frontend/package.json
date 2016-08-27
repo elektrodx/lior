@@ -4,6 +4,7 @@
 		"stylus": "stylus -u nib -c -w -o ../static/css/ stylus/add_unit.styl",
 		"stylus2": "stylus -u nib -c -w -o ../static/css/ stylus/add_stock.styl",
 		"dsstyl": "stylus -u nib -c -w -o ../static/css/ stylus/detail_stock.styl",
+		"dsstyl_pag": "stylus -u nib -c -w -o ../static/css/ stylus/detail_stock_pag.styl",
 		"build": "browserify app.js > ../static/js/sale.js -t babelify"
 	}
 }
