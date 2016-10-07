@@ -133,3 +133,11 @@ def search_stock(request):
 	else:
 		form = StockForm()
 	return render(request, 'search_stock.html', {'form': form })
+
+@login_required(login_url="/singin")
+	if request.method == "POST":
+		form = StockForm(request.POST)
+		if form.is_valid():
+			form.save()
+	else:
+		form = StockForm()
