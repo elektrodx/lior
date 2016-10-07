@@ -60,4 +60,5 @@ urlpatterns = [
     url(r'^search_stock/', 'stock.views.search_stock', name='search_stock'),
     url(r'^add_expenses/', 'assets.views.add_expenses', name='add_expenses'),
     # url(r'^report_exp/', 'assets.views.report_exp', name='report_exp'),
+    url(r'^add_price/', 'stock.views.add_price', name='add_price'),
 ]

@@ -38,3 +38,4 @@ class Prices(models.Model):
 	price_est = models.DecimalField(max_digits=6, decimal_places=2)
 	price_fac = models.DecimalField(max_digits=6, decimal_places=2)
 	price_sfac = models.DecimalField(max_digits=6, decimal_places=2)
+	state = models.BooleanField(default=True)

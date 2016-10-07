@@ -135,9 +135,12 @@ def search_stock(request):
 	return render(request, 'search_stock.html', {'form': form })
 
 @login_required(login_url="/singin")
+def add_price(request):
 	if request.method == "POST":
 		form = StockForm(request.POST)
 		if form.is_valid():
 			form.save()
+			return HttpResponseRedirect('/detail_stock_pag')
 	else:
 		form = StockForm()
+	return render(request, 'add_price.html', {'form': form })
